@@ -2,11 +2,17 @@ using System.Text.Json;
 
 namespace AVARemittance;
 
-/// <summary>What the program remembers between runs. Kept in the settings folder.</summary>
+/// <summary>What the program remembers between runs: the tolerance, claim status and the clearinghouse. Kept in the settings folder; the clearinghouse's password is in a file of its own.</summary>
 public sealed class AppSettings
 {
     /// <summary>How far below the fee schedule a line may be allowed before it's flagged, per line.</summary>
     public decimal Tolerance { get; set; } = 1.00m;
+
+    /// <summary>Who asks about claim status, and when.</summary>
+    public Core.Status.StatusSettings Status { get; set; } = new();
+
+    /// <summary>The clearinghouse to ask in real time; off until the person turns it on. Its password isn't here.</summary>
+    public Core.Sending.Clearinghouse Clearinghouse { get; set; } = new();
 
     private static readonly JsonSerializerOptions Options = new() { WriteIndented = true };
 

@@ -32,6 +32,16 @@ public sealed class BilledClaim
     public string Last { get; init; } = "";
     public string First { get; init; } = "";
     public string MemberId { get; init; } = "";
+    public DateOnly? BirthDate { get; init; }
+
+    /// <summary>M, F or U, as the 837's DMG03.</summary>
+    public string Sex { get; init; } = "";
+
+    /// <summary>The billing provider (2010AA) and the submitter (1000A), which a 276 names too.</summary>
+    public string ProviderName { get; init; } = "";
+    public string ProviderNpi { get; init; } = "";
+    public string SubmitterName { get; init; } = "";
+    public string SubmitterId { get; init; } = "";
 
     /// <summary>When the claim was sent: the 837's BHT04, or the list's billed date.</summary>
     public DateOnly? Billed { get; init; }
@@ -82,7 +92,8 @@ public static class ClaimsReader
         {
             var billed = t.Body.FirstOrDefault(s => s.Id == "BHT") is { } bht ? Money.Date(bht[4]) : null;
             string payerId = "", payer = "", last = "", first = "", member = "", level = "";
-            string pLast = "", pFirst = "";
+            string pLast = "", pFirst = "", sex = "", pSex = "", provider = "", npi = "", submitter = "", submitterId = "";
+            DateOnly? born = null, pBorn = null;
             BilledClaim? claim = null;
             BilledLine? pending = null;
             void Flush()
@@ -98,7 +109,17 @@ public static class ClaimsReader
                         Flush();
                         claim = null;
                         level = s[3].Trim();
-                        if (level == "22") { pLast = pFirst = ""; }
+                        if (level == "22") { pLast = pFirst = pSex = ""; pBorn = null; }
+                        break;
+                    case "NM1" when s[1].Trim() == "41":
+                        submitter = s[3].Trim(); submitterId = s[9].Trim();
+                        break;
+                    case "NM1" when s[1].Trim() == "85":
+                        provider = s[3].Trim(); npi = s[9].Trim();
+                        break;
+                    case "DMG" when claim == null:
+                        if (level == "23") { pBorn = Money.Date(s[2]); pSex = s[3].Trim(); }
+                        else { born = Money.Date(s[2]); sex = s[3].Trim(); }
                         break;
                     case "NM1" when claim == null && s[1].Trim() == "IL":
                         last = s[3].Trim(); first = s[4].Trim(); member = s[9].Trim();
@@ -116,6 +137,8 @@ public static class ClaimsReader
                         {
                             Source = name, Account = s[1].Trim(), PayerId = payerId, Payer = payer,
                             Last = level == "23" ? pLast : last, First = level == "23" ? pFirst : first, MemberId = member,
+                            BirthDate = level == "23" ? pBorn : born, Sex = level == "23" ? pSex : sex,
+                            ProviderName = provider, ProviderNpi = npi, SubmitterName = submitter, SubmitterId = submitterId,
                             Billed = billed, Frequency = facility.Length > 2 ? facility[2].Trim() : "1", Clm = s,
                         };
                         file.Claims.Add(claim);
@@ -170,6 +193,8 @@ public static class ChargesList
         ["units"] = ["units", "unit", "quantity"],
         ["charge"] = ["charge", "fee", "amount", "billed amount"],
         ["billed"] = ["billed", "billed date", "date billed", "sent", "submitted"],
+        ["dob"] = ["birth date", "dob", "date of birth", "birthdate"],
+        ["sex"] = ["sex", "gender"],
     };
 
     public static bool LooksLikeOne(string path)
@@ -190,7 +215,7 @@ public static class ChargesList
             {
                 Source = name, Account = group.Key, PayerId = table.Get(first, "payerid"), Payer = table.Get(first, "payer"),
                 Last = table.Get(first, "last").ToUpperInvariant(), First = table.Get(first, "first").ToUpperInvariant(), MemberId = table.Get(first, "member"),
-                Billed = Table.Date(table.Get(first, "billed")),
+                Billed = Table.Date(table.Get(first, "billed")), BirthDate = Table.Date(table.Get(first, "dob")), Sex = table.Get(first, "sex").ToUpperInvariant(),
             };
             foreach (var (row, index) in group)
             {

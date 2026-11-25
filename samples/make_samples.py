@@ -14,7 +14,8 @@ line, medical necessity, and a Medicaid copay. Harborview's second 835 also take
 interest (PLB). Two claims have no answer yet: one billed three weeks ago, one in September. charges/ holds the same
 claims as a charges list (the other way to say what was billed). bank/ holds the clinic's November bank statement, as
 a CSV and as BAI2: the three payments' money, a Harborview payment whose 835 hasn't come yet, and patients' card
-payments. contracts/ holds the clinic's fee schedule and its payers' limits for appeals. problems/ holds an 835 that doesn't balance.
+payments. contracts/ holds the clinic's fee schedule and its payers' limits for appeals. status/ holds the 276 the app
+writes for the two claims with no answer, and the 277s that answered it. problems/ holds an 835 that doesn't balance.
 """
 import os
 
@@ -95,6 +96,12 @@ CLAIMS = {
     "RB26117": {"payer": "TG", "patient": ("QUINN", "ROSE", "TG55078901"), "dos": "20260922", "situation": "no answer since September",
                 "billed": "20260930", "lines": [("99213", [], 150, 1, [], [], None)]},
 }
+
+# Each patient's birth date and sex, as the 837 (DMG) and the charges list have them.
+BORN = {"RB26101": ("19780412", "M"), "RB26102": ("19850923", "F"), "RB26103": ("19690130", "M"), "RB26104": ("19910617", "F"),
+        "RB26105": ("19830305", "M"), "RB26106": ("19760811", "F"), "RB26107": ("19620224", "M"), "RB26108": ("19990719", "F"),
+        "RB26110": ("20010502", "F"), "RB26111": ("19580914", "M"), "RB26112": ("19940128", "F"), "RB26113": ("19870606", "M"),
+        "RB26114": ("19730321", "F"), "RB26115": ("20051110", "M"), "RB26116": ("19801207", "M"), "RB26117": ("19660415", "F")}
 
 DIAGNOSES = {"99213": "J069", "99214": "I10", "99215": "E119", "99203": "J069", "85025": "I10", "72148": "M5416", "20610": "M25561",
              "99396": "Z0000", "90686": "Z23", "90471": "Z23", "36415": "I10", "97110": "M6281", "97161": "M6281"}
@@ -260,6 +267,7 @@ def claims_837(payer, billed, accounts):
         x.add("HL", str(n + 2), "1", "22", "0")
         x.add("SBR", "P", "18", "", "", "", "", "", "", "CI" if payer == "HV" else "MC")
         x.add("NM1", "IL", "1", last, first, "", "", "", "MI", member)
+        x.add("DMG", "D8", *BORN[a])
         x.add("NM1", "PR", "2", p["name"], "", "", "", "", "PI", p["id"])
         charge = sum(l[2] for l in c["lines"])
         x.add("CLM", a, money(charge), "", "", "11:B:1", "Y", "A", "Y", "Y")
@@ -279,14 +287,15 @@ def claims_837(payer, billed, accounts):
 
 
 def charges_list():
-    rows = ["Account,Payer ID,Payer,Last name,First name,Member ID,Date of service,Procedure,Modifiers,Units,Charge,Billed"]
+    rows = ["Account,Payer ID,Payer,Last name,First name,Member ID,Birth date,Sex,Date of service,Procedure,Modifiers,Units,Charge,Billed"]
     for a, c in CLAIMS.items():
         p = PAYERS[c["payer"]]
         last, first, member = c["patient"]
         dos = f"{c['dos'][:4]}-{c['dos'][4:6]}-{c['dos'][6:]}"
         b = c.get("billed", "20261101")
         for l in c["lines"]:
-            rows.append(",".join([a, p["id"], p["name"], last.title(), first.title(), member, dos, l[0], " ".join(l[1]),
+            dob = BORN[a][0]
+            rows.append(",".join([a, p["id"], p["name"], last.title(), first.title(), member, f"{dob[:4]}-{dob[4:6]}-{dob[6:]}", BORN[a][1], dos, l[0], " ".join(l[1]),
                                   money(l[3]), f"{l[2]:.2f}", f"{b[:4]}-{b[4:6]}-{b[6:]}"]))
     write(os.path.join("charges", "charges.csv"), "\n".join(rows) + "\n")
 
@@ -373,6 +382,74 @@ def payer_limits():
     write(os.path.join("contracts", "payer-limits.json"), json.dumps(LIMITS, indent=2) + "\n")
 
 
+def status_276(asked, now_date="20261124", now_time="0900", control=1, receiver="CLEARINGHOUSE"):
+    """The 276 the app writes for the claims with no answer: what AVA Remittance's StatusRequest builds, byte for byte."""
+    sender = "RB0001"
+    lines = [f"ISA*00*{'':10}*00*{'':10}*ZZ*{sender:<15}*ZZ*{receiver:<15}*{now_date[2:]}*{now_time}*^*00501*{control:09d}*0*P*:",
+             f"GS*HR*{sender}*{receiver}*{now_date}*{now_time}*{control}*X*005010X212"]
+    payers = []
+    for a in asked:
+        if CLAIMS[a]["payer"] not in payers:
+            payers.append(CLAIMS[a]["payer"])
+    for n, payer in enumerate(payers, 1):
+        p = PAYERS[payer]
+        x = X12()
+        x.add("BHT", "0010", "13", f"{sender}{control}{n}", now_date, now_time)
+        x.add("HL", "1", "", "20", "1")
+        x.add("NM1", "PR", "2", p["name"], "", "", "", "", "PI", p["id"])
+        x.add("HL", "2", "1", "21", "1")
+        x.add("NM1", "41", "2", CLINIC["name"], "", "", "", "", "46", sender)
+        x.add("HL", "3", "2", "19", "1")
+        x.add("NM1", "1P", "2", CLINIC["name"], "", "", "", "", "XX", CLINIC["npi"])
+        hl = 3
+        for a in [a for a in asked if CLAIMS[a]["payer"] == payer]:
+            c = CLAIMS[a]
+            hl += 1
+            last, first, member = c["patient"]
+            x.add("HL", str(hl), "3", "22", "0")
+            x.add("DMG", "D8", *BORN[a])
+            x.add("NM1", "IL", "1", last, first, "", "", "", "MI", member)
+            x.add("TRN", "1", f"{a}-{now_date[2:]}")
+            x.add("REF", "EJ", a)
+            x.add("AMT", "T3", money(sum(l[2] for l in c["lines"])))
+            x.add("DTP", "472", "RD8", f"{c['dos']}-{c['dos']}")
+        st = f"{n:04d}"
+        lines += [f"ST*276*{st}*005010X212"] + x.segs + [f"SE*{len(x.segs) + 2}*{st}"]
+    lines += [f"GE*{len(payers)}*{control}", f"IEA*1*{control:09d}"]
+    write(os.path.join("status", "riverbend-276-1124.x12"), "~\n".join(lines) + "~\n")
+
+
+# What each payer's 277 said on 24 November: Harborview has Patel's claim in process; Tallgrass has no record of
+# Quinn's, billed in September (send it again, quickly).
+STATUS = {"RB26116": ("P1", "20", "HV26111900077"), "RB26117": ("A4", "35", "")}
+
+
+def status_277(account, now_date="20261124"):
+    c = CLAIMS[account]
+    p = PAYERS[c["payer"]]
+    category, code, payer_claim = STATUS[account]
+    last, first, member = c["patient"]
+    x = X12()
+    x.add("BHT", "0010", "08", f"{p['id']}277{now_date[4:]}", now_date, "1000", "DG")
+    x.add("HL", "1", "", "20", "1")
+    x.add("NM1", "PR", "2", p["name"], "", "", "", "", "PI", p["id"])
+    x.add("HL", "2", "1", "21", "1")
+    x.add("NM1", "41", "2", CLINIC["name"], "", "", "", "", "46", "RB0001")
+    x.add("HL", "3", "2", "19", "1")
+    x.add("NM1", "1P", "2", CLINIC["name"], "", "", "", "", "XX", CLINIC["npi"])
+    x.add("HL", "4", "3", "22", "0")
+    x.add("NM1", "IL", "1", last, first, "", "", "", "MI", member)
+    x.add("TRN", "2", f"{account}-{now_date[2:]}")
+    x.add("STC", f"{category}:{code}:PR", now_date, "", money(sum(l[2] for l in c["lines"])), "0")
+    if payer_claim:
+        x.add("REF", "1K", payer_claim)
+    x.add("REF", "EJ", account)
+    x.add("DTP", "472", "RD8", f"{c['dos']}-{c['dos']}")
+    name = "harborview" if c["payer"] == "HV" else "tallgrass"
+    text = x.text(p["id"], "RB0001", now_date, 2400 + int(account[-2:]), "277", "005010X212").replace("GS*HC*", "GS*HN*")
+    write(os.path.join("status", f"{name}-277-1124.x12"), text)
+
+
 def problems():
     """An 835 that doesn't balance: the payment total, a claim, a line and a patient's share are each off, and SE01 is wrong."""
     x = X12()
@@ -404,6 +481,9 @@ if __name__ == "__main__":
     bank()
     fee_schedule()
     payer_limits()
+    status_276(["RB26116", "RB26117"])
+    status_277("RB26116")
+    status_277("RB26117")
     for c in CLAIMS.values():
         assert all(round(l[2] - sum(a[2] for a in l[4]), 2) >= 0 for l in c["lines"])
     print("made the samples")

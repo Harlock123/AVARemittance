@@ -225,3 +225,59 @@ public sealed class DenialsTabTests
         finally { w.Close(); }
     });
 }
+
+/// <summary>The Claim Status tab: the claims waiting, the 276, the 277s, and Ask Now (only ever the mock).</summary>
+public sealed class StatusTabTests
+{
+    [Fact]
+    public void The_claims_waiting_get_a_276_and_their_277s_show() => HeadlessApp.Run(() =>
+    {
+        var w = new MainWindow { Today = () => MatchingTests.Today, Now = () => StatusTests.SampleTime };
+        w.Show();
+        try
+        {
+            w.Open(Samples.Folder);
+            Assert.Equal(["RB26116", "RB26117"], w.Waiting.Select(m => m.Billed.Account));
+            var path = Path.Combine(Directory.CreateTempSubdirectory("status-").FullName, "s.x12");
+            w.PickSaveFile = (_, _) => Task.FromResult<string?>(path);
+            w.Settings.Status = new Core.Status.StatusSettings();
+            HeadlessApp.Wait(w.Write276ForTests());
+            Assert.Equal(File.ReadAllText(Samples.Path("status/riverbend-276-1124.x12")), File.ReadAllText(path));
+            Assert.Equal(2, w.Settings.Status.ControlNumber);
+            Assert.StartsWith("Wrote the 276 to s.x12: 2 claims to 2 payers.", w.txtStatusBar.Text);
+            w.Open(Samples.Path("status/tallgrass-277-1124.x12"));
+            Assert.Equal("Opened tallgrass-277-1124.x12: a 277 about 1 claim: The payer has no record of it: send it again now, before the time to file runs out.", w.txtStatusBar.Text);
+            Assert.Contains(WindowTests.Texts(w, w.StatusPanel), t => t.StartsWith("277 of 2026-11-24: A4 35:"));
+        }
+        finally { w.Close(); }
+    });
+
+    [Fact]
+    public void Ask_now_asks_first_and_opens_the_answers() => HeadlessApp.Run(() =>
+    {
+        using var mock = new MockClearinghouse();
+        var folder = Samples.Copy();
+        var w = new MainWindow { Today = () => MatchingTests.Today, Now = () => StatusTests.SampleTime };
+        w.Show();
+        try
+        {
+            w.Open(folder);
+            w.SendEnabledBox.IsChecked = true;
+            w.EndpointBox.Text = mock.Address;
+            w.CoreSenderBox.Text = "RIVERBEND";
+            w.CoreReceiverBox.Text = "MOCKCH";
+            w.UserBox.Text = MockClearinghouse.User;
+            w.PasswordBox.Text = MockClearinghouse.Password;
+            string? asked = null;
+            w.AskSure = q => { asked = q; return Task.FromResult(false); };
+            Assert.Equal("Nothing was sent.", HeadlessApp.Wait(w.AskNow()));
+            Assert.StartsWith("Ask 127.0.0.1 about 2 claims?", asked);
+            Assert.Empty(mock.Requests);
+            w.AskSure = _ => Task.FromResult(true);
+            Assert.Equal("Asked about 2: 2 answered.", HeadlessApp.Wait(w.AskNow()));
+            Assert.Equal(2, w.StatusAnswers.Count);
+            Assert.All(w.StatusFiles, f => Assert.StartsWith(Path.Combine(folder, "status-20261124-0900"), f));
+        }
+        finally { w.Close(); }
+    });
+}
