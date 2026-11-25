@@ -1,0 +1,4 @@
+Date,Last name,First name,Birth date,Sex,Payer ID,Payer,Member ID,Subscriber,Provider,Provider NPI,Visit,Procedure,Charge,Account,Denial
+2026-11-03,SANTOS,ISABEL,1979-08-15,F,TGM01,TALLGRASS MEDICAID,TG55089012,self,RIVERBEND FAMILY MEDICINE,1588667638,Denied claim,99213,150.00,RB26118,CO-27: Expenses incurred after coverage terminated.
+2026-11-04,TRAN,VIET,1992-02-03,M,TGM01,TALLGRASS MEDICAID,TG55090123,self,RIVERBEND FAMILY MEDICINE,1588667638,Denied claim,99214,220.00,RB26119,CO-31: Patient cannot be identified as our insured.
+2026-11-05,VEGA,SOFIA,2000-06-27,F,TGM01,TALLGRASS MEDICAID,TG55091234,self,RIVERBEND FAMILY MEDICINE,1588667638,Denied claim,99203,200.00,RB26120,CO-26: Expenses incurred prior to coverage.

@@ -63,7 +63,10 @@ python3 tools/make_codes.py [FOLDER]         # remakes Core/Codes/*.tsv from x12
     claim and action, W01… sorted by deadline; `PayerLimits`, the person's JSON of appeal, corrected-claim and timely
     filing days; `WorkStore`, the state in remittance-work.json beside the 835s, keyed by payer, payer claim, lines
     and action), `Letters.cs` (the appeal draft as Markdown, HTML or Word, with [brackets] for what a person adds;
-    a corrected claim's changes).
+    a corrected claim's changes), `EligibilityRecheck.cs` (Check Eligibility Again: the open denials a fresh 271
+    answers, CARC 22, 26, 27 and 31, as AVA Eligibility's appointment list, its header names plus Account and Denial;
+    `LooksLikeOne` keeps the list from opening as a charges list; `FindProgram`, AVA Eligibility from the settings or
+    the PATH).
   - `Status/ClaimStatus.cs`: `StatusRequest` (the 276, 005010X212: one transaction per payer, a subscriber loop per
     claim with DMG, TRN*1, REF*EJ, AMT*T3, DTP*472), `StatusReader` (277s: TRN*2, STC composites, REF*1K and EJ; the
     newest answer about a billed claim; what each category means to do), `StatusSettings`.
@@ -84,7 +87,7 @@ python3 tools/make_codes.py [FOLDER]         # remakes Core/Codes/*.tsv from x12
   (asks first);
   `MainWindow.Parts.cs`: the hooks later parts fill; `Settings.cs`: the settings file, in
   `MainWindow.SettingsFolder`, which tests point at a temporary folder).
-- `src/AVARemittance.Mcp/`: the MCP server, no Avalonia. `RemittanceTools.cs` (30 tools; handles R01 payments, C01
+- `src/AVARemittance.Mcp/`: the MCP server, no Avalonia. `RemittanceTools.cs` (31 tools; handles R01 payments, C01
   claims, B01 billed claims, W01 denials, D01 deposits, P01 patients; `Finish` masks every string of every answer
   unless values are allowed), `RemittanceTools.Orchestration.cs` (batch, steps files, checkpoints of what's open and the
   view), `Hosting.cs` (`ViewState`, `IExplorerSession`, `HeadlessSession`, which makes the same readings the window
@@ -101,7 +104,8 @@ python3 tools/make_codes.py [FOLDER]         # remakes Core/Codes/*.tsv from x12
   claim has one situation planted (see `CLAIMS` there); `charges/` the same claims as a charges list; `bank/` the
   November bank statement as CSV and BAI2 (see `BANK`); `contracts/` the fee schedule (see `FEES`) and
   the payers' limits (see `LIMITS`, invented and labelled so); `status/` the 276 the app writes for the two claims with
-  no answer and the 277s that answer it (see `STATUS`). `problems/` holds an 835 that doesn't balance (kept out of `samples/` itself so
+  no answer and the 277s that answer it (see `STATUS`); `recheck/` three coverage denials (see `RECHECK`), their 837
+  and 835, and the list Check Eligibility Again writes for them. `problems/` holds an 835 that doesn't balance (kept out of `samples/` itself so
   opening the folder opens the payers' files).
 
 ## Rules that keep it working
@@ -125,6 +129,9 @@ python3 tools/make_codes.py [FOLDER]         # remakes Core/Codes/*.tsv from x12
   hides the real failure: close windows in `finally`.
 - **The samples' 276 is what the app writes.** `StatusTests` builds it from the samples' claims with no answer and
   compares it byte for byte with `status/riverbend-276-1124.x12`: change the builder and `make_samples.py` together.
+- **The samples' recheck list is what the app writes, and AVA Eligibility reads it.** `RecheckTests` compares
+  `EligibilityRecheck.Csv` with `recheck/eligibility-recheck.csv` byte for byte; AVA Eligibility keeps a copy in its
+  `samples/denied/` and its `DeniedTests` read it. Change the columns in both apps, and `make_samples.py` in both.
 - **Nothing is sent without the person.** Sending is off until they turn it on; Ask Now asks first, naming how many
   claims and where; the address must be HTTPS unless it's this computer. Tests send only to `MockClearinghouse` on
   127.0.0.1; never add a test that reaches a real clearinghouse. The password never goes in `settings.json`.
@@ -135,7 +142,7 @@ python3 tools/make_codes.py [FOLDER]         # remakes Core/Codes/*.tsv from x12
   payer claim, line control, check, trace or bank account number, or a birth or service date from the samples
   (`Phi()`). A new tool goes into it; a new place people's details come from goes into `Masker` and `Phi()`.
 - **Agents never send, and record only in the window.** `ask_clearinghouse` and `mark_work` run only in the open window
-  (ask_clearinghouse through Ask Now's question); `write_status_request` needs values allowed; reports and appeal
+  (ask_clearinghouse through Ask Now's question); `write_status_request` and `write_eligibility_recheck` need values allowed; reports and appeal
   drafts are masked unless allowed.
 - **New tools** need `[Description]` on the tool and every parameter (snake_case names), a place in
   `AgentTests.ToolNames`, a test, and a line in the README. Recipes are run call by call.

@@ -14,6 +14,9 @@ public sealed class AppSettings
     /// <summary>The clearinghouse to ask in real time; off until the person turns it on. Its password isn't here.</summary>
     public Core.Sending.Clearinghouse Clearinghouse { get; set; } = new();
 
+    /// <summary>Where AVA Eligibility is, to open a Check Eligibility Again list in; empty: looked for on the PATH.</summary>
+    public string EligibilityProgram { get; set; } = "";
+
     private static readonly JsonSerializerOptions Options = new() { WriteIndented = true };
 
     public static string Path => System.IO.Path.Combine(MainWindow.SettingsFolder, "settings.json");

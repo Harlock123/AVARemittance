@@ -174,6 +174,11 @@ public sealed partial class MainWindow : Window
         try
         {
             var full = System.IO.Path.GetFullPath(path);
+            if (Core.Denials.EligibilityRecheck.LooksLikeOne(full))
+            {
+                Say($"{System.IO.Path.GetFileName(full)} is a list for AVA Eligibility (Check Eligibility Again wrote it): open it there to ask about the dates of service.");
+                return;
+            }
             if (Takes(full))
             {
                 OpenOther(full);

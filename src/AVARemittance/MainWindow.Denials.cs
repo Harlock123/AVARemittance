@@ -162,6 +162,7 @@ public sealed partial class MainWindow
         if (w.Action == WorkAction.Appeal || w.Action == WorkAction.FixAndResubmit && w.Reasons.Any(r => r.Reason == "197") || w.Action == WorkAction.WriteOff && w.Reasons.Any(r => r.Reason == "29"))
             Add("Draft the Appeal Letter…", () => _ = DraftAppeal(w));
         if (w.Action == WorkAction.FixAndResubmit) Add("Corrected Claim Changes…", () => _ = WriteCorrected(w));
+        if (EligibilityRecheck.Applies(w) && !w.Done) Add("Check Eligibility Again…", () => _ = CheckEligibilityAgain(w));
         if (!w.Done)
         {
             var (state, word) = w.Action switch
@@ -217,6 +218,62 @@ public sealed partial class MainWindow
         if (path == null) return;
         File.WriteAllText(path, string.Join("\n", Letters.Corrected(w)) + "\n");
         Say($"Wrote what to change for {w.Claim.Account}'s corrected claim to {System.IO.Path.GetFileName(path)}.");
+    }
+
+    /// <summary>Opens a file in another program; tests answer it themselves. False when it couldn't start.</summary>
+    public Func<string, string, bool> Launch { get; set; } = (program, file) =>
+    {
+        try
+        {
+            using var p = System.Diagnostics.Process.Start(new System.Diagnostics.ProcessStartInfo(program) { ArgumentList = { file }, UseShellExecute = false });
+            return p != null;
+        }
+        catch (Exception e) when (e is System.ComponentModel.Win32Exception or InvalidOperationException or IOException)
+        {
+            return false;
+        }
+    };
+
+    /// <summary>
+    /// Writes the coverage denials (one item, or every open one a 271 answers: CARC 22, 26, 27, 31) as AVA Eligibility's
+    /// appointment list, with the date of service as the visit date, and opens it in AVA Eligibility when it's found.
+    /// The list holds people's details: it's the person's file, saved where they say.
+    /// </summary>
+    public async Task CheckEligibilityAgain(WorkItem? one)
+    {
+        var rows = one != null ? [EligibilityRecheck.Row(one, Reconciled)] : EligibilityRecheck.Rows(Work, Reconciled);
+        if (rows.Count == 0)
+        {
+            Say("No open denial is one a fresh 271 answers (CO-22, 26, 27 or 31: another payer first, not covered on the dates, or the patient not found).");
+            return;
+        }
+        var suggested = one != null ? $"eligibility-recheck-{one.Claim.Account}.csv" : $"eligibility-recheck-{Today():yyyy-MM-dd}.csv";
+        if (await PickSaveFile("Save the list for AVA Eligibility", suggested) is not { } path) return;
+        try
+        {
+            await File.WriteAllTextAsync(path, EligibilityRecheck.Csv(rows));
+        }
+        catch (Exception e) when (e is IOException or UnauthorizedAccessException)
+        {
+            Say($"Couldn't write {System.IO.Path.GetFileName(path)}: {e.Message}");
+            return;
+        }
+        var what = rows.Count == 1 ? $"{rows[0].Account}" : $"{rows.Count} claims";
+        var missing = rows.Count(r => r.BirthDate == null);
+        var note = missing > 0 ? $" {missing} without a birth date (open the 837s or charges list they were billed on to add them)." : "";
+        if (EligibilityRecheck.FindProgram(Settings.EligibilityProgram) is { } program && Launch(program, path))
+            Say($"Wrote {System.IO.Path.GetFileName(path)} ({what}) and opened it in AVA Eligibility: write the 270 there for the dates of service, or Ask Now.{note}");
+        else
+            Say($"Wrote {System.IO.Path.GetFileName(path)} ({what}). Open it in AVA Eligibility to ask about the dates of service (File › Where AVA Eligibility Is… opens it there next time).{note}");
+    }
+
+    private async Task PickEligibilityProgram()
+    {
+        var picked = await PickFiles();
+        if (picked.Count == 0) return;
+        Settings.EligibilityProgram = picked[0];
+        Settings.Save();
+        Say($"Check Eligibility Again opens its lists in {System.IO.Path.GetFileName(picked[0])}.");
     }
 
     internal Task DraftAppealForTests(WorkItem w) => DraftAppeal(w);

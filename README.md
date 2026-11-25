@@ -137,6 +137,15 @@ For an item you can:
 - **Draft the Appeal Letter**: Word, HTML or Markdown, with the claim, the codes in words and the argument they call
   for. It's marked as a draft, with [brackets] where only you can fill in.
 - **Corrected Claim Changes**: frequency 7, the payer's claim number in REF*F8, and what to fix.
+- **Check Eligibility Again**, for a denial a fresh 271 answers: another payer first (CO-22), not covered on the
+  dates (CO-26, CO-27), or the patient not found (CO-31). It saves the claim as an appointment list for
+  [AVA Eligibility](https://github.com/Harlock123/AVAEligibility) (1.1 and later), with the date of service as the visit
+  date and the denial in a column of its own, and opens it there. AVA Eligibility writes the 270 for that date (or asks
+  in real time) and says what the answer means for the denial: it agrees (coverage had ended: bill the plan that
+  covered the patient then, or the patient), it doesn't (coverage was active: ask the payer to reprocess, or appeal
+  with the 271), or it shows why the claim didn't match (the payer has another member ID). **File › Check Eligibility
+  Again for the Coverage Denials** does every open one at once; **File › Where AVA Eligibility Is** points it at the
+  program when it isn't on the PATH. The birth date and sex come from the 837 or charges list the claim was billed on.
 - **Mark** it appealed, resubmitted, billed elsewhere, billed to the patient or written off, or reopen it. This is
   kept in `remittance-work.json` beside the 835s.
 
@@ -213,6 +222,7 @@ AVARemittance --mcp --http 8780 --root /path/to/files [--token TOKEN] [--cert CE
 | `get_deposits`, `posting_summary`, `export_posting` | The deposits against the payments; what to post by day; the posting report (`.html` or `.xlsx`, masked unless allowed) |
 | `get_underpayments` | Lines below the fee schedule and each payer's total by procedure (with a what-if tolerance) |
 | `get_worklist`, `get_work_item`, `draft_appeal`, `corrected_claim`, `mark_work`, `export_denials` | The denials and one in full; an appeal draft; a corrected claim's changes; record what was done (the open window only); the denials report |
+| `write_eligibility_recheck` | The coverage denials (CO-22, 26, 27, 31) as AVA Eligibility's appointment list, for a fresh 271 on the date of service (values allowed only) |
 | `claims_waiting`, `get_status`, `write_status_request`, `ask_clearinghouse` | The claims with no answer; the 277s; the 276 (values allowed only); asking in real time (the open window only, after your yes) |
 | `get_view`, `show_in_view`, `render_view` | What the window shows; select a payment, claim or denial there; a picture of one |
 | `batch`, `get_recording`, `save_steps`, `run_steps` | Several calls at once; keep a session's calls and run them again |
@@ -248,7 +258,9 @@ AVARemittance --mcp [--attach] [--root FOLDER] [--real | --mask] [--http [ADDRES
 - `bank/`: November's statement, as CSV and BAI2;
 - `contracts/`: its fee schedule and its payers' limits;
 - `status/`: the 276 for the claims with no answer, and the 277s that answered it;
-- `problems/`: an 835 that doesn't balance.
+- `problems/`: an 835 that doesn't balance;
+- `recheck/`: three claims a payer denied for coverage (coverage ended, the patient not found, before coverage began),
+  their 837 and 835, and the list Check Eligibility Again writes for them.
 
 Each claim has one situation planted:
 

@@ -200,7 +200,7 @@ public static class ChargesList
     public static bool LooksLikeOne(string path)
     {
         var keys = Table.HeaderKeys(path, Names);
-        return keys.Contains("account") && keys.Contains("procedure") && keys.Contains("charge");
+        return keys.Contains("account") && keys.Contains("procedure") && keys.Contains("charge") && !Denials.EligibilityRecheck.LooksLikeOne(path);
     }
 
     public static BilledFile Load(string path)

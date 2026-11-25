@@ -16,6 +16,9 @@ public sealed partial class MainWindow
         item("Export the _Posting Summary…", () => _ = ExportPosting(), null, KeyModifiers.None),
         item("Export the _Denials…", () => _ = ExportDenials(), null, KeyModifiers.None),
         new Separator(),
+        item("Check _Eligibility Again for the Coverage Denials…", () => _ = CheckEligibilityAgain(null), null, KeyModifiers.None),
+        item("Where AVA Eligibility _Is…", () => _ = PickEligibilityProgram(), null, KeyModifiers.None),
+        new Separator(),
     ];
 
     private partial IEnumerable<object> MoreViewItems(Func<string, Action, Key?, KeyModifiers, MenuItem> item) =>

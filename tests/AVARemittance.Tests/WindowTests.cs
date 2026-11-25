@@ -280,4 +280,49 @@ public sealed class StatusTabTests
         }
         finally { w.Close(); }
     });
+
+    [Fact]
+    public void A_coverage_denial_is_checked_again_in_AVA_Eligibility() => HeadlessApp.Run(() =>
+    {
+        var folder = Samples.Copy();
+        var w = new MainWindow { Today = () => MatchingTests.Today };
+        w.Show();
+        try
+        {
+            w.Open(Path.Combine(folder, "recheck"));
+            Assert.Equal(["tallgrass-837p-1105.x12"], w.BilledFiles.Select(f => f.Name));
+            var santos = w.Work.Single(x => x.Claim.Account == "RB26118");
+            w.WorkList.SelectedItem = santos;
+            HeadlessApp.Settle();
+            var buttons = w.WorkDetail.GetLogicalDescendants().OfType<Button>().Select(b => b.Content as string).ToList();
+            Assert.Contains("Check Eligibility Again…", buttons);
+            var launched = new List<(string, string)>();
+            w.Launch = (program, file) => { launched.Add((program, file)); return true; };
+            var program = Path.Combine(folder, "AVAEligibility");
+            File.WriteAllText(program, "");
+            w.Settings.EligibilityProgram = program;
+            var one = Path.Combine(folder, "one.csv");
+            w.PickSaveFile = (_, name) => { Assert.Equal("eligibility-recheck-RB26118.csv", name); return Task.FromResult<string?>(one); };
+            HeadlessApp.Wait(w.CheckEligibilityAgain(santos));
+            Assert.Equal([(program, one)], launched);
+            Assert.Equal("Wrote one.csv (RB26118) and opened it in AVA Eligibility: write the 270 there for the dates of service, or Ask Now.", w.txtStatusBar.Text);
+            Assert.Equal(2, File.ReadAllLines(one).Length);
+
+            w.Settings.EligibilityProgram = "";
+            var all = Path.Combine(folder, "all.csv");
+            w.PickSaveFile = (_, _) => Task.FromResult<string?>(all);
+            w.Launch = (_, _) => throw new InvalidOperationException("nothing to launch");
+            if (Core.Denials.EligibilityRecheck.FindProgram(null) == null)
+            {
+                HeadlessApp.Wait(w.CheckEligibilityAgain(null));
+                Assert.StartsWith("Wrote all.csv (3 claims). Open it in AVA Eligibility", w.txtStatusBar.Text);
+                Assert.Equal(File.ReadAllLines(Path.Combine(folder, "recheck", "eligibility-recheck.csv")).Order(), File.ReadAllLines(all).Order());
+            }
+            w.SetWorkState(santos, Core.Denials.WorkState.BilledPatient);
+            w.WorkList.SelectedItem = w.Work.Single(x => x.Claim.Account == "RB26118");
+            HeadlessApp.Settle();
+            Assert.DoesNotContain("Check Eligibility Again…", w.WorkDetail.GetLogicalDescendants().OfType<Button>().Select(b => b.Content as string));
+        }
+        finally { w.Close(); }
+    });
 }

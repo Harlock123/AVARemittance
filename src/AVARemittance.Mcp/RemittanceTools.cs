@@ -482,7 +482,32 @@ public sealed partial class RemittanceTools(IExplorerHost host)
             o["deadline_because"] = w.DeadlineBecause.Length > 0 ? w.DeadlineBecause : null;
             o["done_on"] = w.StateDate is { } d ? Money.Day(d) : null;
             o["note"] = w.Note.Length > 0 ? w.Note : null;
+            if (EligibilityRecheck.Applies(w))
+                o["check_eligibility_again"] = "A fresh 271 for the date of service answers this denial: write_eligibility_recheck writes it as AVA Eligibility's appointment list (with values allowed), or the person uses Check Eligibility Again on the Denials tab.";
             return o;
+        }, cancel);
+
+    [McpServerTool(Name = "write_eligibility_recheck", ReadOnly = false, Idempotent = false, Destructive = false, OpenWorld = false)]
+    [Description("Writes the open denials a fresh 271 answers (CO-22, 26, 27, 31: another payer first, not covered on the dates, the patient not found) as AVA Eligibility's appointment list, a new .csv in the working folder, with the date of service as the visit date and the denial in its own column. AVA Eligibility writes the 270 from it and says what the answer means for each denial. It holds people's details, so it needs the person to allow values.")]
+    public Task<string> WriteEligibilityRecheck(
+        [Description("The new .csv file, relative to the working folder.")] string output,
+        [Description("One denial (W01) to write. Optional: every open one a 271 answers.")] string? denial = null,
+        CancellationToken cancel = default) =>
+        Write("wrote an eligibility recheck list", output, "A recheck list", [".csv"], (s, full) =>
+        {
+            if (!s.SeeRealValues) throw new InvalidOperationException("The list holds patients' names, birth dates and member IDs, and agents see values masked here: the person writes it (Denials › Check Eligibility Again), or lets agents see values (AI menu).");
+            var matched = s.Reconciled;
+            List<RecheckRow> rows;
+            if (denial is { Length: > 0 })
+            {
+                var w = WorkOf(s, denial);
+                if (!EligibilityRecheck.Applies(w)) throw new InvalidOperationException($"{w.Id} isn't a denial a 271 answers (CO-22, 26, 27 or 31).");
+                rows = [EligibilityRecheck.Row(w, matched)];
+            }
+            else rows = EligibilityRecheck.Rows(s.Work, matched);
+            if (rows.Count == 0) throw new InvalidOperationException("No open denial is one a fresh 271 answers (CO-22, 26, 27 or 31).");
+            File.WriteAllText(full, EligibilityRecheck.Csv(rows));
+            return new JsonObject { ["claims"] = rows.Count, ["denials"] = Strings(rows.Select(r => r.Item.Id)), ["without_birth_date"] = rows.Count(r => r.BirthDate == null) };
         }, cancel);
 
     [McpServerTool(Name = "draft_appeal", ReadOnly = false, Idempotent = false, Destructive = false, OpenWorld = false)]

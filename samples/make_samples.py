@@ -175,7 +175,9 @@ def clp(x, account, claim, lines, status, payer_claim, sign=1, line_numbers=None
 
 def header(x, payer, total, method, trace, paid_on, produced):
     p = PAYERS[payer]
-    if method == "ACH":
+    if method == "NON":
+        x.add("BPR", "H", money(total), "C", "NON", "", "", "", "", "", "", "", "", "", "", "", paid_on)
+    elif method == "ACH":
         x.add("BPR", "I", money(total), "C", "ACH", "CCP", "01", "091000019", "DA", "88001234", p["tin"], "", "01", "123000220", "DA", "5550001234", paid_on)
     else:
         x.add("BPR", "I", money(total), "C", "CHK", "", "", "", "", "", "", "", "", "", "", "", paid_on)
@@ -248,8 +250,10 @@ def tallgrass_1112():
     write("tallgrass-835-1112.x12", x.text("TGM01", "RIVERBEND", "20261110", 1112))
 
 
-def claims_837(payer, billed, accounts):
+def claims_837(payer, billed, accounts, claims=None, born=None, folder=""):
     """The clinic's 837P to a payer: one subscriber per claim (every sample patient is the subscriber)."""
+    claims = claims or CLAIMS
+    born = born or BORN
     p = PAYERS[payer]
     x = X12()
     x.add("BHT", "0019", "00", f"RB{billed}", billed, "0900", "CH")
@@ -262,12 +266,12 @@ def claims_837(payer, billed, accounts):
     x.add("N4", *CLINIC["address"][1:])
     x.add("REF", "EI", CLINIC["tin"])
     for n, a in enumerate(accounts):
-        c = CLAIMS[a]
+        c = claims[a]
         last, first, member = c["patient"]
         x.add("HL", str(n + 2), "1", "22", "0")
         x.add("SBR", "P", "18", "", "", "", "", "", "", "CI" if payer == "HV" else "MC")
         x.add("NM1", "IL", "1", last, first, "", "", "", "MI", member)
-        x.add("DMG", "D8", *BORN[a])
+        x.add("DMG", "D8", *born[a])
         x.add("NM1", "PR", "2", p["name"], "", "", "", "", "PI", p["id"])
         charge = sum(l[2] for l in c["lines"])
         x.add("CLM", a, money(charge), "", "", "11:B:1", "Y", "A", "Y", "Y")
@@ -283,7 +287,7 @@ def claims_837(payer, billed, accounts):
             x.add("DTP", "472", "D8", c["dos"])
             x.add("REF", "6R", f"{a}-{i + 1}")
     text = x.text("RIVERBEND", p["id"], billed, int(billed[4:]), "837", "005010X222A1")
-    write(f"{'harborview' if payer == 'HV' else 'tallgrass'}-837p-{billed[4:]}.x12", text)
+    write(os.path.join(folder, f"{'harborview' if payer == 'HV' else 'tallgrass'}-837p-{billed[4:]}.x12"), text)
 
 
 def charges_list():
@@ -469,6 +473,50 @@ def problems():
     write(os.path.join("problems", "unbalanced-835.x12"), text)
 
 
+# Denials a fresh 271 answers, kept in recheck/ (out of samples/ itself, so the payers' November files stay as they
+# are): Tallgrass denies three claims billed on 5 November, on an 835 of 19 November with nothing paid. AVA
+# Remittance's Check Eligibility Again writes them as AVA Eligibility's appointment list (recheck/eligibility-recheck.csv).
+RECHECK = {
+    "RB26118": {"payer": "TG", "patient": ("SANTOS", "ISABEL", "TG55089012"), "dos": "20261103", "situation": "denied: coverage ended",
+                "status": "4", "received": "20261106", "lines": [("99213", [], 150, 1, [("CO", "27", 150)], [], None)]},
+    "RB26119": {"payer": "TG", "patient": ("TRAN", "VIET", "TG55090123"), "dos": "20261104", "situation": "denied: the patient not found",
+                "status": "4", "received": "20261106", "lines": [("99214", [], 220, 1, [("CO", "31", 220)], [], None)]},
+    "RB26120": {"payer": "TG", "patient": ("VEGA", "SOFIA", "TG55091234"), "dos": "20261105", "situation": "denied: before coverage began",
+                "status": "4", "received": "20261106", "lines": [("99203", [], 200, 1, [("CO", "26", 200)], [], None)]},
+}
+RECHECK_BORN = {"RB26118": ("19790815", "F"), "RB26119": ("19920203", "M"), "RB26120": ("20000627", "F")}
+
+
+def carc(code):
+    with open(os.path.join(HERE, "..", "src", "AVARemittance.Core", "Codes", "carc.tsv")) as f:
+        for line in f:
+            parts = line.rstrip("\n").split("\t")
+            if parts[0] == code:
+                return parts[3]
+    raise KeyError(code)
+
+
+def recheck():
+    claims_837("TG", "20261105", list(RECHECK), RECHECK, RECHECK_BORN, "recheck")
+    x = X12()
+    header(x, "TG", 0, "NON", "40017790", "20261119", "20261118")
+    x.add("LX", "1")
+    for i, (a, c) in enumerate(RECHECK.items()):
+        clp(x, a, c, c["lines"], c["status"], f"TG2611{i + 40:06d}")
+    write(os.path.join("recheck", "tallgrass-835-1119.x12"), x.text("TGM01", "RIVERBEND", "20261118", 1119))
+    # What the app writes for them: AVA Eligibility's appointment list, the date of service as the visit date.
+    rows = ["Date,Last name,First name,Birth date,Sex,Payer ID,Payer,Member ID,Subscriber,Provider,Provider NPI,Visit,Procedure,Charge,Account,Denial"]
+    p = PAYERS["TG"]
+    for a, c in RECHECK.items():
+        last, first, member = c["patient"]
+        dob, sex = RECHECK_BORN[a]
+        line = c["lines"][0]
+        denial = " ".join(f"{g}-{r}: {carc(r)}" for g, r, _ in line[4])
+        rows.append(",".join([f"{c['dos'][:4]}-{c['dos'][4:6]}-{c['dos'][6:]}", last, first, f"{dob[:4]}-{dob[4:6]}-{dob[6:]}", sex, p["id"], p["name"], member,
+                              "self", CLINIC["name"], CLINIC["npi"], "Denied claim", line[0], f"{line[2]:.2f}", a, denial]))
+    write(os.path.join("recheck", "eligibility-recheck.csv"), "\n".join(rows) + "\n")
+
+
 if __name__ == "__main__":
     harborview_1110()
     harborview_1117()
@@ -484,6 +532,7 @@ if __name__ == "__main__":
     status_276(["RB26116", "RB26117"])
     status_277("RB26116")
     status_277("RB26117")
+    recheck()
     for c in CLAIMS.values():
         assert all(round(l[2] - sum(a[2] for a in l[4]), 2) >= 0 for l in c["lines"])
     print("made the samples")

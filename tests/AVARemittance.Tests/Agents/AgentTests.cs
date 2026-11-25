@@ -44,7 +44,7 @@ public sealed class AgentTests
     [
         "list_files", "open_file", "close_file", "list_open", "list_payments", "get_payment", "get_claim", "get_segments", "check_balance",
         "explain_code", "search_codes", "list_billed", "get_billed", "get_deposits", "posting_summary", "export_posting", "get_underpayments",
-        "get_worklist", "get_work_item", "draft_appeal", "corrected_claim", "mark_work", "export_denials",
+        "get_worklist", "get_work_item", "draft_appeal", "corrected_claim", "mark_work", "export_denials", "write_eligibility_recheck",
         "claims_waiting", "get_status", "write_status_request", "ask_clearinghouse", "get_view", "show_in_view", "render_view",
         "batch", "get_recording", "save_steps", "run_steps", "checkpoint", "diff", "render_checkpoint", "restore_checkpoint",
     ];
@@ -257,6 +257,29 @@ public sealed class AgentTests
     }, real: true);
 
     [Fact]
+    public void With_values_allowed_the_coverage_denials_are_the_samples_recheck_list() => WithRig(rig =>
+    {
+        foreach (var f in new[] { "recheck/tallgrass-837p-1105.x12", "recheck/tallgrass-835-1119.x12" }) rig.Ok("open_file", new { file = f });
+        var hint = rig.Ok("get_work_item", new { denial = "W01" }).GetProperty("check_eligibility_again").GetString();
+        Assert.Contains("write_eligibility_recheck", hint);
+        var w = rig.Ok("write_eligibility_recheck", new { output = "out/recheck.csv" });
+        Assert.Equal((3, 0), (w.GetProperty("claims").GetInt32(), w.GetProperty("without_birth_date").GetInt32()));
+        var lines = File.ReadAllLines(Path.Combine(rig.Root, "out", "recheck.csv"));
+        Assert.Equal(File.ReadAllLines(Samples.Path("recheck/eligibility-recheck.csv")).Order(), lines.Order());
+        var one = rig.Ok("write_eligibility_recheck", new { output = "out/one.csv", denial = "W02" });
+        Assert.Equal(1, one.GetProperty("claims").GetInt32());
+    }, real: true);
+
+    [Fact]
+    public void Only_coverage_denials_go_on_a_recheck_list() => WithRig(rig =>
+    {
+        rig.OpenAll();
+        var other = rig.Session.Work.First(x => !Core.Denials.EligibilityRecheck.Applies(x)).Id;
+        Assert.Contains("isn't a denial a 271 answers", rig.Error("write_eligibility_recheck", new { output = "out/x.csv", denial = other }));
+        Assert.Equal(1, rig.Ok("write_eligibility_recheck", new { output = "out/x.csv" }).GetProperty("claims").GetInt32());
+    }, real: true);
+
+    [Fact]
     public void The_view_is_drawn_shown_and_batches_steps_and_checkpoints_work() => WithRig(rig =>
     {
         rig.OpenAll();
@@ -331,7 +354,7 @@ public sealed class AgentTests
     public void The_list_of_details_the_no_leak_test_looks_for_covers_every_kind()
     {
         var phi = Phi();
-        foreach (var real in new[] { "ALVAREZ", "KOWALSKI", "HV800100201", "TG55056789", "RB26114", "HV26110500004", "RB26104-1", "1HV2611100001", "40017731", "88001234", "HV26090300088", "1980-12-07", "20261023", "HV26111900077", "RB26117-261124" })
+        foreach (var real in new[] { "ALVAREZ", "KOWALSKI", "HV800100201", "TG55056789", "RB26114", "HV26110500004", "RB26104-1", "1HV2611100001", "40017731", "88001234", "HV26090300088", "1980-12-07", "20261023", "HV26111900077", "RB26117-261124", "SANTOS", "TG55090123", "RB26120", "1992-02-03" })
             Assert.Contains(real, phi);
         Assert.True(phi.Count > 100, $"{phi.Count}");
     }
@@ -348,7 +371,7 @@ public sealed class AgentTests
             seen.Add(($"{tool} {JsonSerializer.Serialize(args)}", o.Text));
         }
         Check("list_files");
-        foreach (var f in Rig.Everything.Append("bank/statement-2026-11.bai").Append("problems/unbalanced-835.x12")) Check("open_file", new { file = f });
+        foreach (var f in Rig.Everything.Append("bank/statement-2026-11.bai").Append("problems/unbalanced-835.x12").Append("recheck/tallgrass-837p-1105.x12").Append("recheck/tallgrass-835-1119.x12")) Check("open_file", new { file = f });
         Check("list_open");
         Check("list_payments");
         Check("check_balance");
@@ -386,6 +409,7 @@ public sealed class AgentTests
         Check("draft_appeal", new { denial = "W01", output = "leak/appeal.html" });
         Check("export_denials", new { output = "leak/denials.html" });
         Check("export_denials", new { output = "leak/denials.xlsx" });
+        Assert.Contains("holds patients' names", rig.Error("write_eligibility_recheck", new { output = "leak/recheck.csv" }));
         Check("claims_waiting");
         Check("get_status");
         Check("show_in_view", new { handle = "C04" });
