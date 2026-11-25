@@ -9,12 +9,13 @@ namespace AVARemittance;
 /// <summary>The hooks later parts of the window fill: what each milestone adds stays out of MainWindow.cs.</summary>
 public sealed partial class MainWindow
 {
-    private partial IEnumerable<TabItem> MoreTabs() => [];
+    private partial IEnumerable<TabItem> MoreTabs() => [ClaimsTab()];
     private partial IEnumerable<object> MoreMenus(Func<string, Action, Key?, KeyModifiers, MenuItem> item) => [];
     private partial IEnumerable<object> MoreFileItems(Func<string, Action, Key?, KeyModifiers, MenuItem> item) => [];
     private partial IEnumerable<object> MoreViewItems(Func<string, Action, Key?, KeyModifiers, MenuItem> item) => [];
-    private partial bool Takes(string path) => false;
-    private partial void OpenOther(string path) { }
-    private partial bool OpenX12(string path, X12File x12) => false;
-    private partial (string, IBrush)? MarkOf(ClaimPayment c) => null;
+    private partial bool Takes(string path) => IsChargesList(path);
+    private partial void OpenOther(string path) => OpenChargesList(path);
+    private partial bool OpenX12(string path, X12File x12) => OpenBilledX12(path, x12);
+    private partial (string, IBrush)? MarkOf(ClaimPayment c) => MatchMark(c);
+    partial void FilesChanged() => Rematch();
 }

@@ -1,5 +1,6 @@
 using Avalonia.Controls;
 using Avalonia.LogicalTree;
+using AVARemittance.Core.Matching;
 using AVARemittance.Core.Remittance;
 
 namespace AVARemittance.Tests;
@@ -87,4 +88,47 @@ public sealed class WindowTests
 
     internal static List<string> Texts(MainWindow w, Control? within = null) =>
         [.. (within ?? w.RemitPanel).GetLogicalDescendants().OfType<TextBlock>().Select(t => t.Text ?? "")];
+}
+
+/// <summary>The Claims tab: billed claims matched to the open 835s.</summary>
+public sealed class ClaimsTabTests
+{
+    [Fact]
+    public void The_samples_folder_matches_every_billed_claim() => HeadlessApp.Run(() =>
+    {
+        var w = new MainWindow { Today = () => MatchingTests.Today };
+        w.Show();
+        try
+        {
+            w.Open(Samples.Folder);
+            Assert.Equal(3, w.BilledFiles.Count);
+            Assert.Equal(16, w.Reconciled.Claims.Count);
+            var summary = WindowTests.Texts(w, w.ClaimSummary);
+            Assert.Contains("16 claims billed for $4,595.00", summary);
+            Assert.Contains("7 paid, 2 partly paid, 3 denied, 1 patient owes, 2 no answer, 1 paid twice. Paid $1,092.15; the patients' $363.00.", summary);
+            w.ClaimList.SelectedItem = w.Reconciled.Claims.Single(m => m.Billed.Account == "RB26107");
+            HeadlessApp.Settle();
+            Assert.Contains("1. 99213 on 2026-10-27, $150.00: paid twice $170.00 (in 2 payments).", WindowTests.Texts(w, w.ClaimDetail));
+            var second = w.OpenFiles.Single(f => f.Name == "harborview-835-1117.x12").Claims.Single(c => c.Account == "RB26107");
+            Assert.Equal("paid twice", w.Mark(second).Word);
+        }
+        finally { w.Close(); }
+    });
+
+    [Fact]
+    public void A_charges_list_opens_and_closing_an_835_matches_again() => HeadlessApp.Run(() =>
+    {
+        var w = new MainWindow { Today = () => MatchingTests.Today };
+        w.Show();
+        try
+        {
+            w.Open(Samples.Path("harborview-835-1110.x12"));
+            w.Open(Samples.Path("charges/charges.csv"));
+            Assert.Equal("Opened charges.csv: charges list, 16 claims billed for $4,595.00; 7 answered in the open 835s.", w.txtStatusBar.Text);
+            Assert.Equal(BilledState.Paid, w.Reconciled.Claims.Single(m => m.Billed.Account == "RB26105").State);
+            Assert.True(w.CloseFile(w.OpenFiles[0]));
+            Assert.All(w.Reconciled.Claims, m => Assert.Equal(BilledState.NoAnswer, m.State));
+        }
+        finally { w.Close(); }
+    });
 }

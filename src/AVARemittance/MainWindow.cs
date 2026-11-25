@@ -154,6 +154,7 @@ public sealed partial class MainWindow : Window
             [
                 Item("_Remittance", () => Tabs.SelectedIndex = 0, Key.D1, KeyModifiers.Control),
                 Item("_Checks", () => Tabs.SelectedIndex = 1, Key.D2, KeyModifiers.Control),
+                Item("C_laims", () => Tabs.SelectedIndex = 2, Key.D3, KeyModifiers.Control),
                 .. MoreViewItems(Item),
             ],
         };

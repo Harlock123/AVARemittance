@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Makes the samples: an invented family clinic's remittances (835s) from its two payers.
+"""Makes the samples: an invented family clinic's claims (837P) and the remittances (835s) its two payers sent back.
 
     cd samples && python3 make_samples.py
 
@@ -11,7 +11,8 @@ Each claim has one situation planted (see SITUATION below): paid with a copay, p
 missing authorization, a line denied for a missing modifier, a payment reversed and paid again, a claim the payer
 split in two, a claim paid twice, all of it to the deductible, coordination of benefits, timely filing, a bundled
 line, medical necessity, and a Medicaid copay. Harborview's second 835 also takes back an old overpayment and pays
-interest (PLB). problems/ holds an 835 that doesn't balance, for the checks.
+interest (PLB). Two claims have no answer yet: one billed three weeks ago, one in September. charges/ holds the same
+claims as a charges list (the other way to say what was billed). problems/ holds an 835 that doesn't balance.
 """
 import os
 
@@ -86,7 +87,15 @@ CLAIMS = {
                           ("97161", ["GP"], 140, 1, [("CO", "45", 61.25)], [], 78.75)]},
     "RB26115": {"payer": "TG", "patient": ("OKAFOR", "CHIDI", "TG55067890"), "dos": "20261023", "situation": "paid, with a Medicaid copay",
                 "lines": [("99213", [], 150, 1, [("CO", "45", 87.60), ("PR", "3", 4)], [], 62.40)]},
+    # Billed, with no answer yet.
+    "RB26116": {"payer": "HV", "patient": ("PATEL", "RAVI", "HV800101217"), "dos": "20261030", "situation": "no answer yet",
+                "lines": [("99214", [], 220, 1, [], [], None)]},
+    "RB26117": {"payer": "TG", "patient": ("QUINN", "ROSE", "TG55078901"), "dos": "20260922", "situation": "no answer since September",
+                "billed": "20260930", "lines": [("99213", [], 150, 1, [], [], None)]},
 }
+
+DIAGNOSES = {"99213": "J069", "99214": "I10", "99215": "E119", "99203": "J069", "85025": "I10", "72148": "M5416", "20610": "M25561",
+             "99396": "Z0000", "90686": "Z23", "90471": "Z23", "36415": "I10", "97110": "M6281", "97161": "M6281"}
 
 # The old overpayment Harborview takes back on 17 November (a claim from September, paid twice then).
 RECOUP = ("HV26090300088", 75.00)
@@ -111,11 +120,11 @@ class X12:
             elements = elements[:-1]
         self.segs.append("*".join(str(e) for e in elements))
 
-    def text(self, sender, receiver, date, control):
+    def text(self, sender, receiver, date, control, code="835", version="005010X221A1"):
         isa = (f"ISA*00*{'':10}*00*{'':10}*ZZ*{sender:<15}*ZZ*{receiver:<15}*{date[2:]}*0800*^*00501*{control:09d}*0*P*:")
-        gs = f"GS*HP*{sender}*{receiver}*{date}*0800*{control}*X*005010X221A1"
+        gs = f"GS*{'HP' if code == '835' else 'HC'}*{sender}*{receiver}*{date}*0800*{control}*X*{version}"
         body = self.segs
-        st = [f"ST*835*0001"] + body + [f"SE*{len(body) + 2}*0001"]
+        st = [f"ST*{code}*0001" + (f"*{version}" if code != "835" else "")] + body + [f"SE*{len(body) + 2}*0001"]
         out = [isa, gs] + st + [f"GE*1*{control}", f"IEA*1*{control:09d}"]
         return "~\n".join(out) + "~\n"
 
@@ -230,6 +239,56 @@ def tallgrass_1112():
     write("tallgrass-835-1112.x12", x.text("TGM01", "RIVERBEND", "20261110", 1112))
 
 
+def claims_837(payer, billed, accounts):
+    """The clinic's 837P to a payer: one subscriber per claim (every sample patient is the subscriber)."""
+    p = PAYERS[payer]
+    x = X12()
+    x.add("BHT", "0019", "00", f"RB{billed}", billed, "0900", "CH")
+    x.add("NM1", "41", "2", CLINIC["name"], "", "", "", "", "46", "RB0001")
+    x.add("PER", "IC", "BILLING OFFICE", "TE", "5035550100")
+    x.add("NM1", "40", "2", p["name"], "", "", "", "", "46", p["id"])
+    x.add("HL", "1", "", "20", "1")
+    x.add("NM1", "85", "2", CLINIC["name"], "", "", "", "", "XX", CLINIC["npi"])
+    x.add("N3", CLINIC["address"][0])
+    x.add("N4", *CLINIC["address"][1:])
+    x.add("REF", "EI", CLINIC["tin"])
+    for n, a in enumerate(accounts):
+        c = CLAIMS[a]
+        last, first, member = c["patient"]
+        x.add("HL", str(n + 2), "1", "22", "0")
+        x.add("SBR", "P", "18", "", "", "", "", "", "", "CI" if payer == "HV" else "MC")
+        x.add("NM1", "IL", "1", last, first, "", "", "", "MI", member)
+        x.add("NM1", "PR", "2", p["name"], "", "", "", "", "PI", p["id"])
+        charge = sum(l[2] for l in c["lines"])
+        x.add("CLM", a, money(charge), "", "", "11:B:1", "Y", "A", "Y", "Y")
+        codes = []
+        for l in c["lines"]:
+            if DIAGNOSES[l[0]] not in codes:
+                codes.append(DIAGNOSES[l[0]])
+        x.add("HI", *[("ABK:" if i == 0 else "ABF:") + d for i, d in enumerate(codes)])
+        x.add("NM1", "82", "1", DOCTOR[0], DOCTOR[1], "", "", "", "XX", DOCTOR[2])
+        for i, l in enumerate(c["lines"]):
+            x.add("LX", str(i + 1))
+            x.add("SV1", ":".join(["HC", l[0]] + l[1]), money(l[2]), "UN", money(l[3]), "", "", str(codes.index(DIAGNOSES[l[0]]) + 1))
+            x.add("DTP", "472", "D8", c["dos"])
+            x.add("REF", "6R", f"{a}-{i + 1}")
+    text = x.text("RIVERBEND", p["id"], billed, int(billed[4:]), "837", "005010X222A1")
+    write(f"{'harborview' if payer == 'HV' else 'tallgrass'}-837p-{billed[4:]}.x12", text)
+
+
+def charges_list():
+    rows = ["Account,Payer ID,Payer,Last name,First name,Member ID,Date of service,Procedure,Modifiers,Units,Charge,Billed"]
+    for a, c in CLAIMS.items():
+        p = PAYERS[c["payer"]]
+        last, first, member = c["patient"]
+        dos = f"{c['dos'][:4]}-{c['dos'][4:6]}-{c['dos'][6:]}"
+        b = c.get("billed", "20261101")
+        for l in c["lines"]:
+            rows.append(",".join([a, p["id"], p["name"], last.title(), first.title(), member, dos, l[0], " ".join(l[1]),
+                                  money(l[3]), f"{l[2]:.2f}", f"{b[:4]}-{b[4:6]}-{b[6:]}"]))
+    write(os.path.join("charges", "charges.csv"), "\n".join(rows) + "\n")
+
+
 def problems():
     """An 835 that doesn't balance: the payment total, a claim, a line and a patient's share are each off, and SE01 is wrong."""
     x = X12()
@@ -254,6 +313,10 @@ if __name__ == "__main__":
     harborview_1117()
     tallgrass_1112()
     problems()
+    claims_837("HV", "20261101", [a for a, c in CLAIMS.items() if c["payer"] == "HV" and "billed" not in c])
+    claims_837("TG", "20261101", [a for a, c in CLAIMS.items() if c["payer"] == "TG" and "billed" not in c])
+    claims_837("TG", "20260930", ["RB26117"])
+    charges_list()
     for c in CLAIMS.values():
         assert all(round(l[2] - sum(a[2] for a in l[4]), 2) >= 0 for l in c["lines"])
     print("made the samples")

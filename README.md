@@ -19,12 +19,29 @@ the provider-level adjustments and whether it balances; choose a claim to see ea
 Clicking a line highlights the segments it came from. The **Checks** tab lists, for every open 835, whatever doesn't
 balance, with the rule and its source.
 
+## What was billed, and what came back
+
+Open the **837s** you sent (837P or 837I), or a **charges list**: a CSV or Excel file, one row per line, with columns
+found by name (Account, Payer ID, Payer, Last name, First name, Member ID, Date of service, Procedure, Modifiers,
+Units, Charge, Billed). The **Claims** tab matches each billed claim to its payments, by the account the 835 sends
+back, or else by patient, date and charge, and each line by its control number or its code and date. Every claim is
+marked:
+
+- **paid**, **partly paid**, **denied**, or **patient owes** (all of it to the deductible);
+- **reversed**: the payment was taken back with nothing in its place yet; a reversal followed by a new payment is a
+  correction, and says what changed;
+- **paid twice**: the same line paid in two payments, and how much too much;
+- **no answer**, with the days since it was billed.
+
+A claim the payer split into two shows as one, with both payments. Each line says what paid it, or that it was
+bundled into another. Claims in the 835s that nothing open billed are listed too.
+
 ## Samples
 
-`samples/` holds an invented family clinic's remittances from two invented payers, made by `make_samples.py`. Each
-claim has one situation planted: a copay, a deductible, a missing authorization, a missing modifier, a reversal and
+`samples/` holds an invented family clinic's 837Ps and the 835s its two invented payers sent back, made by
+`make_samples.py`; `charges/` has the same claims as a charges list. Each claim has one situation planted: a copay, a deductible, a missing authorization, a missing modifier, a reversal and
 its correction, a claim the payer split, a claim paid twice, coordination of benefits, timely filing, a bundled line,
-medical necessity. `problems/` holds an 835 that doesn't balance.
+medical necessity, no answer yet. `problems/` holds an 835 that doesn't balance.
 
 ## Building
 
