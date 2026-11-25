@@ -8,14 +8,20 @@ how the code is put together and the rules that keep it working.
 An 835 remittance and denials workbench in C# on .NET 10 and Avalonia 11.3: it reads 835s (005010X221A1) and says
 what each payment, claim and line means in plain words, checks that each 835 balances, and matches the claims billed
 (837s or a charges list) to their payments and the payments to the bank's deposits, and flags lines allowed below the
-person's fee schedule, and keeps the denials as a worklist with deadlines, appeal drafts and corrected-claim changes.
+person's fee schedule, keeps the denials as a worklist with deadlines, appeal drafts and corrected-claim changes, and asks about claims with
+no answer (276/277, by file or in real time over CAQH CORE, off until turned on). It has an AI Chat (F12) and an MCP
+server (`--mcp`, `--mcp --attach`, `--http`, port 8780); agents see people's details masked unless the person allows
+otherwise.
 
 ## Commands
 
 ```bash
 dotnet build AVARemittance.slnx
 dotnet test AVARemittance.slnx
-dotnet run --project src/AVARemittance [files or folders]
+dotnet run --project src/AVARemittance [files or folders] [--real | --mask]
+dotnet run --project src/AVARemittance -- --mcp --root samples     # the MCP server on stdio (--attach: the open window)
+REMIT_LIVE_SERVER=http://localhost:11434 REMIT_LIVE_MODEL=qwen3:1.7b dotnet test --filter LiveModelTests
+REMIT_SHOTS=Screenshots dotnet test --filter Screenshots     # the README's pictures, headless
 cd samples && python3 make_samples.py        # remakes the samples (deterministic: tests pin what each says)
 python3 tools/make_codes.py [FOLDER]         # remakes Core/Codes/*.tsv from x12.org's pages (or saved copies)
 ```
@@ -58,20 +64,44 @@ python3 tools/make_codes.py [FOLDER]         # remakes Core/Codes/*.tsv from x12
     filing days; `WorkStore`, the state in remittance-work.json beside the 835s, keyed by payer, payer claim, lines
     and action), `Letters.cs` (the appeal draft as Markdown, HTML or Word, with [brackets] for what a person adds;
     a corrected claim's changes).
+  - `Status/ClaimStatus.cs`: `StatusRequest` (the 276, 005010X212: one transaction per payer, a subscriber loop per
+    claim with DMG, TRN*1, REF*EJ, AMT*T3, DTP*472), `StatusReader` (277s: TRN*2, STC composites, REF*1K and EJ; the
+    newest answer about a billed claim; what each category means to do), `StatusSettings`.
+  - `Sending/`: `CoreConnectivity` (AVA Eligibility's: `Clearinghouse`, off until turned on, HTTPS unless on this
+    computer; `CoreClient` with the payload type a parameter, here X12_276_Request_005010X212; `PasswordStore`, the
+    password in an owner-only file: fix them together), `StatusRealTime` (one 276 per claim, each 277 saved).
+  - `Privacy/Masker.cs`: people's details as agents see them: every name, member ID, account, payer claim, line
+    control, check, trace and bank account number in the open files masked to its shape wherever it turns up, every
+    date to its year (AVA Eligibility's with this app's files).
+  - `FileKinds.cs`: what a file is read as, by its content, for the window, the agents' list and the headless server.
   - `Reports/`: `PostingReport` (the posting summary) and `DenialsReport` (the worklist), HTML or Excel, people's
-    details through a mask.
+    details through a mask (every free-text column too: a "what to do" names the payer's claim number).
 - `src/AVARemittance/`: the window, built in code (`MainWindow.cs`: the list, the Remittance tab, the Checks tab and
   the segments; `MainWindow.Claims.cs`: the Claims tab, matching again whenever a file opens or closes;
   `MainWindow.Deposits.cs`: the Deposits tab and Export the Posting Summary; `MainWindow.Contracts.cs`: the
   Underpayments tab and the tolerance; `MainWindow.Denials.cs`: the Denials tab, recording what was done, the drafts
-  and Export the Denials;
+  and Export the Denials; `MainWindow.Status.cs`: the Claim Status tab, Write the 276, the clearinghouse and Ask Now
+  (asks first);
   `MainWindow.Parts.cs`: the hooks later parts fill; `Settings.cs`: the settings file, in
   `MainWindow.SettingsFolder`, which tests point at a temporary folder).
-- `tests/AVARemittance.Tests/`: xUnit v3 on Avalonia.Headless.
+- `src/AVARemittance.Mcp/`: the MCP server, no Avalonia. `RemittanceTools.cs` (30 tools; handles R01 payments, C01
+  claims, B01 billed claims, W01 denials, D01 deposits, P01 patients; `Finish` masks every string of every answer
+  unless values are allowed), `RemittanceTools.Orchestration.cs` (batch, steps files, checkpoints of what's open and the
+  view), `Hosting.cs` (`ViewState`, `IExplorerSession`, `HeadlessSession`, which makes the same readings the window
+  does), `RemittanceServer.cs` (the instructions), `Recipes.cs` (8). `LiveListener`, `LiveBridge`, `NetworkListener`,
+  `McpCommandLine`, `Workspace` and `Json` are AVA Eligibility's with the names changed: fix them together.
+- `src/AVARemittance/`'s AI side: `MainWindow.AI.cs` (the AI menu, the chat's dock, the view as agents see and set it),
+  `MainWindow.Agents.cs` (the doors, `AgentsSeeRealValues`), `Agents/` (`Chat/` and `ChatPanel.cs`: copies of AVA
+  Modeler's chat, by way of AVA Eligibility, with this app's wording; `LiveAgents.cs`, `AgentMain.cs`,
+  `AgentSettings.cs`), `ViewPainter.cs`.
+- `tests/AVARemittance.Tests/`: xUnit v3 on Avalonia.Headless. `Agents/AgentTests` (every tool, the no-leak test, every
+  recipe, the chat on `FakeModelServer` and `FakeMessagesServer`), `LiveAgentTests` (the doors), `LiveModelTests`
+  (opt-in), `MockClearinghouse` (the only clearinghouse tests talk to).
 - `samples/`: an invented clinic's 837Ps and the 835s its two invented payers sent back, from `make_samples.py`; each
   claim has one situation planted (see `CLAIMS` there); `charges/` the same claims as a charges list; `bank/` the
   November bank statement as CSV and BAI2 (see `BANK`); `contracts/` the fee schedule (see `FEES`) and
-  the payers' limits (see `LIMITS`, invented and labelled so). `problems/` holds an 835 that doesn't balance (kept out of `samples/` itself so
+  the payers' limits (see `LIMITS`, invented and labelled so); `status/` the 276 the app writes for the two claims with
+  no answer and the 277s that answer it (see `STATUS`). `problems/` holds an 835 that doesn't balance (kept out of `samples/` itself so
   opening the folder opens the payers' files).
 
 ## Rules that keep it working
@@ -93,6 +123,22 @@ python3 tools/make_codes.py [FOLDER]         # remakes Core/Codes/*.tsv from x12
 - **Days are counted to `Today`**, which the window and tests set (tests use 2026-11-24), never to the clock directly.
 - **A window test that fails leaves its window open, and Avalonia's reset then fails with `fonts:SystemFonts`,** which
   hides the real failure: close windows in `finally`.
+- **The samples' 276 is what the app writes.** `StatusTests` builds it from the samples' claims with no answer and
+  compares it byte for byte with `status/riverbend-276-1124.x12`: change the builder and `make_samples.py` together.
+- **Nothing is sent without the person.** Sending is off until they turn it on; Ask Now asks first, naming how many
+  claims and where; the address must be HTTPS unless it's this computer. Tests send only to `MockClearinghouse` on
+  127.0.0.1; never add a test that reaches a real clearinghouse. The password never goes in `settings.json`.
+- **Waiting on the UI thread:** a window test that awaits work started on the UI thread uses `HeadlessApp.Wait`, which
+  runs the UI thread's jobs while it waits; `.GetResult()` there deadlocks.
+- **The no-leak test is the contract.** `AgentTests.No_tool_result_…` calls every reading tool on everything in the
+  samples, writes every report and appeal draft, and fails if any answer or file holds a name, member ID, account,
+  payer claim, line control, check, trace or bank account number, or a birth or service date from the samples
+  (`Phi()`). A new tool goes into it; a new place people's details come from goes into `Masker` and `Phi()`.
+- **Agents never send, and record only in the window.** `ask_clearinghouse` and `mark_work` run only in the open window
+  (ask_clearinghouse through Ask Now's question); `write_status_request` needs values allowed; reports and appeal
+  drafts are masked unless allowed.
+- **New tools** need `[Description]` on the tool and every parameter (snake_case names), a place in
+  `AgentTests.ToolNames`, a test, and a line in the README. Recipes are run call by call.
 - **No real data in the repository.** Every person, payer, account, member ID, NPI, tax ID, bank account, check and
   trace number in the samples is invented.
 

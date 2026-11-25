@@ -1,0 +1,20 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <!-- The MCP server: AI agents read remittances, the matching, the deposits and the denials through it, headless on stdio, attached to the open window
+       over a local pipe, or over the network with a token. No Avalonia: the window gives it a painter for pictures. -->
+  <PropertyGroup>
+    <RootNamespace>AVARemittance.Mcp</RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\AVARemittance.Core\AVARemittance.Core.csproj" />
+    <!-- The official C# MCP SDK (server, client, transports) and its Streamable HTTP handler for the network door. -->
+    <PackageReference Include="ModelContextProtocol.Core" Version="2.3.0" />
+    <PackageReference Include="ModelContextProtocol.AspNetCore" Version="2.3.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <FrameworkReference Include="Microsoft.AspNetCore.App" />
+  </ItemGroup>
+  <ItemGroup>
+    <InternalsVisibleTo Include="AVARemittance.Tests" />
+    <InternalsVisibleTo Include="AVARemittance" />
+  </ItemGroup>
+</Project>

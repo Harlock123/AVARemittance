@@ -18,6 +18,7 @@ public sealed partial class MainWindow
 {
     private readonly List<PayerLimits> _limits = [];
     private string _limitsFile = "";
+    private string? _limitsPath;
 
     public ListBox WorkList { get; } = new() { Background = Look.Bar };
     public StackPanel WorkSummary { get; } = new() { Margin = new Thickness(20, 14, 20, 6), Spacing = 4 };
@@ -53,6 +54,7 @@ public sealed partial class MainWindow
             _limits.Clear();
             _limits.AddRange(loaded);
             _limitsFile = System.IO.Path.GetFileName(path);
+            _limitsPath = System.IO.Path.GetFullPath(path);
             Rework();
             Say($"Opened {_limitsFile}: limits for {loaded.Count} payer{(loaded.Count == 1 ? "" : "s")}; {Work.Count(w => w.Deadline != null)} denial{(Work.Count(w => w.Deadline != null) == 1 ? "" : "s")} now have a deadline.");
         }
@@ -60,6 +62,14 @@ public sealed partial class MainWindow
         {
             Say($"Couldn't read {System.IO.Path.GetFileName(path)} as payers' limits: {e.Message}");
         }
+    }
+
+    public void CloseLimits()
+    {
+        _limits.Clear();
+        _limitsFile = "";
+        _limitsPath = null;
+        Rework();
     }
 
     /// <summary>Builds the worklist again, with each 835 folder's saved state.</summary>

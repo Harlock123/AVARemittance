@@ -17,8 +17,8 @@ public static class DenialsReport
         w.Id, mask(w.Claim.Account), mask(w.Claim.Patient?.Name ?? ""), w.Claim.Payment.Payer.Name, mask(w.Claim.PayerClaim), Classifier.Say(w.Action), w.Amount,
         string.Join("; ", w.Reasons.Select(r => $"{r.Group}-{r.Reason} {CodeList.Carc.Say(r.Reason)}").Distinct()),
         string.Join("; ", w.Remarks.Select(r => $"{r.Code} {CodeList.Rarc.Say(r.Code)}")),
-        w.Deadline is { } d ? Money.Day(d) : "", w.DaysLeft(today) is { } n ? n.ToString(System.Globalization.CultureInfo.InvariantCulture) : "",
-        Classifier.Say(w.State) + (w.StateDate is { } s ? $" {Money.Day(s)}" : ""), w.WhatToDo,
+        w.Deadline is { } d ? mask(Money.Day(d)) : "", w.DaysLeft(today) is { } n ? n.ToString(System.Globalization.CultureInfo.InvariantCulture) : "",
+        mask(Classifier.Say(w.State) + (w.StateDate is { } s ? $" {Money.Day(s)}" : "")), mask(w.WhatToDo + (w.Note.Length > 0 ? $" Note: {w.Note}" : "")),
     ];
 
     public static void Write(string path, IReadOnlyList<WorkItem> items, DateOnly today, Func<string, string>? mask = null)

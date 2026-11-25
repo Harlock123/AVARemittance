@@ -135,6 +135,16 @@ public sealed partial class MainWindow
 
     public IReadOnlyList<string> StatusFiles => _statusFiles;
 
+    /// <summary>A question to the person is open (Ask Now's): agents wait.</summary>
+    public bool Asking => _asking;
+
+    public void CloseStatus(string path)
+    {
+        _statuses.RemoveAll(a => a.File == System.IO.Path.GetFileName(path));
+        _statusFiles.Remove(path);
+        FillStatus();
+    }
+
     private void FillStatus()
     {
         _waiting.Children.Clear();

@@ -1,6 +1,7 @@
 <Solution>
   <Folder Name="/src/">
     <Project Path="src/AVARemittance.Core/AVARemittance.Core.csproj" />
+    <Project Path="src/AVARemittance.Mcp/AVARemittance.Mcp.csproj" />
     <Project Path="src/AVARemittance/AVARemittance.csproj" />
   </Folder>
   <Folder Name="/tests/">

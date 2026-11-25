@@ -21,9 +21,13 @@ public sealed class App : Application
     {
         if (ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop)
         {
-            // AVARemittance [files…]: opens 835s and the files beside them.
+            // AVARemittance [files…] [--real | --mask]: opens 835s and the files beside them; the flags say what AI agents see.
             var args = desktop.Args ?? [];
-            desktop.MainWindow = new MainWindow(args.Where(a => !a.StartsWith("--", StringComparison.Ordinal)));
+            desktop.MainWindow = new MainWindow(args.Where(a => !a.StartsWith("--", StringComparison.Ordinal)))
+            {
+                RealFromCommandLine = args.Contains("--real"),
+                ForceDeidentify = args.Contains("--mask"),
+            };
         }
         base.OnFrameworkInitializationCompleted();
     }

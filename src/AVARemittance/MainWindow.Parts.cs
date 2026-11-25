@@ -10,7 +10,6 @@ namespace AVARemittance;
 public sealed partial class MainWindow
 {
     private partial IEnumerable<TabItem> MoreTabs() => [ClaimsTab(), DepositsTab(), UnderTab(), DenialsTab(), StatusTab()];
-    private partial IEnumerable<object> MoreMenus(Func<string, Action, Key?, KeyModifiers, MenuItem> item) => [];
 
     private partial IEnumerable<object> MoreFileItems(Func<string, Action, Key?, KeyModifiers, MenuItem> item) =>
     [
@@ -42,6 +41,7 @@ public sealed partial class MainWindow
 
     partial void AfterBuild()
     {
+        AgentsReady();
         FillClaimSummary();
         FillDeposits();
         FillUnder();
@@ -56,6 +56,8 @@ public sealed partial class MainWindow
         Recheck();
         Rework();
     }
+
+    partial void AgentsReady();
 
     partial void Rematched()
     {
