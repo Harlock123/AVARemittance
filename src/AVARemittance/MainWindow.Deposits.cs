@@ -64,7 +64,7 @@ public sealed partial class MainWindow
             var off = b.Matched.Count(m => m.Difference != 0);
             DepositsPanel.Children.Add(new TextBlock
             {
-                Text = $"{b.NoRemittance.Count} insurance deposit{(b.NoRemittance.Count == 1 ? "" : "s")} with no 835, {b.NoMoney.Count} 835 payment{(b.NoMoney.Count == 1 ? "" : "s")} with no deposit, {off} that differ{(off == 1 ? "s" : "")}.",
+                Text = $"Insurance deposits with no 835: {b.NoRemittance.Count}. Payments in the 835s with no deposit: {b.NoMoney.Count}. Deposits that differ from their 835: {off}.",
                 Foreground = b.NoRemittance.Count + b.NoMoney.Count + off > 0 ? Look.Warn : Look.Clean, TextWrapping = TextWrapping.Wrap,
             });
             DepositsPanel.Children.Add(Section("Matched"));

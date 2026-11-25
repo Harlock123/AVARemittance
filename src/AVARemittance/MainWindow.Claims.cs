@@ -159,7 +159,7 @@ public sealed partial class MainWindow
             ClaimDetail.Children.Add(Section("The payer's answers"));
             foreach (var a in m.Answers)
             {
-                var row = new Button { Content = $"{a.Payment.File.Name}: {Words.State(a.State)}, payer claim {a.PayerClaim}, {Words.Summary(a)}", Background = Brushes.Transparent, Foreground = Look.Accent, Padding = new Thickness(6, 2) };
+                var row = new Button { Content = $"{a.Payment.File.Name}: {Words.State(a.State)}, payer claim {a.PayerClaim}: {Words.Summary(a)}", Background = Brushes.Transparent, Foreground = Look.Accent, Padding = new Thickness(6, 2) };
                 row.Click += (_, _) => { ShowClaim(a); Tabs.SelectedIndex = 0; };
                 ClaimDetail.Children.Add(row);
             }

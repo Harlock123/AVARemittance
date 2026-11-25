@@ -21,7 +21,7 @@ dotnet test AVARemittance.slnx
 dotnet run --project src/AVARemittance [files or folders] [--real | --mask]
 dotnet run --project src/AVARemittance -- --mcp --root samples     # the MCP server on stdio (--attach: the open window)
 REMIT_LIVE_SERVER=http://localhost:11434 REMIT_LIVE_MODEL=qwen3:1.7b dotnet test --filter LiveModelTests
-REMIT_SHOTS=Screenshots dotnet test --filter Screenshots     # the README's pictures, headless
+REMIT_SHOTS=$PWD/Screenshots dotnet test --filter Screenshots     # the README's pictures, headless (an absolute folder)
 cd samples && python3 make_samples.py        # remakes the samples (deterministic: tests pin what each says)
 python3 tools/make_codes.py [FOLDER]         # remakes Core/Codes/*.tsv from x12.org's pages (or saved copies)
 ```

@@ -40,7 +40,7 @@ public sealed class StatusTests
         Assert.True(StatusReader.Is277(X12File.Load(Samples.Path("status/tallgrass-277-1124.x12"))));
         Assert.Equal(2, answers.Count);
         var waiting = Waiting();
-        Assert.Equal("277 of 2026-11-24: P1 20: Pending/In Process-The claim or encounter is in the adjudication system. Accepted for processing. (payer claim HV26111900077). In process: wait, and ask again in a couple of weeks.",
+        Assert.Equal("277 of 2026-11-24: P1 20: Pending/In Process-The claim or encounter is in the adjudication system. Accepted for processing (payer claim HV26111900077). In process: wait, and ask again in a couple of weeks.",
             StatusReader.Describe(StatusReader.For(waiting[0], answers)!));
         var quinn = StatusReader.For(waiting[1], answers)!;
         Assert.Equal(("A4", "35", 150m), (quinn.Statuses[0].Category, quinn.Statuses[0].Code, quinn.Statuses[0].Charge));

@@ -148,7 +148,7 @@ public sealed class DepositsTabTests
             Assert.Equal("Opened statement-2026-11.bai: BAI2 statement, 5 deposits for $1,777.77; 3 matched to the open 835s.", w.txtStatusBar.Text);
             var texts = WindowTests.Texts(w, w.DepositsPanel);
             Assert.Contains("3 deposits matched to 3 payments", texts);
-            Assert.Contains("1 insurance deposit with no 835, 0 835 payments with no deposit, 0 that differ.", texts);
+            Assert.Contains("Insurance deposits with no 835: 1. Payments in the 835s with no deposit: 0. Deposits that differ from their 835: 0.", texts);
             Assert.Contains("$412.50 on 2026-11-24: ACH CREDIT HARBORVIEW HLTH HCCLAIMPMT RIVERBEND FAMILY TRN*1*1HV2611240003*1860000001\\. Its trace is 1HV2611240003: ask the payer, or the clearinghouse, for that 835.", texts);
             var path = Path.Combine(Directory.CreateTempSubdirectory("export-").FullName, "posting.xlsx");
             w.PickSaveFile = (_, _) => Task.FromResult<string?>(path);

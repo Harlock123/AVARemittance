@@ -200,5 +200,5 @@ public static class StatusReader
             .OrderByDescending(a => a.Made).FirstOrDefault();
 
     public static string Describe(StatusAnswer a) =>
-        $"277 of {Money.Day(a.Made)}: " + string.Join("; ", a.Statuses.Select(s => s.Text)) + (a.PayerClaim.Length > 0 ? $" (payer claim {a.PayerClaim})" : "") + $". {a.Meaning}";
+        ($"277 of {Money.Day(a.Made)}: " + string.Join("; ", a.Statuses.Select(s => s.Text.TrimEnd('.'))) + (a.PayerClaim.Length > 0 ? $" (payer claim {a.PayerClaim})" : "")).TrimEnd('.') + $". {a.Meaning}";
 }
