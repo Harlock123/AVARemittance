@@ -187,3 +187,41 @@ public sealed class UnderpaymentsTabTests
         finally { w.Close(); }
     });
 }
+
+/// <summary>The Denials tab: the worklist, recording what was done, the drafts and the export.</summary>
+public sealed class DenialsTabTests
+{
+    [Fact]
+    public void The_worklist_fills_marks_what_was_done_and_writes_the_drafts() => HeadlessApp.Run(() =>
+    {
+        var folder = Samples.Copy();
+        var w = new MainWindow { Today = () => MatchingTests.Today };
+        w.Show();
+        try
+        {
+            w.Open(folder);
+            w.Open(Path.Combine(folder, "contracts", "payer-limits.json"));
+            Assert.Equal("Opened payer-limits.json: limits for 2 payers; 5 denials now have a deadline.", w.txtStatusBar.Text);
+            var summary = WindowTests.Texts(w, w.WorkSummary);
+            Assert.Contains("6 denials to work, $2,080.00 at stake", summary);
+            Assert.Contains("fix and resubmit 2 ($1,420.00) · appeal 1 ($160.00) · bill elsewhere 1 ($220.00) · bill the patient 1 ($130.00) · write off 1 ($150.00) · bundled 1 ($15.00)", summary);
+            var appeal = w.Work[0];
+            w.WorkList.SelectedItem = appeal;
+            HeadlessApp.Settle();
+            Assert.Contains("By 2027-01-11: 60 days to appeal, from the 835 of 2026-11-12 (invented for the samples).", WindowTests.Texts(w, w.WorkDetail));
+            var draft = Path.Combine(folder, "appeal.docx");
+            w.PickSaveFile = (_, _) => Task.FromResult<string?>(draft);
+            HeadlessApp.Wait(w.DraftAppealForTests(appeal));
+            Assert.True(File.Exists(draft));
+            w.SetWorkState(appeal, Core.Denials.WorkState.Appealed);
+            Assert.Equal("W01 RB26114: appealed on 2026-11-24, saved in remittance-work.json.", w.txtStatusBar.Text);
+            Assert.Contains("5 denials to work, $1,920.00 at stake", WindowTests.Texts(w, w.WorkSummary));
+            Assert.Equal(Core.Denials.WorkState.Appealed, w.Work.Single(x => x.Key == appeal.Key).State);
+            var report = Path.Combine(folder, "denials.xlsx");
+            w.PickSaveFile = (_, _) => Task.FromResult<string?>(report);
+            HeadlessApp.Wait(w.ExportDenialsForTests());
+            Assert.True(File.Exists(report));
+        }
+        finally { w.Close(); }
+    });
+}

@@ -61,10 +61,37 @@ total below the schedule, by procedure.
 
 A flag says "below what the schedule expects", never "wrong": the schedule is yours, and the contract decides.
 
+## Denials
+
+The **Denials** tab lists every denial in the open 835s as a work item, sorted by what its reason and remark codes
+point to:
+
+- **fix and resubmit**: a missing modifier, a missing authorization, information the payer says is missing or
+  invalid, with what to change;
+- **appeal**: medical necessity and the like, with the records to send;
+- **bill elsewhere**: another payer is primary, or this one isn't the patient's;
+- **bill the patient**: what the plan leaves to the patient (all of it to the deductible, or not covered);
+- **write off**: filed too late (unless there's proof it wasn't), or not covered and not billable to the patient;
+- **bundled**: paid within another line, which needs nothing unless a modifier should have kept it separate.
+
+Contractual write-downs and routine copays aren't denials and aren't listed. Open the payers' limits (a JSON file of
+appeal, corrected-claim and timely-filing days for each payer) and each item shows the days left, counted from the
+835's payment date.
+
+For an item you can:
+
+- **Draft the Appeal Letter**: Word, HTML or Markdown, with the claim, the codes in words and the argument they call
+  for. It's marked as a draft, with [brackets] where only you can fill in.
+- **Corrected Claim Changes**: frequency 7, the payer's claim number in REF*F8, and what to fix.
+- **Mark** it appealed, resubmitted, billed elsewhere, billed to the patient or written off, or reopen it. This is
+  kept in `remittance-work.json` beside the 835s.
+
+**File › Export the Denials** writes the worklist as HTML or Excel. Nothing is ever sent.
+
 ## Samples
 
 `samples/` holds an invented family clinic's 837Ps and the 835s its two invented payers sent back, made by
-`make_samples.py`; `charges/` has the same claims as a charges list, `bank/` the clinic's November statement as CSV and BAI2, and `contracts/` its fee schedule. Each claim has one situation planted: a copay, a deductible, a missing authorization, a missing modifier, a reversal and
+`make_samples.py`; `charges/` has the same claims as a charges list, `bank/` the clinic's November statement as CSV and BAI2, and `contracts/` its fee schedule and its payers' limits for appeals. Each claim has one situation planted: a copay, a deductible, a missing authorization, a missing modifier, a reversal and
 its correction, a claim the payer split, a claim paid twice, coordination of benefits, timely filing, a bundled line,
 medical necessity, no answer yet. `problems/` holds an 835 that doesn't balance.
 

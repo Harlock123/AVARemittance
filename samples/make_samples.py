@@ -14,7 +14,7 @@ line, medical necessity, and a Medicaid copay. Harborview's second 835 also take
 interest (PLB). Two claims have no answer yet: one billed three weeks ago, one in September. charges/ holds the same
 claims as a charges list (the other way to say what was billed). bank/ holds the clinic's November bank statement, as
 a CSV and as BAI2: the three payments' money, a Harborview payment whose 835 hasn't come yet, and patients' card
-payments. contracts/ holds the clinic's fee schedule. problems/ holds an 835 that doesn't balance.
+payments. contracts/ holds the clinic's fee schedule and its payers' limits for appeals. problems/ holds an 835 that doesn't balance.
 """
 import os
 
@@ -358,6 +358,21 @@ def fee_schedule():
     write(os.path.join("contracts", "fee-schedule.csv"), "\n".join(rows) + "\n")
 
 
+# Each payer's limits for working denials, in days from the 835's payment date. Invented for the samples: a real
+# office takes them from each payer's provider manual.
+LIMITS = [
+    {"payer": "HVHP1", "name": "HARBORVIEW HEALTH PLAN", "appeal_days": 180, "corrected_claim_days": 90, "timely_filing_days": 90,
+     "source": "invented for the samples"},
+    {"payer": "TGM01", "name": "TALLGRASS MEDICAID", "appeal_days": 60, "corrected_claim_days": 365, "timely_filing_days": 180,
+     "source": "invented for the samples"},
+]
+
+
+def payer_limits():
+    import json
+    write(os.path.join("contracts", "payer-limits.json"), json.dumps(LIMITS, indent=2) + "\n")
+
+
 def problems():
     """An 835 that doesn't balance: the payment total, a claim, a line and a patient's share are each off, and SE01 is wrong."""
     x = X12()
@@ -388,6 +403,7 @@ if __name__ == "__main__":
     charges_list()
     bank()
     fee_schedule()
+    payer_limits()
     for c in CLAIMS.values():
         assert all(round(l[2] - sum(a[2] for a in l[4]), 2) >= 0 for l in c["lines"])
     print("made the samples")

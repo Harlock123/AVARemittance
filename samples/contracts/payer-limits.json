@@ -1,0 +1,18 @@
+[
+  {
+    "payer": "HVHP1",
+    "name": "HARBORVIEW HEALTH PLAN",
+    "appeal_days": 180,
+    "corrected_claim_days": 90,
+    "timely_filing_days": 90,
+    "source": "invented for the samples"
+  },
+  {
+    "payer": "TGM01",
+    "name": "TALLGRASS MEDICAID",
+    "appeal_days": 60,
+    "corrected_claim_days": 365,
+    "timely_filing_days": 180,
+    "source": "invented for the samples"
+  }
+]
