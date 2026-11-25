@@ -132,3 +132,32 @@ public sealed class ClaimsTabTests
         finally { w.Close(); }
     });
 }
+
+/// <summary>The Deposits tab and the export.</summary>
+public sealed class DepositsTabTests
+{
+    [Fact]
+    public void A_statement_opens_and_the_tab_says_what_matched() => HeadlessApp.Run(() =>
+    {
+        var w = new MainWindow { Today = () => MatchingTests.Today };
+        w.Show();
+        try
+        {
+            w.Open(Samples.Folder);
+            w.Open(Samples.Path("bank/statement-2026-11.bai"));
+            Assert.Equal("Opened statement-2026-11.bai: BAI2 statement, 5 deposits for $1,777.77; 3 matched to the open 835s.", w.txtStatusBar.Text);
+            var texts = WindowTests.Texts(w, w.DepositsPanel);
+            Assert.Contains("3 deposits matched to 3 payments", texts);
+            Assert.Contains("1 insurance deposit with no 835, 0 835 payments with no deposit, 0 that differ.", texts);
+            Assert.Contains("$412.50 on 2026-11-24: ACH CREDIT HARBORVIEW HLTH HCCLAIMPMT RIVERBEND FAMILY TRN*1*1HV2611240003*1860000001\\. Its trace is 1HV2611240003: ask the payer, or the clearinghouse, for that 835.", texts);
+            var path = Path.Combine(Directory.CreateTempSubdirectory("export-").FullName, "posting.xlsx");
+            w.PickSaveFile = (_, _) => Task.FromResult<string?>(path);
+            HeadlessApp.Wait(w.ExportPostingForTests());
+            Assert.True(File.Exists(path));
+            Assert.Equal("Wrote the posting summary to posting.xlsx.", w.txtStatusBar.Text);
+            w.CloseFile(w.OpenFiles.Single(f => f.Name == "tallgrass-835-1112.x12"));
+            Assert.Contains("TALLGRASS MEDICAID", string.Join(" ", w.Banked.Other.Concat(w.Banked.NoRemittance).Select(d => d.Description)));
+        }
+        finally { w.Close(); }
+    });
+}

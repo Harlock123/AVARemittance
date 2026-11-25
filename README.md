@@ -36,10 +36,24 @@ marked:
 A claim the payer split into two shows as one, with both payments. Each line says what paid it, or that it was
 bundled into another. Claims in the 835s that nothing open billed are listed too.
 
+## The money
+
+Open a **bank statement**: a CSV or Excel file (Date, Description, Amount or Credit and Debit, Reference), or the
+BAI2 file most banks give. The **Deposits** tab matches each deposit to its 835, by the trace number the EFT carries
+(the TRN in its addenda) or the check number, or else by amount within a week. It lists:
+
+- insurance money with no 835 (and its trace, to ask for the 835);
+- 835 payments with no deposit;
+- a deposit that differs from its 835, and when the difference is the size of a recoupment or interest, which one.
+
+Below it is the **posting summary** by day: received, posted to claims, unapplied (paid on claims nothing open
+billed), adjusted off, the patients' share, recouped, interest added and deposited. **File › Export the Posting
+Summary** writes it, with every claim, as an HTML page or an Excel workbook.
+
 ## Samples
 
 `samples/` holds an invented family clinic's 837Ps and the 835s its two invented payers sent back, made by
-`make_samples.py`; `charges/` has the same claims as a charges list. Each claim has one situation planted: a copay, a deductible, a missing authorization, a missing modifier, a reversal and
+`make_samples.py`; `charges/` has the same claims as a charges list, and `bank/` the clinic's November statement as CSV and BAI2. Each claim has one situation planted: a copay, a deductible, a missing authorization, a missing modifier, a reversal and
 its correction, a claim the payer split, a claim paid twice, coordination of benefits, timely filing, a bundled line,
 medical necessity, no answer yet. `problems/` holds an 835 that doesn't balance.
 

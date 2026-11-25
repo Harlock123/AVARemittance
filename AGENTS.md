@@ -7,7 +7,7 @@ how the code is put together and the rules that keep it working.
 
 An 835 remittance and denials workbench in C# on .NET 10 and Avalonia 11.3: it reads 835s (005010X221A1) and says
 what each payment, claim and line means in plain words, checks that each 835 balances, and matches the claims billed
-(837s or a charges list) to their payments.
+(837s or a charges list) to their payments and the payments to the bank's deposits.
 
 ## Commands
 
@@ -42,13 +42,21 @@ python3 tools/make_codes.py [FOLDER]         # remakes Core/Codes/*.tsv from x12
     leaves out what a reversal took back; `BilledState`: paid, partly paid, denied, patient owes, reversed, no answer,
     paid twice; a split claim), `LineMatch`, `Reconciliation` (with `Unbilled`, the 835 claims nothing open billed,
     and the day waiting is counted to), `MatchWords`.
+  - `Deposits/`: `Deposits.cs` (`BankStatement`: a CSV or Excel statement by its header names, or BAI2, 02 groups'
+    as-of dates and 16/88 records, funds types S, V and D; credits only; the trace from the CCD+ addenda's TRN*1*, or
+    a check number; `DepositMatcher`: by trace or check number, then amount within a week, then one deposit for
+    several 835s; a difference the size of a PLB is named), `Posting.cs` (`PostingDay`: a day's received, posted,
+    unapplied, adjusted, patients', recouped, added and deposited).
+  - `Reports/PostingReport.cs`: the posting summary as HTML or Excel, people's details through a mask.
 - `src/AVARemittance/`: the window, built in code (`MainWindow.cs`: the list, the Remittance tab, the Checks tab and
   the segments; `MainWindow.Claims.cs`: the Claims tab, matching again whenever a file opens or closes;
+  `MainWindow.Deposits.cs`: the Deposits tab and Export the Posting Summary;
   `MainWindow.Parts.cs`: the hooks later parts fill; `Settings.cs`: the settings file, in
   `MainWindow.SettingsFolder`, which tests point at a temporary folder).
 - `tests/AVARemittance.Tests/`: xUnit v3 on Avalonia.Headless.
 - `samples/`: an invented clinic's 837Ps and the 835s its two invented payers sent back, from `make_samples.py`; each
-  claim has one situation planted (see `CLAIMS` there); `charges/` the same claims as a charges list. `problems/` holds an 835 that doesn't balance (kept out of `samples/` itself so
+  claim has one situation planted (see `CLAIMS` there); `charges/` the same claims as a charges list; `bank/` the
+  November bank statement as CSV and BAI2 (see `BANK`). `problems/` holds an 835 that doesn't balance (kept out of `samples/` itself so
   opening the folder opens the payers' files).
 
 ## Rules that keep it working

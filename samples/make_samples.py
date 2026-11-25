@@ -12,7 +12,9 @@ missing authorization, a line denied for a missing modifier, a payment reversed 
 split in two, a claim paid twice, all of it to the deductible, coordination of benefits, timely filing, a bundled
 line, medical necessity, and a Medicaid copay. Harborview's second 835 also takes back an old overpayment and pays
 interest (PLB). Two claims have no answer yet: one billed three weeks ago, one in September. charges/ holds the same
-claims as a charges list (the other way to say what was billed). problems/ holds an 835 that doesn't balance.
+claims as a charges list (the other way to say what was billed). bank/ holds the clinic's November bank statement, as
+a CSV and as BAI2: the three payments' money, a Harborview payment whose 835 hasn't come yet, and patients' card
+payments. problems/ holds an 835 that doesn't balance.
 """
 import os
 
@@ -289,6 +291,42 @@ def charges_list():
     write(os.path.join("charges", "charges.csv"), "\n".join(rows) + "\n")
 
 
+# The clinic's bank account in November: the three remittances' money, a Harborview payment whose 835 hasn't come
+# yet, patients' card payments, and a fee. (date, amount, description, reference, BAI2 type code)
+BANK = [
+    ("2026-11-10", 471.00, "ACH CREDIT HARBORVIEW HLTH HCCLAIMPMT RIVERBEND FAMILY TRN*1*1HV2611100001*1860000001\\", "", 165),
+    ("2026-11-14", 296.15, "DEPOSIT CHECK 40017731 TALLGRASS MEDICAID", "40017731", 301),
+    ("2026-11-17", 253.12, "ACH CREDIT HARBORVIEW HLTH HCCLAIMPMT RIVERBEND FAMILY TRN*1*1HV2611170002*1860000001\\", "", 165),
+    ("2026-11-18", 345.00, "MERCHANT DEPOSIT CARD BATCH 1118 PATIENT PAYMENTS", "", 301),
+    ("2026-11-20", -15.00, "MONTHLY SERVICE FEE", "", 698),
+    ("2026-11-24", 412.50, "ACH CREDIT HARBORVIEW HLTH HCCLAIMPMT RIVERBEND FAMILY TRN*1*1HV2611240003*1860000001\\", "", 165),
+]
+
+
+def bank():
+    rows = ["Date,Description,Amount,Reference"]
+    for date, amount, words, ref, _ in BANK:
+        rows.append(f'{date},"{words}",{amount:.2f},{ref}')
+    write(os.path.join("bank", "statement-2026-11.csv"), "\n".join(rows) + "\n")
+    # The same as BAI2: one group per day (the 02 record carries the as-of date), amounts in cents.
+    lines = ["01,BANKCO,RIVERBEND,261125,0600,1125,80,1,2/"]
+    groups = 0
+    records = 1
+    for date in sorted({b[0] for b in BANK}):
+        groups += 1
+        day = [b for b in BANK if b[0] == date]
+        group = [f"02,RIVERBEND,123000220,1,{date[2:4]}{date[5:7]}{date[8:]},2400,USD,2/", "03,5550001234,USD,010,0,,/"]
+        for _, amount, words, ref, code in day:
+            group.append(f"16,{code},{abs(round(amount * 100)):d},0,BR{date[5:7]}{date[8:]}{code},{ref},{words}/")
+        total = sum(round(b[1] * 100) for b in day)
+        group.append(f"49,{total},{len(group) + 1}/")
+        group.append(f"98,{total},1,{len(group) + 2}/")
+        lines += group
+        records += len(group)
+    lines.append(f"99,{sum(round(b[1] * 100) for b in BANK)},{groups},{records + 1}/")
+    write(os.path.join("bank", "statement-2026-11.bai"), "\n".join(lines) + "\n")
+
+
 def problems():
     """An 835 that doesn't balance: the payment total, a claim, a line and a patient's share are each off, and SE01 is wrong."""
     x = X12()
@@ -317,6 +355,7 @@ if __name__ == "__main__":
     claims_837("TG", "20261101", [a for a, c in CLAIMS.items() if c["payer"] == "TG" and "billed" not in c])
     claims_837("TG", "20260930", ["RB26117"])
     charges_list()
+    bank()
     for c in CLAIMS.values():
         assert all(round(l[2] - sum(a[2] for a in l[4]), 2) >= 0 for l in c["lines"])
     print("made the samples")
