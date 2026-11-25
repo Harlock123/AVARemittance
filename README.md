@@ -50,10 +50,21 @@ Below it is the **posting summary** by day: received, posted to claims, unapplie
 billed), adjusted off, the patients' share, recouped, interest added and deposited. **File › Export the Posting
 Summary** writes it, with every claim, as an HTML page or an Excel workbook.
 
+## Underpayments
+
+Open a **fee schedule**: a CSV or Excel file with Payer, Procedure, Modifier and Rate (and From and To when a rate
+changes), or a row with Procedure `*`, a Percent and a Basis for a payer that pays a share of another schedule
+(65 of MEDICARE). The **Underpayments** tab flags every line allowed more than the tolerance below what the
+schedule expects, and says which rows it rests on. It also flags lines whose own amounts don't agree (allowed, paid
+and the patient's share), and a contractual write-down larger than the schedule explains. Below that is each payer's
+total below the schedule, by procedure.
+
+A flag says "below what the schedule expects", never "wrong": the schedule is yours, and the contract decides.
+
 ## Samples
 
 `samples/` holds an invented family clinic's 837Ps and the 835s its two invented payers sent back, made by
-`make_samples.py`; `charges/` has the same claims as a charges list, and `bank/` the clinic's November statement as CSV and BAI2. Each claim has one situation planted: a copay, a deductible, a missing authorization, a missing modifier, a reversal and
+`make_samples.py`; `charges/` has the same claims as a charges list, `bank/` the clinic's November statement as CSV and BAI2, and `contracts/` its fee schedule. Each claim has one situation planted: a copay, a deductible, a missing authorization, a missing modifier, a reversal and
 its correction, a claim the payer split, a claim paid twice, coordination of benefits, timely filing, a bundled line,
 medical necessity, no answer yet. `problems/` holds an 835 that doesn't balance.
 

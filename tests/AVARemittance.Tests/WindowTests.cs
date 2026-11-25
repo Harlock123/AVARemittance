@@ -161,3 +161,29 @@ public sealed class DepositsTabTests
         finally { w.Close(); }
     });
 }
+
+/// <summary>The Underpayments tab.</summary>
+public sealed class UnderpaymentsTabTests
+{
+    [Fact]
+    public void A_fee_schedule_opens_and_the_tolerance_changes_what_is_flagged() => HeadlessApp.Run(() =>
+    {
+        var w = new MainWindow();
+        w.Show();
+        try
+        {
+            w.Open(Samples.Folder);
+            w.Open(Samples.Path("contracts/fee-schedule.csv"));
+            Assert.Equal("Opened fee-schedule.csv: a fee schedule of 19 rates; 3 lines in the open 835s below it.", w.txtStatusBar.Text);
+            Assert.Contains("$27.90 below the schedule on 3 lines", WindowTests.Texts(w, w.UnderPanel));
+            Assert.Contains("HARBORVIEW HEALTH PLAN 99396: $15.00 below, on 1 line.", WindowTests.Texts(w, w.UnderPanel));
+            w.SetTolerance("5");
+            Assert.Equal(5m, AppSettings.Load().Tolerance);
+            Assert.Contains("$25.00 below the schedule on 2 lines", WindowTests.Texts(w, w.UnderPanel));
+            w.SetTolerance("lots");
+            Assert.Equal("\"lots\" isn't an amount of dollars; the tolerance stays $5.00.", w.txtStatusBar.Text);
+            w.SetTolerance("1");
+        }
+        finally { w.Close(); }
+    });
+}

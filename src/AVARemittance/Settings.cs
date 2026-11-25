@@ -5,6 +5,9 @@ namespace AVARemittance;
 /// <summary>What the program remembers between runs. Kept in the settings folder.</summary>
 public sealed class AppSettings
 {
+    /// <summary>How far below the fee schedule a line may be allowed before it's flagged, per line.</summary>
+    public decimal Tolerance { get; set; } = 1.00m;
+
     private static readonly JsonSerializerOptions Options = new() { WriteIndented = true };
 
     public static string Path => System.IO.Path.Combine(MainWindow.SettingsFolder, "settings.json");

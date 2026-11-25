@@ -14,7 +14,7 @@ line, medical necessity, and a Medicaid copay. Harborview's second 835 also take
 interest (PLB). Two claims have no answer yet: one billed three weeks ago, one in September. charges/ holds the same
 claims as a charges list (the other way to say what was billed). bank/ holds the clinic's November bank statement, as
 a CSV and as BAI2: the three payments' money, a Harborview payment whose 835 hasn't come yet, and patients' card
-payments. problems/ holds an 835 that doesn't balance.
+payments. contracts/ holds the clinic's fee schedule. problems/ holds an 835 that doesn't balance.
 """
 import os
 
@@ -327,6 +327,37 @@ def bank():
     write(os.path.join("bank", "statement-2026-11.bai"), "\n".join(lines) + "\n")
 
 
+# The clinic's fee schedule: Harborview's contracted rates, and Tallgrass at 65% of a Medicare-style schedule (the
+# MEDICARE rows are invented too). Three lines come in below it: Huang's new-patient visit, Foster's preventive visit and
+# Mbeki's visit. Harborview raised its 99215 rate from October, which is why it reversed and repaid Ellis's claim.
+FEES = [
+    ("HVHP1", "99203", "", "140.00", "", "", "", ""),
+    ("HVHP1", "99213", "", "110.00", "", "", "", ""),
+    ("HVHP1", "99214", "", "140.00", "", "", "", ""),
+    ("HVHP1", "99215", "", "180.00", "", "", "", "2026-09-30"),
+    ("HVHP1", "99215", "", "192.00", "", "", "2026-10-01", ""),
+    ("HVHP1", "85025", "", "15.00", "", "", "", ""),
+    ("HVHP1", "20610", "", "120.00", "", "", "", ""),
+    ("HVHP1", "72148", "", "650.00", "", "", "", ""),
+    ("HVHP1", "99396", "", "195.00", "", "", "", ""),
+    ("HVHP1", "90686", "", "26.00", "", "", "", ""),
+    ("HVHP1", "90471", "", "22.00", "", "", "", ""),
+    ("TGM01", "*", "", "", "65", "MEDICARE", "", ""),
+    ("MEDICARE", "99203", "", "110.00", "", "", "", ""),
+    ("MEDICARE", "99213", "", "96.00", "", "", "", ""),
+    ("MEDICARE", "99214", "", "140.00", "", "", "", ""),
+    ("MEDICARE", "85025", "", "13.08", "", "", "", ""),
+    ("MEDICARE", "36415", "", "3.00", "", "", "", ""),
+    ("MEDICARE", "97110", "GP", "32.00", "", "", "", ""),
+    ("MEDICARE", "97161", "GP", "121.15", "", "", "", ""),
+]
+
+
+def fee_schedule():
+    rows = ["Payer,Procedure,Modifier,Rate,Percent,Basis,From,To"] + [",".join(r) for r in FEES]
+    write(os.path.join("contracts", "fee-schedule.csv"), "\n".join(rows) + "\n")
+
+
 def problems():
     """An 835 that doesn't balance: the payment total, a claim, a line and a patient's share are each off, and SE01 is wrong."""
     x = X12()
@@ -356,6 +387,7 @@ if __name__ == "__main__":
     claims_837("TG", "20260930", ["RB26117"])
     charges_list()
     bank()
+    fee_schedule()
     for c in CLAIMS.values():
         assert all(round(l[2] - sum(a[2] for a in l[4]), 2) >= 0 for l in c["lines"])
     print("made the samples")

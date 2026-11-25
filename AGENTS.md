@@ -7,7 +7,8 @@ how the code is put together and the rules that keep it working.
 
 An 835 remittance and denials workbench in C# on .NET 10 and Avalonia 11.3: it reads 835s (005010X221A1) and says
 what each payment, claim and line means in plain words, checks that each 835 balances, and matches the claims billed
-(837s or a charges list) to their payments and the payments to the bank's deposits.
+(837s or a charges list) to their payments and the payments to the bank's deposits, and flags lines allowed below the
+person's fee schedule.
 
 ## Commands
 
@@ -47,16 +48,21 @@ python3 tools/make_codes.py [FOLDER]         # remakes Core/Codes/*.tsv from x12
     a check number; `DepositMatcher`: by trace or check number, then amount within a week, then one deposit for
     several 835s; a difference the size of a PLB is named), `Posting.cs` (`PostingDay`: a day's received, posted,
     unapplied, adjusted, patients', recouped, added and deposited).
+  - `Contracts/`: `FeeSchedule` (rates by payer, procedure, modifier and dates, or a percent of a basis's rates;
+    `For(line)` says what it expects and which rows it rests on), `Underpayments` (U1 allowed below the schedule, U2
+    the payer's own amounts don't agree, U3 a CO-45 larger than the schedule explains; reversed payments left out;
+    `ByCode`).
   - `Reports/PostingReport.cs`: the posting summary as HTML or Excel, people's details through a mask.
 - `src/AVARemittance/`: the window, built in code (`MainWindow.cs`: the list, the Remittance tab, the Checks tab and
   the segments; `MainWindow.Claims.cs`: the Claims tab, matching again whenever a file opens or closes;
-  `MainWindow.Deposits.cs`: the Deposits tab and Export the Posting Summary;
+  `MainWindow.Deposits.cs`: the Deposits tab and Export the Posting Summary; `MainWindow.Contracts.cs`: the
+  Underpayments tab and the tolerance;
   `MainWindow.Parts.cs`: the hooks later parts fill; `Settings.cs`: the settings file, in
   `MainWindow.SettingsFolder`, which tests point at a temporary folder).
 - `tests/AVARemittance.Tests/`: xUnit v3 on Avalonia.Headless.
 - `samples/`: an invented clinic's 837Ps and the 835s its two invented payers sent back, from `make_samples.py`; each
   claim has one situation planted (see `CLAIMS` there); `charges/` the same claims as a charges list; `bank/` the
-  November bank statement as CSV and BAI2 (see `BANK`). `problems/` holds an 835 that doesn't balance (kept out of `samples/` itself so
+  November bank statement as CSV and BAI2 (see `BANK`); `contracts/` the fee schedule (see `FEES`). `problems/` holds an 835 that doesn't balance (kept out of `samples/` itself so
   opening the folder opens the payers' files).
 
 ## Rules that keep it working
@@ -68,6 +74,8 @@ python3 tools/make_codes.py [FOLDER]         # remakes Core/Codes/*.tsv from x12
   A code a list hasn't got is shown as not in the list, never guessed. Change `Codes/*.tsv` only by running
   `tools/make_codes.py`.
 - **Every check has an id, a why and a source**, and a test says so.
+- **Underpayments are below what the schedule expects, never wrong.** The schedule is the person's; every flag names
+  the rows it rests on.
 - **Days are counted to `Today`**, which the window and tests set (tests use 2026-11-24), never to the clock directly.
 - **A window test that fails leaves its window open, and Avalonia's reset then fails with `fonts:SystemFonts`,** which
   hides the real failure: close windows in `finally`.
