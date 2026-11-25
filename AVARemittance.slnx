@@ -1,0 +1,9 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/AVARemittance.Core/AVARemittance.Core.csproj" />
+    <Project Path="src/AVARemittance/AVARemittance.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/AVARemittance.Tests/AVARemittance.Tests.csproj" />
+  </Folder>
+</Solution>

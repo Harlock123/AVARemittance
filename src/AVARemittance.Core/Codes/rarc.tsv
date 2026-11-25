@@ -1,0 +1,1225 @@
+M1	1997-01-01		X-ray not taken within the past 12 months or near enough to the start of treatment.
+M2	1997-01-01		Not paid separately when the patient is an inpatient.
+M3	1997-01-01		Equipment is the same or similar to equipment already being used.
+M4	1997-01-01		Alert: This is the last monthly installment payment for this durable medical equipment.
+M5	1997-01-01		Monthly rental payments can continue until the earlier of the 15th month from the first rental month, or the month when the equipment is no longer needed.
+M6	1997-01-01		Alert: You must furnish and service this item for any period of medical need for the remainder of the reasonable useful lifetime of the equipment.
+M7	1997-01-01		No rental payments after the item is purchased, returned or after the total of issued rental payments equals the purchase price.
+M8	1997-01-01		We do not accept blood gas tests results when the test was conducted by a medical supplier or taken while the patient is on oxygen.
+M9	1997-01-01		Alert: This is the tenth rental month. You must offer the patient the choice of changing the rental to a purchase agreement.
+M10	1997-01-01		Equipment purchases are limited to the first or the tenth month of medical necessity.
+M11	1997-01-01		DME, orthotics and prosthetics must be billed to the DME carrier who services the patient's zip code.
+M12	1997-01-01		Diagnostic tests performed by a physician must indicate whether purchased services are included on the claim.
+M13	1997-01-01		Only one initial visit is covered per specialty per medical group.
+M14	1997-01-01		No separate payment for an injection administered during an office visit, and no payment for a full office visit if the patient only received an injection.
+M15	1997-01-01		Separately billed services/tests have been bundled as they are considered components of the same procedure. Separate payment is not allowed.
+M16	1997-01-01		Alert: Please see our web site, mailings, or bulletins for more details concerning this policy/procedure/decision.
+M17	1997-01-01		Alert: Payment approved as you did not know, and could not reasonably have been expected to know, that this would not normally have been covered for this patient. In the future, you will be liable for charges for the same service(s) under the same or similar conditions.
+M18	1997-01-01		Certain services may be approved for home use. Neither a hospital nor a Skilled Nursing Facility (SNF) is considered to be a patient's home.
+M19	1997-01-01		Missing oxygen certification/re-certification.
+M20	1997-01-01		Missing/incomplete/invalid HCPCS.
+M21	1997-01-01		Missing/incomplete/invalid place of residence for this service/item provided in a home.
+M22	1997-01-01		Missing/incomplete/invalid number of miles traveled.
+M23	1997-01-01		Missing invoice.
+M24	1997-01-01		Missing/incomplete/invalid number of doses per vial.
+M25	1997-01-01		The information furnished does not substantiate the need for this level of service. If you believe the service should have been fully covered as billed, or if you did not know and could not reasonably have been expected to know that we would not pay for this level of service, or if you notified the patient in writing in advance that we would not pay for this level of service and he/she agreed in writing to pay, ask us to review your claim within 120 days of the date of this notice. If you do not request an appeal, we will, upon application from the patient, reimburse him/her for the amount you have collected from him/her in excess of any deductible and coinsurance amounts. We will recover the reimbursement from you as an overpayment.
+M26	1997-01-01		The information furnished does not substantiate the need for this level of service. If you have collected any amount from the patient for this level of service/any amount that exceeds the limiting charge for the less extensive service, the law requires you to refund that amount to the patient within 30 days of receiving this notice. The requirements for refund are in 1824(I) of the Social Security Act and 42CFR411.408. The section specifies that physicians who knowingly and willfully fail to make appropriate refunds may be subject to civil monetary penalties and/or exclusion from the program. If you have any questions about this notice, please contact this office.
+M27	1997-01-01		Alert: The patient has been relieved of liability of payment of these items and services under the limitation of liability provision of the law. The provider is ultimately liable for the patient's waived charges, including any charges for coinsurance, since the items or services were not reasonable and necessary or constituted custodial care, and you knew or could reasonably have been expected to know, that they were not covered. You may appeal this determination. You may ask for an appeal regarding both the coverage determination and the issue of whether you exercised due care. The appeal request must be filed within 120 days of the date you receive this notice. You must make the request through this office.
+M28	1997-01-01		This does not qualify for payment under Part B when Part A coverage is exhausted or not otherwise available.
+M29	1997-01-01		Missing operative note/report.
+M30	1997-01-01		Missing pathology report.
+M31	1997-01-01		Missing radiology report.
+M32	1997-01-01		Alert: This is a conditional payment made pending a decision on this service by the patient's primary payer. This payment may be subject to refund upon your receipt of any additional payment for this service from another payer. You must contact this office immediately upon receipt of an additional payment for this service.
+M33	1997-01-01	2004-08-01	Missing/incomplete/invalid UPIN for the ordering/referring/performing provider.
+M34	1997-01-01	2004-08-01	Claim lacks the CLIA certification number.
+M35	1997-01-01	2005-02-05	Missing/incomplete/invalid pre-operative photos or visual field results.
+M36	1997-01-01		This is the 11th rental month. We cannot pay for this until you indicate that the patient has been given the option of changing the rental to a purchase.
+M37	1997-01-01		Not covered when the patient is under age 35.
+M38	1997-01-01		Alert: The patient is liable for the charges for this service as they were informed in writing before the service was furnished that we would not pay for it and the patient agreed to be responsible for the charges.
+M39	1997-01-01		Alert: The patient is not liable for payment of this service as the advance notice of non-coverage you provided the patient did not comply with program requirements.
+M40	1997-01-01		Claim must be assigned and must be filed by the practitioner's employer.
+M41	1997-01-01		We do not pay for this as the patient has no legal obligation to pay for this.
+M42	1997-01-01		The medical necessity form must be personally signed by the attending physician.
+M43	1997-01-01	2004-01-31	Payment for this service previously issued to you or another provider by another carrier/intermediary.
+M44	1997-01-01		Missing/incomplete/invalid condition code.
+M45	1997-01-01		Missing/incomplete/invalid occurrence code(s).
+M46	1997-01-01		Missing/incomplete/invalid occurrence span code(s).
+M47	1997-01-01		Missing/incomplete/invalid Payer Claim Control Number. Other terms exist for this element including, but not limited to, Internal Control Number (ICN), Claim Control Number (CCN), Document Control Number (DCN).
+M48	1997-01-01	2004-01-31	Payment for services furnished to hospital inpatients (other than professional services of physicians) can only be made to the hospital. You must request payment from the hospital rather than the patient for this service.
+M49	1997-01-01		Missing/incomplete/invalid value code(s) or amount(s).
+M50	1997-01-01		Missing/incomplete/invalid revenue code(s).
+M51	1997-01-01		Missing/incomplete/invalid procedure code(s).
+M52	1997-01-01		Missing/incomplete/invalid 'from' date(s) of service.
+M53	1997-01-01		Missing/incomplete/invalid days or units of service.
+M54	1997-01-01		Missing/incomplete/invalid total charges.
+M55	1997-01-01		We do not pay for self-administered anti-emetic drugs that are not administered with a covered oral anti-cancer drug.
+M56	1997-01-01		Missing/incomplete/invalid payer identifier.
+M57	1997-01-01	2005-06-02	Missing/incomplete/invalid provider identifier.
+M58	1997-01-01	2005-02-05	Missing/incomplete/invalid claim information. Resubmit claim after corrections.
+M59	1997-01-01		Missing/incomplete/invalid 'to' date(s) of service.
+M60	1997-01-01		Missing Certificate of Medical Necessity.
+M61	1997-01-01		We cannot pay for this as the approval period for the FDA clinical trial has expired.
+M62	1997-01-01		Missing/incomplete/invalid treatment authorization code.
+M63	1997-01-01	2004-01-31	We do not pay for more than one of these on the same day.
+M64	1997-01-01		Missing/incomplete/invalid other diagnosis.
+M65	1997-01-01		One interpreting physician charge can be submitted per claim when a purchased diagnostic test is indicated. Please submit a separate claim for each interpreting physician.
+M66	1997-01-01		Our records indicate that you billed diagnostic tests subject to price limitations and the procedure code submitted includes a professional component. Only the technical component is subject to price limitations. Please submit the technical and professional components of this service as separate line items.
+M67	1997-01-01		Missing/incomplete/invalid other procedure code(s).
+M68	1997-01-01	2005-06-02	Missing/incomplete/invalid attending, ordering, rendering, supervising or referring physician identification.
+M69	1997-01-01		Paid at the regular rate as you did not submit documentation to justify the modified procedure code.
+M70	1997-01-01		Alert: The NDC code submitted for this service was translated to a HCPCS code for processing, but please continue to submit the NDC on future claims for this item.
+M71	1997-01-01		Total payment reduced due to overlap of tests billed.
+M72	1997-01-01	2003-10-16	Did not enter full 8-digit date (MM/DD/CCYY).
+M73	1997-01-01		The HPSA/Physician Scarcity bonus can only be paid on the professional component of this service. Rebill as separate professional and technical components.
+M74	1997-01-01		This service does not qualify for a HPSA/Physician Scarcity bonus payment.
+M75	1997-01-01		Multiple automated multichannel tests performed on the same day combined for payment.
+M76	1997-01-01		Missing/incomplete/invalid diagnosis or condition.
+M77	1997-01-01		Missing/incomplete/invalid/inappropriate place of service.
+M78	1997-01-01	2006-05-18	Missing/incomplete/invalid HCPCS modifier.
+M79	1997-01-01		Missing/incomplete/invalid charge.
+M80	1997-01-01		Not covered when performed during the same session/date as a previously processed service for the patient.
+M81	1997-01-01		You are required to code to the highest level of specificity.
+M82	1997-01-01		Service is not covered when patient is under age 50.
+M83	1997-01-01		Service is not covered unless the patient is classified as at high risk.
+M84	1997-01-01		Medical code sets used must be the codes in effect at the time of service.
+M85	1997-01-01		Subjected to review of physician evaluation and management services.
+M86	1997-01-01		Service denied because payment already made for same/similar procedure within set time frame.
+M87	1997-01-01		Claim/service(s) subjected to CFO-CAP prepayment review.
+M88	1997-01-01	2004-08-01	We cannot pay for laboratory tests unless billed by the laboratory that did the work.
+M89	1997-01-01		Not covered more than once under age 40.
+M90	1997-01-01		Not covered more than once in a 12 month period.
+M91	1997-01-01		Lab procedures with different CLIA certification numbers must be billed on separate claims.
+M92	1997-01-01	2004-08-01	Services subjected to review under the Home Health Medical Review Initiative.
+M93	1997-01-01		Information supplied supports a break in therapy. A new capped rental period began with delivery of this equipment.
+M94	1997-01-01		Information supplied does not support a break in therapy. A new capped rental period will not begin.
+M95	1997-01-01		Services subjected to Home Health Initiative medical review/cost report audit.
+M96	1997-01-01		The technical component of a service furnished to an inpatient may only be billed by that inpatient facility. You must contact the inpatient facility for technical component reimbursement. If not already billed, you should bill us for the professional component only.
+M97	1997-01-01		Not paid to practitioner when provided to patient in this place of service. Payment included in the reimbursement issued the facility.
+M98	1997-01-01	2004-01-31	Begin to report the Universal Product Number on claims for items of this type. We will soon begin to deny payment for items of this type if billed without the correct UPN.
+M99	1997-01-01		Missing/incomplete/invalid Universal Product Number/Serial Number.
+M100	1997-01-01		We do not pay for an oral anti-emetic drug that is not administered for use immediately before, at, or within 48 hours of administration of a covered chemotherapy drug.
+M101	1997-01-01	2004-01-31	Begin to report a G1-G5 modifier with this HCPCS. We will soon begin to deny payment for this service if billed without a G1-G5 modifier.
+M102	1997-01-01		Service not performed on equipment approved by the FDA for this purpose.
+M103	1997-01-01		Information supplied supports a break in therapy. However, the medical information we have for this patient does not support the need for this item as billed. We have approved payment for this item at a reduced level, and a new capped rental period will begin with the delivery of this equipment.
+M104	1997-01-01		Information supplied supports a break in therapy. A new capped rental period will begin with delivery of the equipment. This is the maximum approved under the fee schedule for this item or service.
+M105	1997-01-01		Information supplied does not support a break in therapy. The medical information we have for this patient does not support the need for this item as billed. We have approved payment for this item at a reduced level, and a new capped rental period will not begin.
+M106	1997-01-01	2004-01-31	Information supplied does not support a break in therapy. A new capped rental period will not begin. This is the maximum approved under the fee schedule for this item or service.
+M107	1997-01-01		Payment reduced as 90-day rolling average hematocrit for ESRD patient exceeded 36.5%.
+M108	1997-01-01	2005-06-02	Missing/incomplete/invalid provider identifier for the provider who interpreted the diagnostic test.
+M109	1997-01-01		We have provided you with a bundled payment for a teleconsultation. You must send 25 percent of the teleconsultation payment to the referring practitioner.
+M110	1997-01-01	2005-06-02	Missing/incomplete/invalid provider identifier for the provider from whom you purchased interpretation services.
+M111	1997-01-01		We do not pay for chiropractic manipulative treatment when the patient refuses to have an x-ray taken.
+M112	1997-01-01		Reimbursement for this item is based on the single payment amount required under the DMEPOS Competitive Bidding Program for the area where the patient resides.
+M113	1997-01-01		Our records indicate that this patient began using this item/service prior to the current contract period for the DMEPOS Competitive Bidding Program.
+M114	1997-01-01		This service was processed in accordance with rules and guidelines under the DMEPOS Competitive Bidding Program or a Demonstration Project. For more information regarding these projects, contact your local contractor.
+M115	1997-01-01		This item is denied when provided to this patient by a non-contract or non-demonstration supplier.
+M116	1997-01-01		Processed under a demonstration project or program. Project or program is ending and additional services may not be paid under this project or program.
+M117	1997-01-01		Not covered unless submitted via electronic claim.
+M118	1997-01-01	2011-01-01	Letter to follow containing further information.
+M119	1997-01-01		Missing/incomplete/invalid/ deactivated/withdrawn National Drug Code (NDC).
+M120	1997-01-01	2005-06-02	Missing/incomplete/invalid provider identifier for the substituting physician who furnished the service(s) under a reciprocal billing or locum tenens arrangement.
+M121	1997-01-01		We pay for this service only when performed with a covered cryosurgical ablation.
+M122	1997-01-01		Missing/incomplete/invalid level of subluxation.
+M123	1997-01-01		Missing/incomplete/invalid name, strength, or dosage of the drug furnished.
+M124	1997-01-01		Missing indication of whether the patient owns the equipment that requires the part or supply.
+M125	1997-01-01		Missing/incomplete/invalid information on the period of time for which the service/supply/equipment will be needed.
+M126	1997-01-01		Missing/incomplete/invalid individual lab codes included in the test.
+M127	1997-01-01		Missing patient medical record for this service.
+M128	1997-01-01	2005-06-02	Missing/incomplete/invalid date of the patient's last physician visit.
+M129	1997-01-01		Missing/incomplete/invalid indicator of x-ray availability for review.
+M130	1997-01-01		Missing invoice or statement certifying the actual cost of the lens, less discounts, and/or the type of intraocular lens used.
+M131	1997-01-01		Missing physician financial relationship form.
+M132	1997-01-01		Missing pacemaker registration form.
+M133	1997-01-01		Claim did not identify who performed the purchased diagnostic test or the amount you were charged for the test.
+M134	1997-01-01		Performed by a facility/supplier in which the provider has a financial interest.
+M135	1997-01-01		Missing/incomplete/invalid plan of treatment.
+M136	1997-01-01		Missing/incomplete/invalid indication that the service was supervised or evaluated by a physician.
+M137	1997-01-01		Part B coinsurance under a demonstration project or pilot program.
+M138	1997-01-01		Patient identified as a demonstration participant but the patient was not enrolled in the demonstration at the time services were rendered. Coverage is limited to demonstration participants.
+M139	1997-01-01		Denied services exceed the coverage limit for the demonstration.
+M140	1997-01-01	2004-01-30	Service not covered until after the patient's 50th birthday, i.e., no coverage prior to the day after the 50th birthday
+M141	1997-01-01		Missing physician certified plan of care.
+M142	1997-01-01		Missing American Diabetes Association Certificate of Recognition.
+M143	1997-01-01		The provider must update license information with the payer.
+M144	1997-01-01		Pre-/post-operative care payment is included in the allowance for the surgery/procedure.
+MA01	1997-01-01		Alert: If you do not agree with what we approved for these services, you may appeal our decision. To make sure that we are fair to you, we require another individual that did not process your initial claim to conduct the appeal. However, in order to be eligible for an appeal, you must write to us within 120 days of the date you received this notice, unless you have a good reason for being late.
+MA02	1997-01-01		Alert: If you do not agree with this determination, you have the right to appeal. You must file a written request for an appeal within 180 days of the date you receive this notice.
+MA03	1997-01-01	2006-10-01	If you do not agree with the approved amounts and $100 or more is in dispute (less deductible and coinsurance), you may ask for a hearing within six months of the date of this notice. To meet the $100, you may combine amounts on other claims that have been denied, including reopened appeals if you received a revised decision. You must appeal each claim on time.
+MA04	1997-01-01		Secondary payment cannot be considered without the identity of or payment information from the primary payer. The information was either not reported or was illegible.
+MA05	1997-01-01	2003-10-16	Incorrect admission date patient status or type of bill entry on claim.
+MA06	1997-01-01	2004-08-01	Missing/incomplete/invalid beginning and/or ending date(s).
+MA07	1997-01-01		Alert: The claim information has also been forwarded to Medicaid for review.
+MA08	1997-01-01		Alert: Claim information was not forwarded because the supplemental coverage is not with a Medigap plan, or you do not participate in Medicare.
+MA09	1997-01-01		Alert: Claim submitted as unassigned but processed as assigned in accordance with our current assignment/participation agreement.
+MA10	1997-01-01		Alert: The patient's payment was in excess of the amount owed. You must refund the overpayment to the patient.
+MA11	1997-01-01	2004-01-31	Payment is being issued on a conditional basis. If no-fault insurance, liability insurance, Workers' Compensation, Department of Veterans Affairs, or a group health plan for employees and dependents also covers this claim, a refund may be due us. Please contact us if the patient is covered by any of these sources.
+MA12	1997-01-01		You have not established that you have the right under the law to bill for services furnished by the person(s) that furnished this (these) service(s).
+MA13	1997-01-01		Alert: You may be subject to penalties if you bill the patient for amounts not reported with the PR (patient responsibility) group code.
+MA14	1997-01-01		Alert: The patient is a member of an employer-sponsored prepaid health plan. Services from outside that health plan are not covered. However, as you were not previously notified of this, we are paying this time. In the future, we will not pay you for non-plan services.
+MA15	1997-01-01		Alert: Your claim has been separated to expedite handling. You will receive a separate notice for the other services reported.
+MA16	1997-01-01		The patient is covered by the Black Lung Program. Send this claim to the Department of Labor, Federal Black Lung Program, P.O. Box 828, Lanham-Seabrook MD 20703.
+MA17	1997-01-01		We are the primary payer and have paid at the primary rate. You must contact the patient's other insurer to refund any excess it may have paid due to its erroneous primary payment.
+MA18	1997-01-01		Alert: The claim information is also being forwarded to the patient's supplemental insurer. Send any questions regarding supplemental benefits to them.
+MA19	1997-01-01		Alert: Information was not sent to the Medigap insurer due to incorrect/invalid information you submitted concerning that insurer. Please verify your information and submit your secondary claim directly to that insurer.
+MA20	1997-01-01		Skilled Nursing Facility (SNF) stay not covered when care is primarily related to the use of an urethral catheter for convenience or the control of incontinence.
+MA21	1997-01-01		SSA records indicate mismatch with name and sex.
+MA22	1997-01-01		Payment of less than $1.00 suppressed.
+MA23	1997-01-01		Demand bill approved as result of medical review.
+MA24	1997-01-01		Christian Science Sanitarium/ Skilled Nursing Facility (SNF) bill in the same benefit period.
+MA25	1997-01-01		A patient may not elect to change a hospice provider more than once in a benefit period.
+MA26	1997-01-01		Alert: Our records indicate that you were previously informed of this rule.
+MA27	1997-01-01		Missing/incomplete/invalid entitlement number or name shown on the claim.
+MA28	1997-01-01		Alert: Receipt of this notice by a physician or supplier who did not accept assignment is for information only and does not make the physician or supplier a party to the determination. No additional rights to appeal this decision, above those rights already provided for by regulation/instruction, are conferred by receipt of this notice.
+MA29	1997-01-01	2005-06-02	Missing/incomplete/invalid provider name, city, state, or zip code.
+MA30	1997-01-01		Missing/incomplete/invalid type of bill.
+MA31	1997-01-01		Missing/incomplete/invalid beginning and ending dates of the period billed.
+MA32	1997-01-01		Missing/incomplete/invalid number of covered days during the billing period.
+MA33	1997-01-01		Missing/incomplete/invalid non-covered days during the billing period.
+MA34	1997-01-01		Missing/incomplete/invalid number of coinsurance days during the billing period.
+MA35	1997-01-01		Missing/incomplete/invalid number of lifetime reserve days.
+MA36	1997-01-01		Missing/incomplete/invalid patient name.
+MA37	1997-01-01		Missing/incomplete/invalid patient's address.
+MA38	1997-01-01	2005-06-02	Missing/incomplete/invalid birth date.
+MA39	1997-01-01		Missing/incomplete/invalid gender.
+MA40	1997-01-01		Missing/incomplete/invalid admission date.
+MA41	1997-01-01		Missing/incomplete/invalid admission type.
+MA42	1997-01-01		Missing/incomplete/invalid admission source.
+MA43	1997-01-01		Missing/incomplete/invalid patient status.
+MA44	1997-01-01		Alert: No appeal rights. Adjudicative decision based on law.
+MA45	1997-01-01		Alert: As previously advised, a portion or all of your payment is being held in a special account.
+MA46	1997-01-01		Alert: The new information was considered but additional payment will not be issued.
+MA47	1997-01-01		Our records show you have opted out of Medicare, agreeing with the patient not to bill Medicare for services/tests/supplies furnished. As result, we cannot pay this claim. The patient is responsible for payment.
+MA48	1997-01-01		Missing/incomplete/invalid name or address of responsible party or primary payer.
+MA49	1997-01-01	2004-08-01	Missing/incomplete/invalid six-digit provider identifier for home health agency or hospice for physician(s) performing care plan oversight services.
+MA50	1997-01-01		Missing/incomplete/invalid Investigational Device Exemption number or Clinical Trial number.
+MA51	1997-01-01	2005-02-05	Missing/incomplete/invalid CLIA certification number for laboratory services billed by physician office laboratory.
+MA52	1997-01-01	2005-06-02	Missing/incomplete/invalid date.
+MA53	1997-01-01		Missing/incomplete/invalid Competitive Bidding Demonstration Project identification.
+MA54	1997-01-01		Physician certification or election consent for hospice care not received timely.
+MA55	1997-01-01		Not covered as patient received medical health care services, automatically revoking his/her election to receive religious non-medical health care services.
+MA56	1997-01-01		Our records show you have opted out of Medicare, agreeing with the patient not to bill Medicare for services/tests/supplies furnished. As result, we cannot pay this claim. The patient is responsible for payment, but under Federal law, you cannot charge the patient more than the limiting charge amount.
+MA57	1997-01-01		Patient submitted written request to revoke his/her election for religious non-medical health care services.
+MA58	1997-01-01		Missing/incomplete/invalid release of information indicator.
+MA59	1997-01-01		Alert: The patient overpaid you for these services. You must issue the patient a refund within 30 days for the difference between his/her payment and the total amount shown as patient responsibility on this notice.
+MA60	1997-01-01		Missing/incomplete/invalid patient relationship to insured.
+MA61	1997-01-01		Missing/incomplete/invalid social security number.
+MA62	1997-01-01		Alert: This is a telephone review decision.
+MA63	1997-01-01		Missing/incomplete/invalid principal diagnosis.
+MA64	1997-01-01		Our records indicate that we should be the third payer for this claim. We cannot process this claim until we have received payment information from the primary and secondary payers.
+MA65	1997-01-01		Missing/incomplete/invalid admitting diagnosis.
+MA66	1997-01-01		Missing/incomplete/invalid principal procedure code.
+MA67	1997-01-01		Alert: Correction to a prior claim.
+MA68	1997-01-01		Alert: We did not crossover this claim because the secondary insurance information on the claim was incomplete. Please supply complete information or use the PLANID of the insurer to assure correct and timely routing of the claim.
+MA69	1997-01-01		Missing/incomplete/invalid remarks.
+MA70	1997-01-01		Missing/incomplete/invalid provider representative signature.
+MA71	1997-01-01		Missing/incomplete/invalid provider representative signature date.
+MA72	1997-01-01		Alert: The patient overpaid you for these assigned services. You must issue the patient a refund within 30 days for the difference between his/her payment to you and the total of the amount shown as patient responsibility and as paid to the patient on this notice.
+MA73	1997-01-01		Informational remittance associated with a Medicare demonstration. No payment issued under fee-for-service Medicare as patient has elected managed care.
+MA74	1997-01-01		Alert: This payment replaces an earlier payment for this claim that was either lost, damaged or returned.
+MA75	1997-01-01		Missing/incomplete/invalid patient or authorized representative signature.
+MA76	1997-01-01		Missing/incomplete/invalid provider identifier for home health agency or hospice when physician is performing care plan oversight services.
+MA77	1997-01-01		Alert: The patient overpaid you. You must issue the patient a refund within 30 days for the difference between the patient's payment less the total of our and other payer payments and the amount shown as patient responsibility on this notice.
+MA78	1997-01-01	2004-01-31	The patient overpaid you. You must issue the patient a refund within 30 days for the difference between our allowed amount total and the amount paid by the patient.
+MA79	1997-01-01		Billed in excess of interim rate.
+MA80	1997-01-01		Informational notice. No payment issued for this claim with this notice. Payment issued to the hospital by its intermediary for all services for this encounter under a demonstration project.
+MA81	1997-01-01		Missing/incomplete/invalid provider/supplier signature.
+MA82	1997-01-01	2005-06-02	Missing/incomplete/invalid provider/supplier billing number/identifier or billing name, address, city, state, zip code, or phone number.
+MA83	1997-01-01		Did not indicate whether we are the primary or secondary payer.
+MA84	1997-01-01		Patient identified as participating in the National Emphysema Treatment Trial but our records indicate that this patient is either not a participant, or has not yet been approved for this phase of the study. Contact Johns Hopkins University, the study coordinator, to resolve if there was a discrepancy.
+MA85	1997-01-01	2004-08-01	Our records indicate that a primary payer exists (other than ourselves); however, you did not complete or enter accurately the insurance plan/group/program name or identification number. Enter the PlanID when effective.
+MA86	1997-01-01	2004-08-01	Missing/incomplete/invalid group or policy number of the insured for the primary coverage.
+MA87	1997-01-01	2004-08-01	Missing/incomplete/invalid insured's name for the primary payer.
+MA88	1997-01-01		Missing/incomplete/invalid insured's address and/or telephone number for the primary payer.
+MA89	1997-01-01		Missing/incomplete/invalid patient's relationship to the insured for the primary payer.
+MA90	1997-01-01		Missing/incomplete/invalid employment status code for the primary insured.
+MA91	1997-01-01		Alert: This determination is the result of the appeal you filed.
+MA92	1997-01-01		Missing plan information for other insurance.
+MA93	1997-01-01		Non-PIP (Periodic Interim Payment) claim.
+MA94	1997-01-01		Did not enter the statement 'Attending physician not hospice employee' on the claim form to certify that the rendering physician is not an employee of the hospice.
+MA95	1997-01-01	2004-01-01	A not otherwise classified or unlisted procedure code(s) was billed but a narrative description of the procedure was not entered on the claim. Refer to item 19 on the HCFA-1500.
+MA96	1997-01-01		Claim rejected. Coded as a Medicare Managed Care Demonstration but patient is not enrolled in a Medicare managed care plan.
+MA97	1997-01-01		Missing/incomplete/invalid Medicare Managed Care Demonstration contract number or clinical trial registry number.
+MA98	1997-01-01	2003-10-16	Claim Rejected. Does not contain the correct Medicare Managed Care Demonstration contract number for this beneficiary.
+MA99	1997-01-01		Missing/incomplete/invalid Medigap information.
+MA100	1997-01-01		Missing/incomplete/invalid date of current illness or symptoms.
+MA101	1997-01-01	2011-01-01	A Skilled Nursing Facility (SNF) is responsible for payment of outside providers who furnish these services/supplies to residents.
+MA102	1997-01-01	2004-08-01	Missing/incomplete/invalid name or provider identifier for the rendering/referring/ ordering/ supervising provider.
+MA103	1997-01-01		Hemophilia Add On.
+MA104	1997-01-01	2004-01-31	Missing/incomplete/invalid date the patient was last seen or the provider identifier of the attending physician.
+MA105	1997-01-01	2005-06-02	Missing/incomplete/invalid provider number for this place of service.
+MA106	1997-01-01		PIP (Periodic Interim Payment) claim.
+MA107	1997-01-01		Paper claim contains more than three separate data items in field 19.
+MA108	1997-01-01		Paper claim contains more than one data item in field 23.
+MA109	1997-01-01		Claim processed in accordance with ambulatory surgical guidelines.
+MA110	1997-01-01		Missing/incomplete/invalid information on whether the diagnostic test(s) were performed by an outside entity or if no purchased tests are included on the claim.
+MA111	1997-01-01		Missing/incomplete/invalid purchase price of the test(s) and/or the performing laboratory's name and address.
+MA112	1997-01-01		Missing/incomplete/invalid group practice information.
+MA113	1997-01-01		Incomplete/invalid taxpayer identification number (TIN) submitted by you per the Internal Revenue Service. Your claims cannot be processed without your correct TIN, and you may not bill the patient pending correction of your TIN. There are no appeal rights for unprocessable claims, but you may resubmit this claim after you have notified this office of your correct TIN.
+MA114	1997-01-01		Missing/incomplete/invalid information on where the services were furnished.
+MA115	1997-01-01		Missing/incomplete/invalid physical location (name and address, or PIN) where the service(s) were rendered in a Health Professional Shortage Area (HPSA).
+MA116	1997-01-01		Did not complete the statement 'Homebound' on the claim to validate whether laboratory services were performed at home or in an institution.
+MA117	1997-01-01		This claim has been assessed a $1.00 user fee.
+MA118	1997-01-01		Alert: No Medicare payment issued for this claim for services or supplies furnished to a Medicare-eligible veteran through a facility of the Department of Veterans Affairs. Coinsurance and/or deductible are applicable.
+MA119	1997-01-01	2008-05-01	Provider level adjustment for late claim filing applies to this claim.
+MA120	1997-01-01		Missing/incomplete/invalid CLIA certification number.
+MA121	1997-01-01		Missing/incomplete/invalid x-ray date.
+MA122	1997-01-01		Missing/incomplete/invalid initial treatment date.
+MA123	1997-01-01		Your center was not selected to participate in this study, therefore, we cannot pay for these services.
+MA124	1997-01-01	2004-01-31	Processed for IME only.
+MA125	1997-01-01		Per legislation governing this program, payment constitutes payment in full.
+MA126	2001-10-12		Pancreas transplant not covered unless kidney transplant performed.
+MA127	2001-10-12	2005-06-02	Reserved for future use.
+MA128	2001-10-12		Missing/incomplete/invalid FDA approval number.
+MA129	2001-10-12	2004-01-31	This provider was not certified for this procedure on this date of service.
+MA130	2001-10-12		Your claim contains incomplete and/or invalid information, and no appeal rights are afforded because the claim is unprocessable. Please submit a new claim with the complete/correct information.
+MA131	2001-10-12		Physician already paid for services in conjunction with this demonstration claim. You must have the physician withdraw that claim and refund the payment before we can process your claim.
+MA132	2001-10-12		Adjustment to the pre-demonstration rate.
+MA133	2001-10-12		Claim overlaps inpatient stay. Rebill only those services rendered outside the inpatient stay.
+MA134	2001-10-12		Missing/incomplete/invalid provider number of the facility where the patient resides.
+N1	2000-01-01		Alert: You may appeal this decision in writing within the required time limits following receipt of this notice by following the instructions included in your contract, plan benefit documents or jurisdiction statutes. Refer to the URL provided in the ERA for the payer website to access the appeals process guidelines.
+N2	2000-01-01		This allowance has been made in accordance with the most appropriate course of treatment provision of the plan.
+N3	2000-01-01		Missing consent form.
+N4	2000-01-01		Missing/Incomplete/Invalid prior Insurance Carrier(s) EOB.
+N5	2000-01-01		EOB received from previous payer. Claim not on file.
+N6	2000-01-01		Under FEHB law (U.S.C. 8904(b)), we cannot pay more for covered care than the amount Medicare would have allowed if the patient were enrolled in Medicare Part A and/or Medicare Part B.
+N7	2000-01-01		Alert: Processing of this claim/service has included consideration under Major Medical provisions.
+N8	2000-01-01		Crossover claim denied by previous payer and complete claim data not forwarded. Resubmit this claim to this payer to provide adequate data for adjudication.
+N9	2000-01-01		Adjustment represents the estimated amount a previous payer may pay.
+N10	2000-01-01		Adjustment based on the findings of a review organization/professional consult/manual adjudication/medical advisor/dental advisor/peer review.
+N11	2000-01-01		Denial reversed because of medical review.
+N12	2000-01-01		Policy provides coverage supplemental to Medicare. As the member does not appear to be enrolled in the applicable part of Medicare, the member is responsible for payment of the portion of the charge that would have been covered by Medicare.
+N13	2000-01-01		Payment based on professional/technical component modifier(s).
+N14	2000-01-01	2007-10-01	Payment based on a contractual amount or agreement, fee schedule, or maximum allowable amount.
+N15	2000-01-01		Services for a newborn must be billed separately.
+N16	2000-01-01		Family/member Out-of-Pocket maximum has been met. Payment based on a higher percentage.
+N17	2000-01-01	2004-08-01	Per admission deductible.
+N18	2000-01-01	2004-01-31	Payment based on the Medicare allowed amount.
+N19	2000-01-01		Procedure code incidental to primary procedure.
+N20	2000-01-01		Service not payable with other service rendered on the same date.
+N21	2000-01-01		Alert: Your line item has been separated into multiple lines to expedite handling.
+N22	2000-01-01		Alert: This procedure code was added/changed because it more accurately describes the services rendered.
+N23	2000-01-01		Alert: Patient liability may be affected due to coordination of benefits with other carriers and/or maximum benefit provisions.
+N24	2000-01-01		Missing/incomplete/invalid Electronic Funds Transfer (EFT) banking information.
+N25	2000-01-01		This company has been contracted by your benefit plan to provide administrative claims payment services only. This company does not assume financial risk or obligation with respect to claims processed on behalf of your benefit plan.
+N26	2000-01-01		Missing itemized bill/statement.
+N27	2000-01-01		Missing/incomplete/invalid treatment number.
+N28	2000-01-01		Consent form requirements not fulfilled.
+N29	2000-01-01	2016-03-01	Missing documentation/orders/notes/summary/report/chart.
+N30	2000-01-01		Patient ineligible for this service.
+N31	2000-01-01		Missing/incomplete/invalid prescribing provider identifier.
+N32	2000-01-01		Claim must be submitted by the provider who rendered the service.
+N33	2000-01-01		No record of health check prior to initiation of treatment.
+N34	2000-01-01		Incorrect claim form/format for this service.
+N35	2000-01-01		Program integrity/utilization review decision.
+N36	2000-01-01		Claim must meet primary payer's processing requirements before we can consider payment.
+N37	2000-01-01		Missing/incomplete/invalid tooth number/letter.
+N38	2000-01-01	2005-02-05	Missing/incomplete/invalid place of service.
+N39	2000-01-01		Procedure code is not compatible with tooth number/letter.
+N40	2000-01-01		Missing radiology film(s)/image(s).
+N41	2000-01-01	2003-10-16	Authorization request denied.
+N42	2000-01-01		Missing mental health assessment.
+N43	2000-01-01		Bed hold or leave days exceeded.
+N44	2000-01-01	2003-10-16	Payer's share of regulatory surcharges, assessments, allowances or health care-related taxes paid directly to the regulatory authority.
+N45	2000-01-01		Payment based on authorized amount.
+N46	2000-01-01		Missing/incomplete/invalid admission hour.
+N47	2000-01-01		Claim conflicts with another inpatient stay.
+N48	2000-01-01		Claim information does not agree with information received from other insurance carrier.
+N49	2000-01-01		Court ordered coverage information needs validation.
+N50	2000-01-01		Missing/incomplete/invalid discharge information.
+N51	2000-01-01		Electronic interchange agreement not on file for provider/submitter.
+N52	2000-01-01		Patient not enrolled in the billing provider's managed care plan on the date of service.
+N53	2000-01-01		Missing/incomplete/invalid point of pick-up address.
+N54	2000-01-01		Claim information is inconsistent with pre-certified/authorized services.
+N55	2000-01-01		Procedures for billing with group/referring/performing providers were not followed.
+N56	2000-01-01		Procedure code billed is not correct/valid for the services billed or the date of service billed.
+N57	2000-01-01		Missing/incomplete/invalid prescribing date.
+N58	2000-01-01		Missing/incomplete/invalid patient liability amount.
+N59	2000-01-01		Alert: Please refer to your provider manual for additional program and provider information.
+N60	2000-01-01	2004-01-31	A valid NDC is required for payment of drug claims effective October 02.
+N61	2000-01-01		Rebill services on separate claims.
+N62	2000-01-01		Dates of service span multiple rate periods. Resubmit separate claims.
+N63	2000-01-01		Rebill services on separate claim lines.
+N64	2000-01-01		The 'from' and 'to' dates must be different.
+N65	2000-01-01		Procedure code or procedure rate count cannot be determined, or was not on file, for the date of service/provider.
+N66	2000-01-01	2005-02-05	Missing/incomplete/invalid documentation.
+N67	2000-01-01		Professional provider services not paid separately. Included in facility payment under a demonstration project. Apply to that facility for payment, or resubmit your claim if: the facility notifies you the patient was excluded from this demonstration; or if you furnished these services in another location on the date of the patient's admission or discharge from a demonstration hospital. If services were furnished in a facility not involved in the demonstration on the same date the patient was discharged from or admitted to a demonstration facility, you must report the provider ID number for the non-demonstration facility on the new claim.
+N68	2000-01-01		Prior payment being cancelled as we were subsequently notified this patient was covered by a demonstration project in this site of service. Professional services were included in the payment made to the facility. You must contact the facility for your payment. Prior payment made to you by the patient or another insurer for this claim must be refunded to the payer within 30 days.
+N69	2000-01-01		Alert: PPS (Prospective Payment System) code changed by claims processing system.
+N70	2000-01-01		Consolidated billing and payment applies.
+N71	2000-01-01		Your unassigned claim for a drug or biological, clinical diagnostic laboratory services or ambulance service was processed as an assigned claim. You are required by law to accept assignment for these types of claims.
+N72	2000-01-01		PPS (Prospective Payment System) code changed by medical reviewers. Not supported by clinical records.
+N73	2000-01-01	2004-01-31	A Skilled Nursing Facility is responsible for payment of outside providers who furnish these services/supplies under arrangement to its residents.
+N74	2000-01-01		Resubmit with multiple claims, each claim covering services provided in only one calendar month.
+N75	2000-01-01		Missing/incomplete/invalid tooth surface information.
+N76	2000-01-01		Missing/incomplete/invalid number of riders.
+N77	2000-01-01		Missing/incomplete/invalid designated provider number.
+N78	2000-01-01		The necessary components of the child and teen checkup (EPSDT) were not completed.
+N79	2000-01-01		Service billed is not compatible with patient location information.
+N80	2000-01-01		Missing/incomplete/invalid prenatal screening information.
+N81	2000-01-01		Procedure billed is not compatible with tooth surface code.
+N82	2000-01-01		Provider must accept insurance payment as payment in full when a third party payer contract specifies full reimbursement.
+N83	2000-01-01		No appeal rights. Adjudicative decision based on the provisions of a demonstration project.
+N84	2000-01-01		Alert: Further installment payments are forthcoming.
+N85	2000-01-01		Alert: This is the final installment payment.
+N86	2000-01-01		A failed trial of pelvic muscle exercise training is required in order for biofeedback training for the treatment of urinary incontinence to be covered.
+N87	2000-01-01		Home use of biofeedback therapy is not covered.
+N88	2000-01-01		Alert: This payment is being made conditionally. An HHA episode of care notice has been filed for this patient. When a patient is treated under a HHA episode of care, consolidated billing requires that certain therapy services and supplies, such as this, be included in the HHA's payment. This payment will need to be recouped from you if we establish that the patient is concurrently receiving treatment under a HHA episode of care.
+N89	2000-01-01		Alert: Payment information for this claim has been forwarded to more than one other payer, but format limitations permit only one of the secondary payers to be identified in this remittance advice.
+N90	2000-01-01		Covered only when performed by the attending physician.
+N91	2000-01-01		Services not included in the appeal review.
+N92	2000-01-01		This facility is not certified for digital mammography.
+N93	2000-01-01		A separate claim must be submitted for each place of service. Services furnished at multiple sites may not be billed in the same claim.
+N94	2000-01-01		Claim/Service denied because a more specific taxonomy code is required for adjudication.
+N95	2001-07-31		This provider type/provider specialty may not bill this service.
+N96	2001-08-24		Patient must be refractory to conventional therapy (documented behavioral, pharmacologic and/or surgical corrective therapy) and be an appropriate surgical candidate such that implantation with anesthesia can occur.
+N97	2001-08-24		Patients with stress incontinence, urinary obstruction, and specific neurologic diseases (e.g., diabetes with peripheral nerve involvement) which are associated with secondary manifestations of the above three indications are excluded.
+N98	2001-08-24		Patient must have had a successful test stimulation in order to support subsequent implantation. Before a patient is eligible for permanent implantation, he/she must demonstrate a 50 percent or greater improvement through test stimulation. Improvement is measured through voiding diaries.
+N99	2001-08-24		Patient must be able to demonstrate adequate ability to record voiding diary data such that clinical results of the implant procedure can be properly evaluated.
+N100	2001-09-14	2016-11-01	PPS (Prospect Payment System) code corrected during adjudication.
+N101	2001-10-31	2004-01-31	Additional information is needed in order to process this claim. Please resubmit the claim with the identification number of the provider where this service took place. The Medicare number of the site of service provider should be preceded with the letters 'HSP' and entered into item #32 on the claim form. You may bill only one site of service provider number per claim.
+N102	2001-10-31	2016-07-01	This claim has been denied without reviewing the medical/dental record because the requested records were not received or were not received timely.
+N103	2001-10-31		Records indicate this patient was a prisoner or in custody of a Federal, State, or local authority when the service was rendered. This payer does not cover items and services furnished to an individual while he or she is in custody under a penal statute or rule, unless under State or local law, the individual is personally liable for the cost of his or her health care while in custody and the State or local government pursues the collection of such debt in the same way and with the same vigor as the collection of its other debts. The provider can collect from the Federal/State/ Local Authority as appropriate.
+N104	2002-01-29		This claim/service is not payable under our claims jurisdiction area. You can identify the correct Medicare contractor to process this claim/service through the CMS website at www.cms.gov.
+N105	2002-01-29		This is a misdirected claim/service for an RRB beneficiary. Submit paper claims to the RRB carrier: Palmetto GBA, P.O. Box 10066, Augusta, GA 30999. Call 888-355-9165 for RRB EDI information for electronic claims processing.
+N106	2002-01-31		Payment for services furnished to Skilled Nursing Facility (SNF) inpatients (except for excluded services) can only be made to the SNF. You must request payment from the SNF rather than the patient for this service.
+N107	2002-01-31		Services furnished to Skilled Nursing Facility (SNF) inpatients must be billed on the inpatient claim. They cannot be billed separately as outpatient services.
+N108	2002-01-31		Missing/incomplete/invalid upgrade information.
+N109	2002-02-28		Alert: This claim/service was chosen for complex review.
+N110	2002-02-28		This facility is not certified for film mammography.
+N111	2002-02-28		No appeal right except duplicate claim/service issue. This service was included in a claim that has been previously billed and adjudicated.
+N112	2002-02-28		This claim is excluded from your electronic remittance advice.
+N113	2002-04-16		Only one initial visit is covered per physician, group practice or provider.
+N114	2002-05-30		During the transition to the Ambulance Fee Schedule, payment is based on the lesser of a blended amount calculated using a percentage of the reasonable charge/cost and fee schedule amounts, or the submitted charge for the service. You will be notified yearly what the percentages for the blended payment calculation will be.
+N115	2002-05-30		This decision was based on a Local Coverage Determination (LCD). An LCD provides a guide to assist in determining whether a particular item or service is covered. A copy of this policy is available at www.cms.gov/mcd, or if you do not have web access, you may contact the contractor to request a copy of the LCD.
+N116	2002-06-30		Alert: This payment is being made conditionally because the service was provided in the home, and it is possible that the patient is under a home health episode of care. When a patient is treated under a home health episode of care, consolidated billing requires that certain therapy services and supplies, such as this, be included in the home health agency's (HHA's) payment. This payment will need to be recouped from you if we establish that the patient is concurrently receiving treatment under an HHA episode of care.
+N117	2002-07-30		This service is paid only once in a patient's lifetime.
+N118	2002-07-30		This service is not paid if billed more than once every 28 days.
+N119	2002-07-30		This service is not paid if billed once every 28 days, and the patient has spent 5 or more consecutive days in any inpatient or Skilled /nursing Facility (SNF) within those 28 days.
+N120	2002-08-09		Payment is subject to home health prospective payment system partial episode payment adjustment. Patient was transferred/discharged/readmitted during payment episode.
+N121	2002-09-09		Medicare Part B does not pay for items or services provided by this type of practitioner for beneficiaries in a Medicare Part A covered Skilled Nursing Facility (SNF) stay.
+N122	2002-09-12		Add-on code cannot be billed by itself.
+N123	2002-09-24		Alert: This is a split service and represents a portion of the units from the originally submitted service.
+N124	2002-09-26		Payment has been denied for the/made only for a less extensive service/item because the information furnished does not substantiate the need for the (more extensive) service/item. The patient is liable for the charges for this service/item as you informed the patient in writing before the service/item was furnished that we would not pay for it, and the patient agreed to pay.
+N125	2002-09-26		Payment has been (denied for the/made only for a less extensive) service/item because the information furnished does not substantiate the need for the (more extensive) service/item. If you have collected any amount from the patient, you must refund that amount to the patient within 30 days of receiving this notice. The requirements for a refund are in §1834(a)(18) of the Social Security Act (and in §§1834(j)(4) and 1879(h) by cross-reference to §1834(a)(18)). Section 1834(a)(18)(B) specifies that suppliers which knowingly and willfully fail to make appropriate refunds may be subject to civil money penalties and/or exclusion from the Medicare program. If you have any questions about this notice, please contact this office.
+N126	2002-10-17		Social Security Records indicate that this individual has been deported. This payer does not cover items and services furnished to individuals who have been deported.
+N127	2007-10-31		This is a misdirected claim/service for a United Mine Workers of America (UMWA) beneficiary. Please submit claims to them.
+N128	2002-10-31		This amount represents the prior to coverage portion of the allowance.
+N129	2002-10-31		Not eligible due to the patient's age.
+N130	2002-10-31		Consult plan benefit documents/guidelines for information about restrictions for this service.
+N131	2002-10-31		Total payments under multiple contracts cannot exceed the allowance for this service.
+N132	2002-10-31		Alert: Payments will cease for services rendered by this US Government debarred or excluded provider after the 30 day grace period as previously notified.
+N133	2002-10-31		Alert: Services for predetermination and services requesting payment are being processed separately.
+N134	2002-10-31		Alert: This represents your scheduled payment for this service. If treatment has been discontinued, please contact Customer Service.
+N135	2002-10-31		Record fees are the patient's responsibility and limited to the specified co-payment.
+N136	2002-10-31		Alert: To obtain information on the process to file an appeal in Arizona, call the Department's Consumer Assistance Office at (602) 912-8444 or (800) 325-2548.
+N137	2002-10-31		Alert: The provider acting on the Member's behalf, may file an appeal with the Payer. The provider, acting on the Member's behalf, may file a complaint with the State Insurance Regulatory Authority without first filing an appeal, if the coverage decision involves an urgent condition for which care has not been rendered. The address may be obtained from the State Insurance Regulatory Authority.
+N138	2002-10-31		Alert: In the event you disagree with the Dental Advisor's opinion and have additional information relative to the case, you may submit radiographs to the Dental Advisor Unit at the subscriber's dental insurance carrier for a second Independent Dental Advisor Review.
+N139	2002-10-31		Alert: Under 32 CFR 199.13, a non-participating provider is not an appropriate appealing party. Therefore, if you disagree with the Dental Advisor's opinion, you may appeal the determination if appointed in writing, by the beneficiary, to act as his/her representative. Should you be appointed as a representative, submit a copy of this letter, a signed statement explaining the matter in which you disagree, and any radiographs and relevant information to the subscriber's Dental insurance carrier within 90 days from the date of this letter.
+N140	2002-10-31		Alert: You have not been designated as an authorized OCONUS provider therefore are not considered an appropriate appealing party. If the beneficiary has appointed you, in writing, to act as his/her representative and you disagree with the Dental Advisor's opinion, you may appeal by submitting a copy of this letter, a signed statement explaining the matter in which you disagree, and any relevant information to the subscriber's Dental insurance carrier within 90 days from the date of this letter.
+N141	2002-10-31		The patient was not residing in a long-term care facility during all or part of the service dates billed.
+N142	2002-10-31		The original claim was denied. Resubmit a new claim, not a replacement claim.
+N143	2002-10-31		The patient was not in a hospice program during all or part of the service dates billed.
+N144	2002-10-31		The rate changed during the dates of service billed.
+N145	2002-10-31	2005-06-02	Missing/incomplete/invalid provider identifier for this place of service.
+N146	2002-10-31		Missing screening document.
+N147	2002-10-31		Long term care case mix or per diem rate cannot be determined because the patient ID number is missing, incomplete, or invalid on the assignment request.
+N148	2002-10-31		Missing/incomplete/invalid date of last menstrual period.
+N149	2002-10-31		Rebill all applicable services on a single claim.
+N150	2002-10-31		Missing/incomplete/invalid model number.
+N151	2002-10-31		Telephone contact services will not be paid until the face-to-face contact requirement has been met.
+N152	2002-10-31		Missing/incomplete/invalid replacement claim information.
+N153	2002-10-31		Missing/incomplete/invalid room and board rate.
+N154	2002-10-31		Alert: This payment was delayed for correction of provider's mailing address.
+N155	2002-10-31		Alert: Our records do not indicate that other insurance is on file. Please submit other insurance information for our records.
+N156	2002-10-31		Alert: The patient is responsible for the difference between the approved treatment and the elective treatment.
+N157	2003-02-28		Transportation to/from this destination is not covered.
+N158	2003-02-28		Transportation in a vehicle other than an ambulance is not covered.
+N159	2003-02-28		Payment denied/reduced because mileage is not covered when the patient is not in the ambulance.
+N160	2003-02-28		The patient must choose an option before a payment can be made for this procedure/ equipment/ supply/ service.
+N161	2003-02-28		This drug/service/supply is covered only when the associated service is covered.
+N162	2003-02-28		Alert: Although your claim was paid, you have billed for a test/specialty not included in your Laboratory Certification. Your failure to correct the laboratory certification information will result in a denial of payment in the near future.
+N163	2003-02-28		Medical record does not support code billed per the code definition.
+N164	2003-02-28	2004-01-31	Transportation to/from this destination is not covered.
+N165	2003-02-28	2004-01-31	Transportation in a vehicle other than an ambulance is not covered.
+N166	2003-02-28	2004-01-31	Payment denied/reduced because mileage is not covered when the patient is not in the ambulance.
+N167	2003-02-28		Charges exceed the post-transplant coverage limit.
+N168	2003-02-28	2004-01-31	The patient must choose an option before a payment can be made for this procedure/ equipment/ supply/ service.
+N169	2003-02-28	2004-01-31	This drug/service/supply is covered only when the associated service is covered.
+N170	2003-02-28		A new/revised/renewed certificate of medical necessity is needed.
+N171	2003-02-28		Payment for repair or replacement is not covered or has exceeded the purchase price.
+N172	2003-02-28		The patient is not liable for the denied/adjusted charge(s) for receiving any updated service/item.
+N173	2003-02-28		No qualifying hospital stay dates were provided for this episode of care.
+N174	2003-02-28		This is not a covered service/procedure/ equipment/bed, however patient liability is limited to amounts shown in the adjustments under group 'PR'.
+N175	2003-02-28		Missing review organization approval.
+N176	2003-02-28		Services provided aboard a ship are covered only when the ship is of United States registry and is in United States waters. In addition, a doctor licensed to practice in the United States must provide the service.
+N177	2003-02-28		Alert: We did not send this claim to patient's other insurer. They have indicated no additional payment can be made.
+N178	2003-02-28		Missing pre-operative images/visual field results.
+N179	2003-02-28		Additional information has been requested from the member. The charges will be reconsidered upon receipt of that information.
+N180	2003-02-28		This item or service does not meet the criteria for the category under which it was billed.
+N181	2003-02-28		Additional information is required from another provider involved in this service.
+N182	2003-02-28		This claim/service must be billed according to the schedule for this plan.
+N183	2003-02-28		Alert: This is a predetermination advisory message, when this service is submitted for payment additional documentation as specified in plan documents will be required to process benefits.
+N184	2003-02-28		Rebill technical and professional components separately.
+N185	2003-02-28		Alert: Do not resubmit this claim/service.
+N186	2003-02-28		Non-Availability Statement (NAS) required for this service. Contact the nearest Military Treatment Facility (MTF) for assistance.
+N187	2003-02-28		Alert: You may request a review in writing within the required time limits following receipt of this notice by following the instructions included in your contract or plan benefit documents.
+N188	2003-02-28		The approved level of care does not match the procedure code submitted.
+N189	2003-02-28		Alert: This service has been paid as a one-time exception to the plan's benefit restrictions.
+N190	2003-02-28		Missing contract indicator.
+N191	2003-02-28		The provider must update insurance information directly with payer.
+N192	2003-02-28		Alert: Patient is a Medicaid/Qualified Medicare Beneficiary.
+N193	2003-02-28		Alert: Specific federal/state/local program may cover this service through another payer.
+N194	2003-02-25		Technical component not paid if provider does not own the equipment used.
+N195	2003-02-25		The technical component must be billed separately.
+N196	2003-02-25		Alert: Patient eligible to apply for other coverage which may be primary.
+N197	2003-02-25		The subscriber must update insurance information directly with payer.
+N198	2003-02-25		Rendering provider must be affiliated with the pay-to provider.
+N199	2003-02-25		Additional payment/recoupment approved based on payer-initiated review/audit.
+N200	2003-02-25		The professional component must be billed separately.
+N201	2003-02-25	2011-01-01	A mental health facility is responsible for payment of outside providers who furnish these services/supplies to residents.
+N202	2003-06-30		Alert: Additional information/explanation will be sent separately.
+N203	2003-06-30		Missing/incomplete/invalid anesthesia time/units.
+N204	2003-06-30		Services under review for possible pre-existing condition. Send medical records for prior 12 months
+N205	2003-06-30		Information provided was illegible.
+N206	2003-06-30		The supporting documentation does not match the information sent on the claim.
+N207	2003-06-30		Missing/incomplete/invalid weight.
+N208	2003-06-30		Missing/incomplete/invalid DRG code.
+N209	2003-06-30		Missing/incomplete/invalid taxpayer identification number (TIN).
+N210	2003-06-30		Alert: You may appeal this decision.
+N211	2003-06-30		Alert: You may not appeal this decision.
+N212	2004-02-01		Charges processed under a Point of Service benefit.
+N213	2004-04-01		Missing/incomplete/invalid facility/discrete unit DRG/DRG exempt status information.
+N214	2004-04-01		Missing/incomplete/invalid history of the related initial surgical procedure(s).
+N215	2004-04-01		Alert: A payer providing supplemental or secondary coverage shall not require a claims determination for this service from a primary payer as a condition of making its own claims determination.
+N216	2004-04-01		We do not offer coverage for this type of service or the patient is not enrolled in this portion of our benefit package.
+N217	2004-08-01		We pay only one site of service per provider per claim.
+N218	2004-08-01		You must furnish and service this item for as long as the patient continues to need it. We can pay for maintenance and/or servicing for the time period specified in the contract or coverage manual.
+N219	2004-08-01		Payment based on previous payer's allowed amount.
+N220	2004-08-01		Alert: See the payer's web site or contact the payer's Customer Service department to obtain forms and instructions for filing a provider dispute.
+N221	2004-08-01		Missing Admitting History and Physical report.
+N222	2004-08-01		Incomplete/invalid Admitting History and Physical report.
+N223	2004-08-01		Missing documentation of benefit to the patient during initial treatment period.
+N224	2004-08-01		Incomplete/invalid documentation of benefit to the patient during initial treatment period.
+N225	2004-08-01	2016-03-01	Incomplete/invalid documentation/orders/notes/summary/report/chart.
+N226	2004-08-01		Incomplete/invalid American Diabetes Association Certificate of Recognition.
+N227	2004-08-01		Incomplete/invalid Certificate of Medical Necessity.
+N228	2004-08-01		Incomplete/invalid consent form.
+N229	2004-08-01		Incomplete/invalid contract indicator.
+N230	2004-08-01		Incomplete/invalid indication of whether the patient owns the equipment that requires the part or supply.
+N231	2004-08-01		Incomplete/invalid invoice or statement certifying the actual cost of the lens, less discounts, and/or the type of intraocular lens used.
+N232	2004-08-01		Incomplete/invalid itemized bill/statement.
+N233	2004-08-01		Incomplete/invalid operative note/report.
+N234	2004-08-01		Incomplete/invalid oxygen certification/re-certification.
+N235	2004-08-01		Incomplete/invalid pacemaker registration form.
+N236	2004-08-01		Incomplete/invalid pathology report.
+N237	2004-08-01		Incomplete/invalid patient medical record for this service.
+N238	2004-08-01		Incomplete/invalid physician certified plan of care.
+N239	2004-08-01		Incomplete/invalid physician financial relationship form.
+N240	2004-08-01		Incomplete/invalid radiology report.
+N241	2004-08-01		Incomplete/invalid review organization approval.
+N242	2004-08-01		Incomplete/invalid radiology film(s)/image(s).
+N243	2004-08-01		Incomplete/invalid/not approved screening document.
+N244	2004-08-01		Incomplete/Invalid pre-operative images/visual field results.
+N245	2004-08-01		Incomplete/invalid plan information for other insurance.
+N246	2004-12-02		State regulated patient payment limitations apply to this service.
+N247	2004-12-02		Missing/incomplete/invalid assistant surgeon taxonomy.
+N248	2004-12-02		Missing/incomplete/invalid assistant surgeon name.
+N249	2004-12-02		Missing/incomplete/invalid assistant surgeon primary identifier.
+N250	2004-12-02		Missing/incomplete/invalid assistant surgeon secondary identifier.
+N251	2004-12-02		Missing/incomplete/invalid attending provider taxonomy.
+N252	2004-12-02		Missing/incomplete/invalid attending provider name.
+N253	2004-12-02		Missing/incomplete/invalid attending provider primary identifier.
+N254	2004-12-02		Missing/incomplete/invalid attending provider secondary identifier.
+N255	2004-12-02		Missing/incomplete/invalid billing provider taxonomy.
+N256	2004-12-02		Missing/incomplete/invalid billing provider/supplier name.
+N257	2004-12-02		Missing/incomplete/invalid billing provider/supplier primary identifier.
+N258	2004-12-02		Missing/incomplete/invalid billing provider/supplier address.
+N259	2004-12-02		Missing/incomplete/invalid billing provider/supplier secondary identifier.
+N260	2004-12-02		Missing/incomplete/invalid billing provider/supplier contact information.
+N261	2004-12-02		Missing/incomplete/invalid operating provider name.
+N262	2004-12-02		Missing/incomplete/invalid operating provider primary identifier.
+N263	2004-12-02		Missing/incomplete/invalid operating provider secondary identifier.
+N264	2004-12-02		Missing/incomplete/invalid ordering provider name.
+N265	2004-12-02		Missing/incomplete/invalid ordering provider primary identifier.
+N266	2004-12-02		Missing/incomplete/invalid ordering provider address.
+N267	2004-12-02		Missing/incomplete/invalid ordering provider secondary identifier.
+N268	2004-12-02		Missing/incomplete/invalid ordering provider contact information.
+N269	2004-12-02		Missing/incomplete/invalid other provider name.
+N270	2004-12-02		Missing/incomplete/invalid other provider primary identifier.
+N271	2004-12-02		Missing/incomplete/invalid other provider secondary identifier.
+N272	2004-12-02		Missing/incomplete/invalid other payer attending provider identifier.
+N273	2004-12-02		Missing/incomplete/invalid other payer operating provider identifier.
+N274	2004-12-02		Missing/incomplete/invalid other payer other provider identifier.
+N275	2004-12-02		Missing/incomplete/invalid other payer purchased service provider identifier.
+N276	2004-12-02		Missing/incomplete/invalid other payer referring provider identifier.
+N277	2004-12-02		Missing/incomplete/invalid other payer rendering provider identifier.
+N278	2004-12-02		Missing/incomplete/invalid other payer service facility provider identifier.
+N279	2004-12-02		Missing/incomplete/invalid pay-to provider name.
+N280	2004-12-02		Missing/incomplete/invalid pay-to provider primary identifier.
+N281	2004-12-02		Missing/incomplete/invalid pay-to provider address.
+N282	2004-12-02		Missing/incomplete/invalid pay-to provider secondary identifier.
+N283	2004-12-02		Missing/incomplete/invalid purchased service provider identifier.
+N284	2004-12-02		Missing/incomplete/invalid referring provider taxonomy.
+N285	2004-12-02		Missing/incomplete/invalid referring provider name.
+N286	2004-12-02		Missing/incomplete/invalid referring provider primary identifier.
+N287	2004-12-02		Missing/incomplete/invalid referring provider secondary identifier.
+N288	2004-12-02		Missing/incomplete/invalid rendering provider taxonomy.
+N289	2004-12-02		Missing/incomplete/invalid rendering provider name.
+N290	2004-12-02		Missing/incomplete/invalid rendering provider primary identifier.
+N291	2004-12-02		Missing/incomplete/invalid rendering provider secondary identifier.
+N292	2004-12-02		Missing/incomplete/invalid service facility name.
+N293	2004-12-02		Missing/incomplete/invalid service facility primary identifier.
+N294	2004-12-02		Missing/incomplete/invalid service facility primary address.
+N295	2004-12-02		Missing/incomplete/invalid service facility secondary identifier.
+N296	2004-12-02		Missing/incomplete/invalid supervising provider name.
+N297	2004-12-02		Missing/incomplete/invalid supervising provider primary identifier.
+N298	2004-12-02		Missing/incomplete/invalid supervising provider secondary identifier.
+N299	2004-12-02		Missing/incomplete/invalid occurrence date(s).
+N300	2004-12-02		Missing/incomplete/invalid occurrence span date(s).
+N301	2004-12-02		Missing/incomplete/invalid procedure date(s).
+N302	2004-12-02		Missing/incomplete/invalid other procedure date(s).
+N303	2004-12-02		Missing/incomplete/invalid principal procedure date.
+N304	2004-12-02		Missing/incomplete/invalid dispensed date.
+N305	2004-12-02		Missing/incomplete/invalid injury/accident date.
+N306	2004-12-02		Missing/incomplete/invalid acute manifestation date.
+N307	2004-12-02		Missing/incomplete/invalid adjudication or payment date.
+N308	2004-12-02		Missing/incomplete/invalid appliance placement date.
+N309	2004-12-02		Missing/incomplete/invalid assessment date.
+N310	2004-12-02		Missing/incomplete/invalid assumed or relinquished care date.
+N311	2004-12-02		Missing/incomplete/invalid authorized to return to work date.
+N312	2004-12-02		Missing/incomplete/invalid begin therapy date.
+N313	2004-12-02		Missing/incomplete/invalid certification revision date.
+N314	2004-12-02		Missing/incomplete/invalid diagnosis date.
+N315	2004-12-02		Missing/incomplete/invalid disability from date.
+N316	2004-12-02		Missing/incomplete/invalid disability to date.
+N317	2004-12-02		Missing/incomplete/invalid discharge hour.
+N318	2004-12-02		Missing/incomplete/invalid discharge or end of care date.
+N319	2004-12-02		Missing/incomplete/invalid hearing or vision prescription date.
+N320	2004-12-02		Missing/incomplete/invalid Home Health Certification Period.
+N321	2004-12-02		Missing/incomplete/invalid last admission period.
+N322	2004-12-02		Missing/incomplete/invalid last certification date.
+N323	2004-12-02		Missing/incomplete/invalid last contact date.
+N324	2004-12-02		Missing/incomplete/invalid last seen/visit date.
+N325	2004-12-02		Missing/incomplete/invalid last worked date.
+N326	2004-12-02		Missing/incomplete/invalid last x-ray date.
+N327	2004-12-02		Missing/incomplete/invalid other insured birth date.
+N328	2004-12-02		Missing/incomplete/invalid Oxygen Saturation Test date.
+N329	2004-12-02		Missing/incomplete/invalid patient birth date.
+N330	2004-12-02		Missing/incomplete/invalid patient death date.
+N331	2004-12-02		Missing/incomplete/invalid physician order date.
+N332	2004-12-02		Missing/incomplete/invalid prior hospital discharge date.
+N333	2004-12-02		Missing/incomplete/invalid prior placement date.
+N334	2004-12-02		Missing/incomplete/invalid re-evaluation date.
+N335	2004-12-02		Missing/incomplete/invalid referral date.
+N336	2004-12-02		Missing/incomplete/invalid replacement date.
+N337	2004-12-02		Missing/incomplete/invalid secondary diagnosis date.
+N338	2004-12-02		Missing/incomplete/invalid shipped date.
+N339	2004-12-02		Missing/incomplete/invalid similar illness or symptom date.
+N340	2004-12-02		Missing/incomplete/invalid subscriber birth date.
+N341	2004-12-02		Missing/incomplete/invalid surgery date.
+N342	2004-12-02		Missing/incomplete/invalid test performed date.
+N343	2004-12-02		Missing/incomplete/invalid Transcutaneous Electrical Nerve Stimulator (TENS) trial start date.
+N344	2004-12-02		Missing/incomplete/invalid Transcutaneous Electrical Nerve Stimulator (TENS) trial end date.
+N345	2005-03-30		Date range not valid with units submitted.
+N346	2005-03-30		Missing/incomplete/invalid oral cavity designation code.
+N347	2005-03-30		Your claim for a referred or purchased service cannot be paid because payment has already been made for this same service to another provider by a payment contractor representing the payer.
+N348	2005-08-01		You chose that this service/supply/drug would be rendered/supplied and billed by a different practitioner/supplier.
+N349	2005-08-01		The administration method and drug must be reported to adjudicate this service.
+N350	2005-08-01		Missing/incomplete/invalid description of service for a Not Otherwise Classified (NOC) code or for an Unlisted/By Report procedure.
+N351	2005-08-01		Service date outside of the approved treatment plan service dates.
+N352	2005-08-01		Alert: There are no scheduled payments for this service. Submit a claim for each patient visit.
+N353	2005-08-01		Alert: Benefits have been estimated, when the actual services have been rendered, additional payment will be considered based on the submitted claim.
+N354	2005-08-01		Incomplete/invalid invoice.
+N355	2005-08-01		Alert: The law permits exceptions to the refund requirement in two cases: - If you did not know, and could not have reasonably been expected to know, that we would not pay for this service; or - If you notified the patient in writing before providing the service that you believed that we were likely to deny the service, and the patient signed a statement agreeing to pay for the service. If you come within either exception, or if you believe the carrier was wrong in its determination that we do not pay for this service, you should request appeal of this determination within 30 days of the date of this notice. Your request for review should include any additional information necessary to support your position. If you request an appeal within 30 days of receiving this notice, you may delay refunding the amount to the patient until you receive the results of the review. If the review decision is favorable to you, you do not need to make any refund. If, however, the review is unfavorable, the law specifies that you must make the refund within 15 days of receiving the unfavorable review decision. The law also permits you to request an appeal at any time within 120 days of the date you receive this notice. However, an appeal request that is received more than 30 days after the date of this notice, does not permit you to delay making the refund. Regardless of when a review is requested, the patient will be notified that you have requested one, and will receive a copy of the determination. The patient has received a separate notice of this denial decision. The notice advises that he/she may be entitled to a refund of any amounts paid, if you should have known that we would not pay and did not tell him/her. It also instructs the patient to contact our office if he/she does not hear anything about a refund within 30 days
+N356	2005-08-01		Not covered when performed with, or subsequent to, a non-covered service.
+N357	2005-11-18		Time frame requirements between this service/procedure/supply and a related service/procedure/supply have not been met.
+N358	2005-11-18		Alert: This decision may be reviewed if additional documentation as described in the contract or plan benefit documents is submitted.
+N359	2005-11-18		Missing/incomplete/invalid height.
+N360	2005-11-18		Alert: Coordination of benefits has not been calculated when estimating benefits for this pre-determination. Submit payment information from the primary payer with the secondary claim.
+N361	2005-11-18	2007-10-01	Payment adjusted based on multiple diagnostic imaging procedure rules
+N362	2005-11-18		The number of Days or Units of Service exceeds our acceptable maximum.
+N363	2005-11-18		Alert: in the near future we are implementing new policies/procedures that would affect this determination.
+N364	2005-11-18		Alert: According to our agreement, you must waive the deductible and/or coinsurance amounts.
+N365	2006-04-01	2014-07-01	This procedure code is not payable. It is for reporting/information purposes only.
+N366	2006-04-01		Requested information not provided. The claim will be reopened if the information previously requested is submitted within one year after the date of this denial notice.
+N367	2006-04-01		Alert: The claim information has been forwarded to a Consumer Spending Account processor for review; for example, flexible spending account or health savings account.
+N368	2006-04-01		You must appeal the determination of the previously adjudicated claim.
+N369	2006-04-01		Alert: Although this claim has been processed, it is deficient according to state legislation/regulation.
+N370	2006-08-01		Billing exceeds the rental months covered/approved by the payer.
+N371	2006-08-01		Alert: title of this equipment must be transferred to the patient.
+N372	2006-08-01		Only reasonable and necessary maintenance/service charges are covered.
+N373	2006-12-01		It has been determined that another payer paid the services as primary when they were not the primary payer. Therefore, we are refunding to the payer that paid as primary on your behalf.
+N374	2006-12-01		Primary Medicare Part A insurance has been exhausted and a Part B Remittance Advice is required.
+N375	2006-12-01		Missing/incomplete/invalid questionnaire/information required to determine dependent eligibility.
+N376	2006-12-01		Subscriber/patient is assigned to active military duty, therefore primary coverage may be TRICARE.
+N377	2006-12-01		Payment based on a processed replacement claim.
+N378	2006-12-01		Missing/incomplete/invalid prescription quantity.
+N379	2006-12-01		Claim level information does not match line level information.
+N380	2007-04-01		The original claim has been processed, submit a corrected claim.
+N381	2007-04-01		Alert: Consult our contractual agreement for restrictions/billing/payment information related to these charges.
+N382	2007-04-01		Missing/incomplete/invalid patient identifier.
+N383	2007-04-01		Not covered when deemed cosmetic.
+N384	2007-04-01		Records indicate that the referenced body part/tooth has been removed in a previous procedure.
+N385	2007-04-01		Notification of admission was not timely according to published plan procedures.
+N386	2007-04-01		This decision was based on a National Coverage Determination (NCD). An NCD provides a coverage determination as to whether a particular item or service is covered. Visit CMS.gov and search for Medicare Coverage Database to find a copy of the policy.
+N387	2007-04-01		Alert: Submit this claim to the patient's other insurer for potential payment of supplemental benefits. We did not forward the claim information.
+N388	2007-08-01		Missing/incomplete/invalid prescription number.
+N389	2007-08-01		Duplicate prescription number submitted.
+N390	2007-08-01		This service/report cannot be billed separately.
+N391	2007-08-01		Missing emergency department records.
+N392	2007-08-01		Incomplete/invalid emergency department records.
+N393	2007-08-01		Missing progress notes/report.
+N394	2007-08-01		Incomplete/invalid progress notes/report.
+N395	2007-08-01		Missing laboratory report.
+N396	2007-08-01		Incomplete/invalid laboratory report.
+N397	2007-08-01		Benefits are not available for incomplete service(s)/undelivered item(s).
+N398	2007-08-01		Missing elective consent form.
+N399	2007-08-01		Incomplete/invalid elective consent form.
+N400	2007-08-01		Alert: Electronically enabled providers should submit claims electronically.
+N401	2007-08-01		Missing periodontal charting.
+N402	2007-08-01		Incomplete/invalid periodontal charting.
+N403	2007-08-01		Missing facility certification.
+N404	2007-08-01		Incomplete/invalid facility certification.
+N405	2007-08-01		This service is only covered when the donor's insurer(s) do not provide coverage for the service.
+N406	2007-08-01		This service is only covered when the recipient's insurer(s) do not provide coverage for the service.
+N407	2007-08-01		You are not an approved submitter for this transmission format.
+N408	2007-08-01		This payer does not cover deductibles assessed by a previous payer.
+N409	2007-08-01		This service is related to an accidental injury and is not covered unless provided within a specific time frame from the date of the accident.
+N410	2007-08-01		Not covered unless the prescription changes.
+N411	2007-08-01		This service is allowed one time in a 6-month period.
+N412	2007-08-01		This service is allowed 2 times in a 12-month period.
+N413	2007-08-01		This service is allowed 2 times in a benefit year.
+N414	2007-08-01		This service is allowed 4 times in a 12-month period.
+N415	2007-08-01		This service is allowed 1 time in an 18-month period.
+N416	2007-08-01		This service is allowed 1 time in a 3-year period.
+N417	2007-08-01		This service is allowed 1 time in a 5-year period.
+N418	2007-08-01		Misrouted claim. See the payer's claim submission instructions.
+N419	2007-08-01		Claim payment was the result of a payer's retroactive adjustment due to a retroactive rate change.
+N420	2007-08-01		Claim payment was the result of a payer's retroactive adjustment due to a Coordination of Benefits or Third Party Liability Recovery.
+N421	2007-08-01		Claim payment was the result of a payer's retroactive adjustment due to a review organization decision.
+N422	2007-08-01		Claim payment was the result of a payer's retroactive adjustment due to a payer's contract incentive program.
+N423	2007-08-01		Claim payment was the result of a payer's retroactive adjustment due to a non standard program.
+N424	2007-08-01		Patient does not reside in the geographic area required for this type of payment.
+N425	2007-08-01		Statutorily excluded service(s).
+N426	2007-08-01		No coverage when self-administered.
+N427	2007-08-01		Payment for eyeglasses or contact lenses can be made only after cataract surgery.
+N428	2007-08-01		Not covered when performed in this place of service.
+N429	2007-08-01		Not covered when considered routine.
+N430	2007-11-05		Procedure code is inconsistent with the units billed.
+N431	2007-11-05		Not covered with this procedure.
+N432	2007-11-05		Alert: Adjustment based on a Recovery Audit.
+N433	2008-02-29		Resubmit this claim using only your National Provider Identifier (NPI).
+N434	2008-07-01		Missing/Incomplete/Invalid Present on Admission indicator.
+N435	2008-07-01		Exceeds number/frequency approved /allowed within time period without support documentation.
+N436	2008-07-01		The injury claim has not been accepted and a mandatory medical reimbursement has been made.
+N437	2008-07-01		Alert: If the injury claim is accepted, these charges will be reconsidered.
+N438	2008-07-01		This jurisdiction only accepts paper claims.
+N439	2008-07-01		Missing anesthesia physical status report/indicators.
+N440	2008-07-01		Incomplete/invalid anesthesia physical status report/indicators.
+N441	2008-07-01		This missed/cancelled appointment is not covered.
+N442	2008-07-01		Payment based on an alternate fee schedule.
+N443	2008-07-01		Missing/incomplete/invalid total time or begin/end time.
+N444	2008-07-01		Alert: This facility has not filed the Election for High Cost Outlier form with the Division of Workers' Compensation.
+N445	2008-07-01		Missing document for actual cost or paid amount.
+N446	2008-07-01		Incomplete/invalid document for actual cost or paid amount.
+N447	2008-07-01		Payment is based on a generic equivalent as required documentation was not provided.
+N448	2008-07-01		This drug/service/supply is not included in the fee schedule or contracted/legislated fee arrangement.
+N449	2008-07-01		Payment based on a comparable drug/service/supply.
+N450	2008-07-01		Covered only when performed by the primary treating physician or the designee.
+N451	2008-07-01		Missing Admission Summary Report.
+N452	2008-07-01		Incomplete/invalid Admission Summary Report.
+N453	2008-07-01		Missing Consultation Report.
+N454	2008-07-01		Incomplete/invalid Consultation Report.
+N455	2008-07-01		Missing Physician Order.
+N456	2008-07-01		Incomplete/invalid Physician Order.
+N457	2008-07-01		Missing Diagnostic Report.
+N458	2008-07-01		Incomplete/invalid Diagnostic Report.
+N459	2008-07-01		Missing Discharge Summary.
+N460	2008-07-01		Incomplete/invalid Discharge Summary.
+N461	2008-07-01		Missing Nursing Notes.
+N462	2008-07-01		Incomplete/invalid Nursing Notes.
+N463	2008-07-01		Missing support data for claim.
+N464	2008-07-01		Incomplete/invalid support data for claim.
+N465	2008-07-01		Missing Physical Therapy Notes/Report.
+N466	2008-07-01		Incomplete/invalid Physical Therapy Notes/Report.
+N467	2008-07-01		Missing Tests and Analysis Report.
+N468	2008-07-01		Incomplete/invalid Report of Tests and Analysis Report.
+N469	2008-07-01		Alert: Claim/Service(s) subject to appeal process, see section 935 of Medicare Prescription Drug, Improvement, and Modernization Act of 2003 (MMA).
+N470	2008-07-01		This payment will complete the mandatory medical reimbursement limit.
+N471	2008-07-01		Missing/incomplete/invalid HIPPS Rate Code.
+N472	2008-07-01		Payment for this service has been issued to another provider.
+N473	2008-07-01		Missing certification.
+N474	2008-07-01		Incomplete/invalid certification.
+N475	2008-07-01		Missing completed referral form.
+N476	2008-07-01		Incomplete/invalid completed referral form.
+N477	2008-07-01		Missing Dental Models.
+N478	2008-07-01		Incomplete/invalid Dental Models.
+N479	2008-07-01		Missing Explanation of Benefits (Coordination of Benefits or Medicare Secondary Payer).
+N480	2008-07-01		Incomplete/invalid Explanation of Benefits (Coordination of Benefits or Medicare Secondary Payer).
+N481	2008-07-01		Missing Models.
+N482	2008-07-01		Incomplete/invalid Models.
+N483	2008-07-01	2015-05-01	Missing Periodontal Charts.
+N484	2008-07-01	2015-05-01	Incomplete/invalid Periodontal Charts.
+N485	2008-07-01		Missing Physical Therapy Certification.
+N486	2008-07-01		Incomplete/invalid Physical Therapy Certification.
+N487	2008-07-01		Missing Prosthetics or Orthotics Certification.
+N488	2008-07-01		Incomplete/invalid Prosthetics or Orthotics Certification.
+N489	2008-07-01		Missing referral form.
+N490	2008-07-01		Incomplete/invalid referral form.
+N491	2008-07-01		Missing/Incomplete/Invalid Exclusionary Rider Condition.
+N492	2008-07-01		Alert: A network provider may bill the member for this service if the member requested the service and agreed in writing, prior to receiving the service, to be financially responsible for the billed charge.
+N493	2008-07-01		Missing Doctor First Report of Injury.
+N494	2008-07-01		Incomplete/invalid Doctor First Report of Injury.
+N495	2008-07-01		Missing Supplemental Medical Report.
+N496	2008-07-01		Incomplete/invalid Supplemental Medical Report.
+N497	2008-07-01		Missing Medical Permanent Impairment or Disability Report.
+N498	2008-07-01		Incomplete/invalid Medical Permanent Impairment or Disability Report.
+N499	2008-07-01		Missing Medical Legal Report.
+N500	2008-07-01		Incomplete/invalid Medical Legal Report.
+N501	2008-07-01		Missing Vocational Report.
+N502	2008-07-01		Incomplete/invalid Vocational Report.
+N503	2008-07-01		Missing Work Status Report.
+N504	2008-07-01		Incomplete/invalid Work Status Report.
+N505	2008-11-01		Alert: This response includes only services that could be estimated in real-time. No estimate will be provided for the services that could not be estimated in real-time.
+N506	2008-11-01		Alert: This is an estimate of the member's liability based on the information available at the time the estimate was processed. Actual coverage and member liability amounts will be determined when the claim is processed. This is not a pre-authorization or a guarantee of payment.
+N507	2008-11-01		Plan distance requirements have not been met.
+N508	2008-11-01		Alert: This real-time claim adjudication response represents the member responsibility to the provider for services reported. The member will receive an Explanation of Benefits electronically or in the mail. Contact the insurer if there are any questions.
+N509	2008-11-01		Alert: A current inquiry shows the member's Consumer Spending Account contains sufficient funds to cover the member liability for this claim/service. Actual payment from the Consumer Spending Account will depend on the availability of funds and determination of eligible services at the time of payment processing.
+N510	2008-11-01		Alert: A current inquiry shows the member's Consumer Spending Account does not contain sufficient funds to cover the member's liability for this claim/service. Actual payment from the Consumer Spending Account will depend on the availability of funds and determination of eligible services at the time of payment processing.
+N511	2008-11-01		Alert: Information on the availability of Consumer Spending Account funds to cover the member liability on this claim/service is not available at this time.
+N512	2008-11-01		Alert: This is the initial remit of a non-NCPDP claim originally submitted real-time without change to the adjudication.
+N513	2008-11-01		Alert: This is the initial remit of a non-NCPDP claim originally submitted real-time with a change to the adjudication.
+N514	2008-11-01	2011-01-01	Consult plan benefit documents/guidelines for information about restrictions for this service.
+N515	2008-11-01	2009-10-01	Alert: Submit this claim to the patient's other insurer for potential payment of supplemental benefits. We did not forward the claim information. (use N387 instead)
+N516	2009-03-01		Records indicate a mismatch between the submitted NPI and EIN.
+N517	2009-03-01		Resubmit a new claim with the requested information.
+N518	2009-03-01		No separate payment for accessories when furnished for use with oxygen equipment.
+N519	2009-07-01		Invalid combination of HCPCS modifiers.
+N520	2009-07-01		Alert: Payment made from a Consumer Spending Account.
+N521	2009-11-01		Mismatch between the submitted provider information and the provider information stored in our system.
+N522	2009-11-01		Duplicate of a claim processed, or to be processed, as a crossover claim.
+N523	2010-03-01		The limitation on outlier payments defined by this payer for this service period has been met. The outlier payment otherwise applicable to this claim has not been paid.
+N524	2010-03-01		Based on policy this payment constitutes payment in full.
+N525	2010-03-01		These services are not covered when performed within the global period of another service.
+N526	2010-03-01		Not qualified for recovery based on employer size.
+N527	2010-03-01		We processed this claim as the primary payer prior to receiving the recovery demand.
+N528	2010-03-01		Patient is entitled to benefits for Institutional Services only.
+N529	2010-03-01		Patient is entitled to benefits for Professional Services only.
+N530	2010-03-01		Not Qualified for Recovery based on enrollment information.
+N531	2010-03-01		Not qualified for recovery based on direct payment of premium.
+N532	2010-03-01		Not qualified for recovery based on disability and working status.
+N533	2010-07-01		Services performed in an Indian Health Services facility under a self-insured tribal Group Health Plan.
+N534	2010-07-01		This is an individual policy, the employer does not participate in plan sponsorship.
+N535	2010-07-01		Payment is adjusted when procedure is performed in this place of service based on the submitted procedure code and place of service.
+N536	2010-07-01		We are not changing the prior payer's determination of patient responsibility, which you may collect, as this service is not covered by us.
+N537	2010-07-01		We have examined claims history and no records of the services have been found.
+N538	2010-07-01		A facility is responsible for payment to outside providers who furnish these services/supplies/drugs to its patients/residents.
+N539	2010-07-01		Alert: We processed appeals/waiver requests on your behalf and that request has been denied.
+N540	2010-11-01		Payment adjusted based on the interrupted stay policy.
+N541	2010-11-01		Mismatch between the submitted insurance type code and the information stored in our system.
+N542	2011-03-08		Missing income verification.
+N543	2011-03-08		Incomplete/invalid income verification.
+N544	2011-07-01		Alert: Although this was paid, you have billed with a referring/ordering provider that does not match our system record. Unless corrected this will not be paid in the future.
+N545	2011-07-01		Payment reduced based on status as an unsuccessful eprescriber per the Electronic Prescribing (eRx) Incentive Program.
+N546	2011-07-01		Payment represents a previous reduction based on the Electronic Prescribing (eRx) Incentive Program.
+N547	2012-03-06		A refund request (Frequency Type Code 8) was processed previously.
+N548	2012-03-06		Alert: Patient's calendar year deductible has been met.
+N549	2012-03-06		Alert: Patient's calendar year out-of-pocket maximum has been met.
+N550	2012-03-06		Alert: You have not responded to requests to revalidate your provider/supplier enrollment information. Your failure to revalidate your enrollment information will result in a payment hold in the near future.
+N551	2012-03-06		Payment adjusted based on the Ambulatory Surgical Center (ASC) Quality Reporting Program.
+N552	2012-03-06		Payment adjusted to reverse a previous withhold/bonus amount.
+N553	2012-03-06	2012-11-01	Payment adjusted based on a Low Income Subsidy (LIS) retroactive coverage or status change.
+N554	2012-07-01		Missing/Incomplete/Invalid Family Planning Indicator.
+N555	2012-07-01		Missing medication list.
+N556	2012-07-01		Incomplete/invalid medication list.
+N557	2012-07-01		This claim/service is not payable under our service area. The claim must be filed to the Payer/Plan in whose service area the specimen was collected.
+N558	2012-07-01		This claim/service is not payable under our service area. The claim must be filed to the Payer/Plan in whose service area the equipment was received.
+N559	2012-07-01		This claim/service is not payable under our service area. The claim must be filed to the Payer/Plan in whose service area the Ordering Physician is located.
+N560	2012-11-01		The pilot program requires an interim or final claim within 60 days of the Notice of Admission. A claim was not received.
+N561	2012-11-01		The bundled claim originally submitted for this episode of care includes related readmissions. You may resubmit the original claim to receive a corrected payment based on this readmission.
+N562	2012-11-01		The provider number of your incoming claim does not match the provider number on the processed Notice of Admission (NOA) for this bundled payment.
+N563	2012-11-01		Alert: Missing required provider/supplier issuance of advance patient notice of non-coverage. The patient is not liable for payment for this service.
+N564	2012-11-01		Patient did not meet the inclusion criteria for the demonstration project or pilot program.
+N565	2012-11-01		Alert: This non-payable reporting code requires a modifier. Future claims containing this non-payable reporting code must include an appropriate modifier for the claim to be processed.
+N566	2012-11-01		Alert: This procedure code requires functional reporting. Future claims containing this procedure code must include an applicable non-payable code and appropriate modifiers for the claim to be processed.
+N567	2013-03-01		Not covered when considered preventative.
+N568	2013-03-01		Alert: Initial payment based on the Notice of Admission (NOA) under the Bundled Payment Model IV initiative.
+N569	2013-03-01		Not covered when performed for the reported diagnosis.
+N570	2013-03-01		Missing/incomplete/invalid credentialing data.
+N571	2013-03-01		Alert: Payment will be issued quarterly by another payer/contractor.
+N572	2013-03-01		This procedure is not payable unless appropriate non-payable reporting codes and associated modifiers are submitted.
+N573	2013-03-01		Alert: You have been overpaid and must refund the overpayment. The refund will be requested separately by another payer/contractor.
+N574	2013-07-15		Our records indicate the ordering/referring provider is of a type/specialty that cannot order or refer. Please verify that the claim ordering/referring provider information is accurate or contact the ordering/referring provider.
+N575	2013-07-15		Mismatch between the submitted ordering/referring provider name and the ordering/referring provider name stored in our records.
+N576	2013-07-15		Services not related to the specific incident/claim/accident/loss being reported.
+N577	2013-07-15		Personal Injury Protection (PIP) Coverage.
+N578	2013-07-15		Coverages do not apply to this loss.
+N579	2013-07-15		Medical Payments Coverage (MPC).
+N580	2013-07-15		Determination based on the provisions of the insurance policy.
+N581	2013-07-15		Investigation of coverage eligibility is pending.
+N582	2013-07-15		Benefits suspended pending the patient's cooperation.
+N583	2013-07-15		Patient was not an occupant of our insured vehicle and therefore, is not an eligible injured person.
+N584	2013-07-15		Not covered based on the insured's noncompliance with policy or statutory conditions.
+N585	2013-07-15		Benefits are no longer available based on a final injury settlement.
+N586	2013-07-15		The injured party does not qualify for benefits.
+N587	2013-07-15		Policy benefits have been exhausted.
+N588	2013-07-15		The patient has instructed that medical claims/bills are not to be paid.
+N589	2013-07-15		Coverage is excluded to any person injured as a result of operating a motor vehicle while in an intoxicated condition or while the ability to operate such a vehicle is impaired by the use of a drug.
+N590	2013-07-15		Missing independent medical exam detailing the cause of injuries sustained and medical necessity of services rendered.
+N591	2013-07-15		Payment based on an Independent Medical Examination (IME) or Utilization Review (UR).
+N592	2013-07-15		Adjusted because this is not the initial prescription or exceeds the amount allowed for the initial prescription.
+N593	2013-07-15		Not covered based on failure to attend a scheduled Independent Medical Exam (IME).
+N594	2013-07-15		Records reflect the injured party did not complete an Application for Benefits for this loss.
+N595	2013-07-15		Records reflect the injured party did not complete an Assignment of Benefits for this loss.
+N596	2013-07-15		Records reflect the injured party did not complete a Medical Authorization for this loss.
+N597	2013-07-15		Adjusted based on a medical/dental provider's apportionment of care between related injuries and other unrelated medical/dental conditions/injuries.
+N598	2013-07-15		Health care policy coverage is primary.
+N599	2013-07-15		Our payment for this service is based upon a reasonable amount pursuant to both the terms and conditions of the policy of insurance under which the subject claim is being made as well as the Florida No-Fault Statute, which permits, when determining a reasonable charge for a service, an insurer to consider usual and customary charges and payments accepted by the provider, reimbursement levels in the community and various federal and state fee schedules applicable to automobile and other insurance coverages, and other information relevant to the reasonableness of the reimbursement for the service. The payment for this service is based upon 200% of the Participating Level of Medicare Part B fee schedule for the locale in which the services were rendered.
+N600	2013-07-15		Adjusted based on the applicable fee schedule for the region in which the service was rendered.
+N601	2013-07-15		In accordance with Hawaii Administrative Rules, Title 16, Chapter 23 Motor Vehicle Insurance Law payment is recommended based on Medicare Resource Based Relative Value Scale System applicable to Hawaii.
+N602	2013-07-15		Adjusted based on the Redbook maximum allowance.
+N603	2013-07-15		This fee is calculated according to the New Jersey medical fee schedules for Automobile Personal Injury Protection and Motor Bus Medical Expense Insurance Coverage.
+N604	2013-07-15		In accordance with New York No-Fault Law, Regulation 68, this base fee was calculated according to the New York Workers' Compensation Board Schedule of Medical Fees, pursuant to Regulation 83 and / or Appendix 17-C of 11 NYCRR.
+N605	2013-07-15		This fee was calculated based upon New York All Patients Refined Diagnosis Related Groups (APR-DRG), pursuant to Regulation 68.
+N606	2013-07-15		The Oregon allowed amount for this procedure is based upon the Workers Compensation Fee Schedule (OAR 436-009). The allowed amount has been calculated in accordance with Section 4 of ORS 742.524.
+N607	2013-07-15		Service provided for non-compensable condition(s).
+N608	2013-07-15		The fee schedule amount allowed is calculated at 110% of the Medicare Fee Schedule for this region, specialty and type of service. This fee is calculated in compliance with Act 6.
+N609	2013-07-15		80% of the provider's billed amount is being recommended for payment according to Act 6.
+N610	2013-07-15		Alert: Payment based on an appropriate level of care.
+N611	2013-07-15		Claim in litigation. Contact insurer for more information.
+N612	2013-07-15		Medical provider not authorized/certified to provide treatment to injured workers in this jurisdiction.
+N613	2013-07-15		Alert: Although this was paid, you have billed with an ordering provider that needs to update their enrollment record. Please verify that the ordering provider information you submitted on the claim is accurate and if it is, contact the ordering provider instructing them to update their enrollment record. Unless corrected, a claim with this ordering provider will not be paid in the future.
+N614	2013-07-15		Alert: Additional information is included in the 835 Healthcare Policy Identification Segment (loop 2110 Service Payment Information).
+N615	2013-07-15		Alert: This enrollee receiving advance payments of the premium tax credit is in the grace period of three consecutive months for non-payment of premium. Under 45 CFR 156.270, a Qualified Health Plan issuer must pay all appropriate claims for services rendered to the enrollee during the first month of the grace period and may pend claims for services rendered to the enrollee in the second and third months of the grace period.
+N616	2013-07-15		Alert: This enrollee is in the first month of the advance premium tax credit grace period.
+N617	2013-07-15		This enrollee is in the second or third month of the advance premium tax credit grace period.
+N618	2013-07-15		Alert: This claim will automatically be reprocessed if the enrollee pays their premiums.
+N619	2013-07-15		Coverage terminated for non-payment of premium.
+N620	2013-07-15		Alert: This procedure code is for quality reporting/informational purposes only.
+N621	2013-07-15		Charges for Jurisdiction required forms, reports, or chart notes are not payable.
+N622	2013-07-15		Not covered based on the date of injury/accident.
+N623	2013-07-15		Not covered when deemed unscientific/unproven/outmoded/experimental/excessive/inappropriate.
+N624	2013-07-15		The associated Workers' Compensation claim has been withdrawn.
+N625	2013-07-15		Missing/Incomplete/Invalid Workers' Compensation Claim Number.
+N626	2013-07-15		New or established patient E/M codes are not payable with chiropractic care codes.
+N627	2013-07-15	2014-07-01	Service not payable per managed care contract.
+N628	2013-07-15		Out-patient follow up visits on the same date of service as a scheduled test or treatment is disallowed.
+N629	2013-07-15		Reviews/documentation/notes/summaries/reports/charts not requested.
+N630	2013-07-15		Referral not authorized by attending physician.
+N631	2013-07-15		Medical Fee Schedule does not list this code. An allowance was made for a comparable service.
+N632	2013-07-15	2014-07-01	According to the Official Medical Fee Schedule this service has a relative value of zero and therefore no payment is due.
+N633	2013-07-15		Additional anesthesia time units are not allowed.
+N634	2013-07-15		The allowance is calculated based on anesthesia time units.
+N635	2013-07-15		The Allowance is calculated based on the anesthesia base units plus time.
+N636	2013-07-15		Adjusted because this is reimbursable only once per injury.
+N637	2013-07-15		Consultations are not allowed once treatment has been rendered by the same provider.
+N638	2013-07-15		Reimbursement has been made according to the home health fee schedule.
+N639	2013-07-15		Reimbursement has been made according to the inpatient rehabilitation facilities fee schedule.
+N640	2013-07-15		Exceeds number/frequency approved/allowed within time period.
+N641	2013-07-15		Reimbursement has been based on the number of body areas rated.
+N642	2013-07-15		Adjusted when billed as individual tests instead of as a panel.
+N643	2013-07-15		The services billed are considered Not Covered or Non-Covered (NC) in the applicable state fee schedule.
+N644	2013-07-15		Reimbursement has been made according to the bilateral procedure rule.
+N645	2013-07-15		Mark-up allowance.
+N646	2013-07-15		Reimbursement has been adjusted based on the guidelines for an assistant.
+N647	2013-07-15		Adjusted based on diagnosis-related group (DRG).
+N648	2013-07-15		Adjusted based on Stop Loss.
+N649	2013-07-15		Payment based on invoice.
+N650	2013-07-15		This policy was not in effect for this date of loss. No coverage is available.
+N651	2013-07-15		No Personal Injury Protection/Medical Payments Coverage on the policy at the time of the loss.
+N652	2013-07-15		The date of service is before the date of loss.
+N653	2013-07-15		The date of injury does not match the reported date of loss.
+N654	2013-07-15		Adjusted based on achievement of maximum medical improvement (MMI).
+N655	2013-07-15		Payment based on provider's geographic region.
+N656	2013-07-15		An interest payment is being made because benefits are being paid outside the statutory requirement.
+N657	2013-07-15		This should be billed with the appropriate code for these services.
+N658	2013-07-15		The billed service(s) are not considered medical expenses.
+N659	2013-07-15		This item is exempt from sales tax.
+N660	2013-07-15		Sales tax has been included in the reimbursement.
+N661	2013-07-15		Documentation does not support that the services rendered were medically necessary.
+N662	2013-07-15		Alert: Consideration of payment will be made upon receipt of a final bill.
+N663	2013-07-15		Adjusted based on an agreed amount.
+N664	2013-07-15		Adjusted based on a legal settlement.
+N665	2013-07-15		Services by an unlicensed provider are not reimbursable.
+N666	2013-07-15		Only one evaluation and management code at this service level is covered during the course of care.
+N667	2013-07-15		Missing prescription.
+N668	2013-07-15		Incomplete/invalid prescription.
+N669	2013-07-15		Adjusted based on the Medicare fee schedule.
+N670	2013-07-15		This service code has been identified as the primary procedure code subject to the Medicare Multiple Procedure Payment Reduction (MPPR) rule.
+N671	2013-07-15		Payment based on a jurisdiction cost-charge ratio.
+N672	2013-07-15		Alert: Amount applied to Health Insurance Offset.
+N673	2013-07-15		Reimbursement has been calculated based on an outpatient per diem or an outpatient factor and/or fee schedule amount.
+N674	2013-07-15		Not covered unless a pre-requisite procedure/service has been provided.
+N675	2013-07-15		Additional information is required from the injured party.
+N676	2013-07-15		Service does not qualify for payment under the Outpatient Facility Fee Schedule.
+N677	2013-11-01		Alert: Films/Images will not be returned.
+N678	2013-11-01		Missing post-operative images/visual field results.
+N679	2013-11-01		Incomplete/Invalid post-operative images/visual field results.
+N680	2013-11-01		Missing/Incomplete/Invalid date of previous dental extractions.
+N681	2013-11-01		Missing/Incomplete/Invalid full arch series.
+N682	2013-11-01		Missing/Incomplete/Invalid history of prior periodontal therapy/maintenance.
+N683	2013-11-01		Missing/Incomplete/Invalid prior treatment documentation.
+N684	2013-11-01		Payment denied as this is a specialty claim submitted as a general claim.
+N685	2013-11-01		Missing/Incomplete/Invalid Prosthesis, Crown or Inlay Code.
+N686	2013-11-01		Missing/incomplete/Invalid questionnaire needed to complete payment determination.
+N687	2013-11-01		Alert: This reversal is due to a retroactive disenrollment.
+N688	2013-11-01		Alert: This reversal is due to a medical or utilization review decision.
+N689	2013-11-01		Alert: This reversal is due to a retroactive rate change.
+N690	2013-11-01		Alert: This reversal is due to a provider submitted appeal.
+N691	2013-11-01		Alert: This reversal is due to a patient submitted appeal.
+N692	2013-11-01		Alert: This reversal is due to an incorrect rate on the initial adjudication.
+N693	2013-11-01		Alert: This reversal is due to a cancellation of the claim by the provider.
+N694	2013-11-01		Alert: This reversal is due to a resubmission/change to the claim by the provider.
+N695	2013-11-01		Alert: This reversal is due to incorrect patient financial responsibility information on the initial adjudication.
+N696	2013-11-01		Alert: This reversal is due to a Coordination of Benefits or Third Party Liability Recovery retroactive adjustment.
+N697	2013-11-01		Alert: This reversal is due to a payer's retroactive contract incentive program adjustment.
+N698	2013-11-01		Alert: This reversal is due to non-payment of the health insurance premiums (Health Insurance Exchange or other) by the end of the premium payment grace period, resulting in loss of coverage.
+N699	2014-03-01		Payment adjusted based on the Physician Quality Reporting System (PQRS) Incentive Program.
+N700	2014-03-01		Payment adjusted based on the Electronic Health Records (EHR) Incentive Program.
+N701	2014-03-01		Payment adjusted based on the Value-based Payment Modifier.
+N702	2014-03-01		Decision based on review of previously adjudicated claims or for claims in process for the same/similar type of services.
+N703	2014-03-01		This service is incompatible with previously adjudicated claims or claims in process.
+N704	2014-03-01		Alert: You may not appeal this decision but can resubmit this claim/service with corrected information if warranted.
+N705	2014-03-01		Incomplete/invalid documentation.
+N706	2014-03-01		Missing documentation.
+N707	2014-03-01		Incomplete/invalid orders.
+N708	2014-03-01		Missing orders.
+N709	2014-03-01		Incomplete/invalid notes.
+N710	2014-03-01		Missing notes.
+N711	2014-03-01		Incomplete/invalid summary.
+N712	2014-03-01		Missing summary.
+N713	2014-03-01		Incomplete/invalid report.
+N714	2014-03-01		Missing report.
+N715	2014-03-01		Incomplete/invalid chart.
+N716	2014-03-01		Missing chart.
+N717	2014-03-01		Incomplete/Invalid documentation of face-to-face examination.
+N718	2014-03-01		Missing documentation of face-to-face examination.
+N719	2014-03-01		Penalty applied based on plan requirements not being met.
+N720	2014-03-01		Alert: The patient overpaid you. You may need to issue the patient a refund for the difference between the patient's payment and the amount shown as patient responsibility on this notice.
+N721	2014-03-01		This service is only covered when performed as part of a clinical trial.
+N722	2014-03-01		Patient must use Workers' Compensation Set-Aside (WCSA) funds to pay for the medical service or item.
+N723	2014-03-01		Patient must use Liability set-aside (LSA) funds to pay for the medical service or item.
+N724	2014-03-01		Patient must use No-Fault set-aside (NFSA) funds to pay for the medical service or item.
+N725	2014-03-01		A liability insurer has reported having ongoing responsibility for medical services (ORM) for this diagnosis.
+N726	2014-03-01		A conditional payment is not allowed.
+N727	2014-03-01		A no-fault insurer has reported having ongoing responsibility for medical services (ORM) for this diagnosis.
+N728	2014-03-01		A workers' compensation insurer has reported having ongoing responsibility for medical services (ORM) for this diagnosis.
+N729	2014-11-01		Missing patient medical/dental record for this service.
+N730	2014-11-01		Incomplete/invalid patient medical/dental record for this service.
+N731	2014-11-01		Incomplete/Invalid mental health assessment.
+N732	2014-11-01		Services performed at an unlicensed facility are not reimbursable.
+N733	2014-11-01		Regulatory surcharges are paid directly to the state.
+N734	2014-11-01		The patient is eligible for these medical services only when unable to work or perform normal activities due to an illness or injury.
+N735	2015-03-01	2016-01-01	Adjustment without review of medical/dental record because the requested records were not received or were not received timely.
+N736	2015-03-01		Incomplete/invalid Sleep Study Report.
+N737	2015-03-01		Missing Sleep Study Report.
+N738	2015-03-01		Incomplete/invalid Vein Study Report.
+N739	2015-03-01		Missing Vein Study Report.
+N740	2015-03-01		The member's Consumer Spending Account does not contain sufficient funds to cover the member's liability for this claim/service.
+N741	2015-03-01		This is a site neutral payment.
+N742	2015-03-01	2016-11-01	Alert: This claim was processed based on one or more ICD-9 codes. The transition to ICD-10 is required by October 1, 2015, for health care providers, health plans, and clearinghouses. More information can be found at http://www.cms.gov/Medicare/Coding/ICD10/ProviderResources.html
+N743	2015-03-01		Adjusted because the services may be related to an employment accident.
+N744	2015-03-01		Adjusted because the services may be related to an auto/other accident.
+N745	2015-03-01		Missing Ambulance Report.
+N746	2015-03-01		Incomplete/invalid Ambulance Report.
+N747	2015-03-01		This is a misdirected claim/service. Submit the claim to the payer/plan where the patient resides.
+N748	2015-03-01		Adjusted because the related hospital charges have not been received.
+N749	2015-03-01		Missing Blood Gas Report.
+N750	2015-03-01		Incomplete/invalid Blood Gas Report.
+N751	2015-03-01		Adjusted because the patient is covered under a Medicare Part D plan.
+N752	2015-03-01		Missing/incomplete/invalid HIPPS Treatment Authorization Code (TAC).
+N753	2015-07-01		Missing/incomplete/invalid Attachment Control Number.
+N754	2015-07-01		Missing/incomplete/invalid Referring Provider or Other Source Qualifier on the 1500 Claim Form.
+N755	2015-07-01		Missing/incomplete/invalid ICD Indicator.
+N756	2015-07-01		Missing/incomplete/invalid point of drop-off address.
+N757	2015-07-01		Adjusted based on the Federal Indian Fees schedule (MLR).
+N758	2015-07-01		Adjusted based on the prior authorization decision.
+N759	2015-07-01		Payment adjusted based on the National Electrical Manufacturers Association (NEMA) Standard XR-29-2013.
+N760	2015-11-01		This facility is not authorized to receive payment for the service(s).
+N761	2015-11-01		This provider is not authorized to receive payment for the service(s).
+N762	2015-11-01		This facility is not certified for Tomosynthesis (3-D) mammography.
+N763	2015-11-01		The demonstration code is not appropriate for this claim; resubmit without a demonstration code.
+N764	2016-03-01		Missing/incomplete/invalid Hematocrit (HCT) value.
+N765	2016-03-01		This payer does not cover coinsurance assessed by a previous payer.
+N766	2016-03-01		This payer does not cover co-payment assessed by a previous payer.
+N767	2016-03-01		The Medicaid state requires provider to be enrolled in the member's Medicaid state program prior to any claim benefits being processed.
+N768	2016-03-01		Incomplete/invalid initial evaluation report.
+N769	2016-03-01		A lateral diagnosis is required.
+N770	2016-03-01		The adjustment request received from the provider has been processed. Your original claim has been adjusted based on the information received.
+N771	2016-07-01		Alert: Under Federal law you cannot charge more than the limiting charge amount.
+N772	2016-07-01		Alert: Rebill urgent/emergent and ancillary services separately.
+N773	2016-07-01		Drug supplied not obtained from specialty vendor.
+N774	2016-07-01		Alert: Refer to your Third Party Processor Agreement for specific information on fees associated with this payment type.
+N775	2016-11-01		Payment adjusted based on x-ray radiograph on film.
+N776	2016-11-01		This service is not a covered Telehealth service.
+N777	2016-11-01		Missing Assignment of Benefits Indicator.
+N778	2016-11-01		Missing Primary Care Physician Information.
+N779	2016-11-01		Replacement/Void claims cannot be submitted until the original claim has finalized. Please resubmit once payment or denial is received.
+N780	2016-11-01		Missing/incomplete/invalid end therapy date.
+N781	2016-11-01		Alert: Patient is a Medicaid/ Qualified Medicare Beneficiary. Review your records for any wrongfully collected deductible. This amount may be billed to a subsequent payer.
+N782	2016-11-01		Alert: Patient is a Medicaid/ Qualified Medicare Beneficiary. Review your records for any wrongfully collected coinsurance. This amount may be billed to a subsequent payer.
+N783	2016-11-01		Alert: Patient is a Medicaid/ Qualified Medicare Beneficiary. Review your records for any wrongfully collected copayment. This amount may be billed to a subsequent payer.
+N784	2016-11-01		Missing comprehensive procedure code.
+N785	2016-11-01		Missing current radiology film/images.
+N786	2016-11-01		Benefit limitation for the orthodontic active and/or retention phase of treatment.
+N787	2017-03-01		Alert: Under 42 CFR 410.43, an eligible Partial Hospitalization Program (PHP) patient/beneficiary requires a minimum of 20 hours of PHP services per week, as evidenced in the plan of care. PHP services must be furnished in accordance with the plan of care.
+N788	2017-03-01		Alert: The third-party administrator/review organization did not receive the required information.
+N789	2017-07-01		Clinical Trial is not a covered benefit.
+N790	2017-07-01		Provider/supplier not accredited for product/service.
+N791	2017-07-01		Missing history & physical report.
+N792	2017-07-01		Incomplete/invalid history & physical report.
+N793	2017-07-01	2020-07-01	Alert: Starting January 1, 2020, Medicare will ONLY accept claims submitted with the Medicare Beneficiary Identifier (MBI). Medicare will reject any claims submitted with the Health Insurance Claim Number (HICN) with a few exceptions. Please see www.cms.gov/Medicare/New-Medicare-Card/index.html for more information.
+N794	2017-07-01		Payment adjusted based on type of technology used.
+N795	2017-11-01		Item must be resubmitted as a purchase.
+N796	2017-11-01		Missing/incomplete/invalid Hemoglobin (Hb or Hgb) value.
+N797	2017-11-01		Missing/incomplete/invalid date qualifier.
+N798	2017-11-01		Submit a void request for the original claim and resubmit a new claim.
+N799	2017-11-01		Submitted identifier must be an individual identifier, not group identifier.
+N800	2018-03-01		Only one service date is allowed per claim.
+N801	2018-03-01		Services performed in a Medicare participating or CAH facility under a self-insured tribal Group Health Plan, in accordance with Federal Regulation 42 CFR 136.
+N802	2018-03-01		This claim/service is not payable under our service area. The claim must be filed to the Payer/Plan in whose service area the Rendering Physician is located.
+N803	2018-03-01		Submission of the claim for the service rendered is the responsibility of the Contracted Medical Group or Hospital.
+N804	2018-07-01		Alert: The claim/service was processed through the Outpatient Code Editor (OCE).
+N805	2018-07-01		Alert: The claim/service was processed through the Correct Code Editor (CCE).
+N806	2018-07-01		Payment is included in the Global transplant allowance.
+N807	2018-07-01		Payment adjustment based on the Merit-based Incentive Payment System (MIPS).
+N808	2018-07-01		Not covered for this provider type / provider specialty.
+N809	2018-11-01		Alert: The fee schedule amount for this service was adjusted based on prior competitive bidding rates. For more information, contact your local contractor.
+N810	2018-11-01		Alert: Due to federal, state or local disaster declaration, this claim has been processed at the in-network level of benefit. At the conclusion or expiration of the disaster declaration, network payment rules will be reinstated.
+N811	2018-11-01		Missing Federal Sequestration Reduction from Prior Payer.
+N812	2018-11-01		The start service date through end service date cannot span greater than 18 months.
+N815	2019-07-01		Missing/Incomplete/Invalid NDC Unit Count
+N816	2019-07-01		Missing/Incomplete/Invalid NDC Unit of Measure
+N817	2019-07-01		Alert: Applicable laboratories are required to collect and report private payor data and report that data to CMS between January 1, 2020 - March 31, 2020.
+N818	2019-07-01		Claims Dates of Service do not match Electronic Visit Verification System.
+N819	2019-07-01		Patient not enrolled in Electronic Visit Verification System.
+N820	2019-07-01		Electronic Visit Verification System units do not meet requirements of visit.
+N821	2019-07-01		Electronic Visit Verification System visit not found.
+N822	2019-07-01		Missing procedure modifier(s).
+N823	2019-07-01		Incomplete/Invalid procedure modifier(s).
+N824	2019-11-01		Electronic Visit Verification (EVV) data must be submitted through EVV Vendor.
+N825	2019-11-01		Early intervention guidelines were not met.
+N826	2019-11-01		Patient did not meet the inclusion criteria for the Medicare Shared Savings Program.
+N827	2019-11-01		Missing/Incomplete/Invalid Federal Information Processing Standard (FIPS) Code.
+N828	2020-03-01		Alert: Payment is suppressed due to a contracted funding.
+N829	2020-03-01		Missing/incomplete/invalid Diagnostics Exchange Z-Code Identifier.
+N830	2020-03-01		Alert: The charge[s] for this service was processed in accordance with Federal/ State, Balance Billing/ No Surprise Billing regulations. As such, any amount identified with OA, CO, or PI cannot be collected from the member and may be considered provider liability or be billable to a subsequent payer. Any amount the provider collected over the identified PR amount must be refunded to the patient within applicable Federal/State timeframes. Payment amounts are eligible for dispute pursuant to any Federal/State documented appeal/grievance process(es).
+N831	2020-03-01		You have not responded to requests to revalidate your provider/supplier enrollment information.
+N832	2020-07-01		Duplicate occurrence code/occurrence span code.
+N833	2020-07-01		Patient share of cost waived.
+N834	2020-11-01		Jurisdiction exempt from sales and health tax charges.
+N835	2020-11-01		Unrelated Service/procedure/treatment is reduced. The balance of this charge is the patient's responsibility.
+N836	2020-11-01		Provider W9 or Payee Registration not on file.
+N837	2020-11-01		Alert: Missing modifier was added.
+N838	2020-11-01		Alert: Service/procedure postponed due to a federal, state, or local mandate/disaster declaration. Any amounts applied to deductible or member liability will be applied to the prior plan year from which the procedure was cancelled.
+N839	2021-03-01		The procedure code was added/changed because the level of service exceeds the compensable condition(s).
+N840	2021-03-01		Worker's compensation claim filed with a different state.
+N841	2021-03-01		Alert: North Dakota Administrative Rule 92-01-02-50.3.
+N842	2021-03-01		Alert: Patient cannot be billed for charges.
+N843	2021-03-01		Missing/incomplete/invalid Core-Based Statistical Area (CBSA) code.
+N844	2021-03-01		This claim, or a portion of this claim, was processed in accordance with the Nebraska Legislative LB997 July 24, 2020 - Out of Network Emergency Medical Care Act.
+N845	2021-03-01		Alert: Nebraska Legislative LB997 July 24, 2020 - Out of Network Emergency Medical Care Act.
+N846	2021-03-01		National Drug Code (NDC) supplied does not correspond to the HCPCs/CPT billed.
+N847	2021-03-01		National Drug Code (NDC) billed is obsolete.
+N848	2021-03-01		National Drug Code (NDC) billed cannot be associated with a product.
+N849	2021-03-01		Missing Tooth Clause: Tooth missing prior to the member effective date.
+N850	2021-03-01		Missing/incomplete/invalid narrative explaining/describing this service/treatment.
+N851	2021-07-01		Payment reduced because services were furnished by a therapy assistant.
+N852	2021-07-01		The pay-to and rendering provider tax identification numbers (TINs) do not match
+N853	2021-07-01		The number of modalities performed per session exceeds our acceptable maximum.
+N854	2021-07-01		Alert: If you have primary other health insurance (OHI) coverage that has denied services, you must exhaust all appeal levels with your primary OHI before we can consider your claim for reimbursement.
+N855	2021-07-01		This coverage is subject to the exclusive jurisdiction of ERISA (1974), U.S.C. SEC 1001.
+N856	2021-07-01		This coverage is not subject to the exclusive jurisdiction of ERISA (1974), U.S.C. SEC 1001.
+N857	2021-11-01		This claim has been adjusted/reversed. Refund any collected copayment to the member.
+N858	2021-11-01		Alert: State regulations relating to an Out of Network Medical Emergency Care Act were applied to the processing of this claim. Payment amounts are eligible for dispute following the state's documented appeal/ grievance/ arbitration process.
+N859	2021-11-01		Alert: The Federal No Surprise Billing Act was applied to the processing of this claim. Payment amounts are eligible for dispute pursuant to any Federal documented appeal/ grievance/ dispute resolution process(es).
+N860	2021-11-01		Alert: The Federal No Surprise Billing Act Qualified Payment Amount (QPA) was used to calculate the member cost share(s).
+N861	2022-03-01		Alert: Mismatch between the submitted Patient Liability/Share of Cost and the amount on record for this recipient.
+N862	2022-03-01		Alert: Member cost share is in compliance with the No Surprises Act, and is calculated using the lesser of the QPA or billed charge.
+N863	2022-03-01	2026-11-01	Alert: This claim is subject to the No Surprises Act (NSA). The amount paid is the final out-of-network rate and was calculated based on an All Payer Model Agreement, in accordance with the NSA.
+N864	2022-03-01		Alert: This claim is subject to the No Surprises Act provisions that apply to emergency services.
+N865	2022-03-01		Alert: This claim is subject to the No Surprises Act provisions that apply to nonemergency services furnished by nonparticipating providers during a patient visit to a participating facility.
+N866	2022-03-01		Alert: This claim is subject to the No Surprises Act provisions that apply to services furnished by nonparticipating providers of air ambulance services.
+N867	2022-03-01		Alert: Cost sharing was calculated based on a specified state law, in accordance with the No Surprises Act.
+N868	2022-03-01		Alert: Cost sharing was calculated based on an All-Payer Model Agreement, in accordance with the No Surprises Act.
+N869	2022-03-01		Alert: Cost sharing was calculated based on the qualifying payment amount, in accordance with the No Surprises Act.
+N870	2022-03-01		Alert: In accordance with the No Surprises Act, cost sharing was based on the billed amount because the billed amount was lower than the qualifying payment amount.
+N871	2022-03-01		Alert: This initial payment was calculated based on a specified State law, in accordance with the No Surprises Act. The plan or issuer has determined that any dispute over the payment amount is not eligible for the Federal independent dispute resolution process.
+N872	2022-03-01		Alert: This final payment was calculated based on a specified State law, in accordance with the No Surprises Act. The plan or issuer has determined that any dispute over the payment amount is not eligible for the Federal independent dispute resolution process.
+N873	2022-03-01		Alert: This final payment was calculated based on an All-Payer Model Agreement, in accordance with the No Surprises Act. The plan or issuer has determined that any dispute over the payment amount is not eligible for the Federal independent dispute resolution process.
+N874	2022-03-01		Alert: This final payment was determined through open negotiation, in accordance with the No Surprises Act. The plan or issuer has determined that any dispute over the payment amount is not eligible for the Federal independent dispute resolution process.
+N875	2022-03-01		Alert: This final payment equals the amount selected as the out-of-network rate for an item or service under the Federal independent dispute resolution process, in accordance with the No Surprises Act, less the sum of the initial payment and any cost sharing paid or owed for the item or service. The payment determination generally is binding upon all parties involved.
+N876	2022-03-01		Alert: This item or service is covered under the plan or coverage, but no payment is made by the plan or coverage. This is a notice of denial of payment provided in accordance with the No Surprises Act. The provider or facility may initiate open negotiation if they desire to negotiate a higher out-of-network rate than the amount paid by the patient in cost sharing and, if negotiations are unsuccessful, may initiate the Federal independent dispute resolution process.
+N877	2022-03-01		Alert: This initial payment is provided in accordance with the No Surprises Act. The provider or facility may initiate open negotiation if they desire to negotiate a higher out-of-network rate and, if negotiations are unsuccessful, may initiate the Federal independent dispute resolution process to determine the out-of-network rate.
+N878	2022-03-01		Alert: The provider or facility specified that notice was provided and consent to balance bill obtained, but notice and consent was not provided and obtained in a manner consistent with applicable Federal law. Thus, cost sharing and the total amount paid have been calculated based on the requirements under the No Surprises Act, and balance billing is prohibited.
+N879	2022-03-01		Alert: The notice and consent to balance bill, and to be charged out-of-network cost sharing, that was obtained from the patient with regard to the billed services, is not permitted for these services. Thus, cost sharing and the total amount paid have been calculated based on the requirements under the No Surprises Act, and balance billing is prohibited.
+N880	2022-11-01		Original claim closed due to changes in submitted data. Adjustment claim will be processed under a new claim number.
+N881	2022-11-01		Client Obligation, patient responsibility for Home & Community Based Services (HCBS)
+N882	2022-11-01		Alert: The out-of-network payment and cost sharing amounts were based on the plan's allowance because the provider or facility obtained the patient's consent to waive the balance billing protections under the No Surprises Act.
+N883	2022-11-01		Alert: Processed according to state law
+N884	2022-11-01		Alert: The No Surprises Act may apply to this claim. Please contact payer for instructions on how to submit information regarding whether or not the item or service was furnished during a patient visit to a participating facility.
+N885	2022-11-01		Alert: This claim was not processed in accordance with the No Surprises Act cost-sharing or out-of-network payment requirements. The payer disagrees with your determination that those requirements apply. You may contact the payer to find out why it disagrees. You may appeal this adverse determination on behalf of the patient through the payer’s internal appeals and external review processes.
+N886	2023-07-01		Alert: A Health Care Claim Request for Additional Information (277 RFAI) has been sent.
+N887	2023-07-01		Providers not participating in the Medicare Advantage Plan have the right to appeal if the plan has partially or fully denied payment or if the provider believes the plan has not paid the services at the expected Medicare reimbursable rate or type of level/service. Providers may file their appeal in writing within 60 calendar days after the date of the remittance advice. For the plan to review the appeal, the plan will need a completed signed Waiver of Liability Statement. To obtain a Waiver of Liability form, please contact your Medicare Advantage Plan. Once we receive the completed forms, we will give you a decision on your appeal within 60 calendar days.
+N888	2023-07-01		Alert: An electronic request for additional information has been sent for this claim.
+N889	2023-11-01		Alert: This claim was originally processed in real-time, and we sent a real-time 835 response.
+N890	2023-11-01		Electronic Visit Verification Data Element Requirements were not met.
+N891	2023-11-01		The maximum allowable payment for this service/procedure was paid by the primary insurance. No further payment due.
+N892	2023-11-01		The claim does not meet the criteria for acceptable use of the Delay Reason Code.
+N893	2024-03-01		Missing/incomplete/invalid child medical evaluation form/checklist.
+N894	2024-03-01		Alert: These payments are made subject to a reservation of rights for the Payor to recoup or otherwise recover all or part of these payments based on any of the following: outcome of pending or future litigation/ new or updated state, federal or regulatory guidance/ any other actions that may affect the Payor's obligation to make these payments.
+N895	2024-03-01		Processed based on a negotiated fee schedule for a specialty drug program.
+N896	2024-07-01		Missing/incomplete/invalid trauma activation sheet.
+N897	2024-07-01		Missing/incomplete/invalid proof of member payment.
+N898	2024-07-01		Missing/incomplete/invalid Resource Utilization Group(s) (RUG) code(s).
+N899	2024-07-01		Missing Initial Evaluation Report.
+N900	2024-07-01		Missing Therapy Notes/Report.
+N901	2024-07-01		Incomplete/Invalid Therapy Notes/Report.
+N902	2024-07-01		Missing Health Risk Assessment (HRA).
+N903	2024-07-01		Incomplete/Invalid Health Risk Assessment (HRA).
+N904	2024-07-01		The transportation vendor is responsible for this claim.
+N905	2025-03-01		Our records show you have opted out of Medicare, agreeing with the patient not to bill Medicare for services/tests/supplies furnished. As result, we cannot pay this claim. The patient is not responsible for payment.
+N906	2025-03-01		Service is not covered when patient is under age 45.
+N907	2025-03-01		No refund because this claim has been identified as 340B-eligible with a ceiling price lower than the maximum fair price.
+N908	2025-03-01		No refund because this drug has been prospectively purchased at the maximum fair price.
+N909	2025-03-01		Refund amount has been calculated using a methodology that differs from the Standard Default Refund Amount calculation ((Wholesale Acquisition Cost minus Maximum Fair Price) times Quantity).
+N910	2025-03-01		A refund cannot be provided for this claim at this time. Contact the manufacturer directly regarding your eligibility.
+N911	2025-03-01		This claim cannot be reimbursed by the manufacturer until the Part D plan submits corrected prescription drug event data to CMS for maximum fair price validation.
+N912	2025-07-01		Our records indicate that this beneficiary did not elect hospice.
+N913	2025-07-01		More than one Electronic Visit Verification record exists for the date and time of this service.
+N914	2025-07-01		This claim was priced and processed in accordance with California AB-72 Health care coverage.
+N915	2025-07-01		Predetermination of services is not allowed under the member's plan.
+N916	2025-07-01		The third party will render payment to the provider, and they will reimburse you for covered services.
+N917	2026-03-01		Alternative refund amount has been calculated because the maximum fair price is below the 340B ceiling price.
+N918	2026-03-01		No refund because CMS excludes prescription drug event records when a compound code indicates it is for a compounded drug.
+N919	2026-03-01		Family/member out-of-pocket maximum has been met.
+N920	2026-03-01		Payment to the provider has been placed on hold as a result of active contract (re)negotiation.
+N921	2026-03-01		The time limit for filing a reconsideration or appeal has expired.
+N922	2026-03-01		Missing primary care dentist information.
+N923	2026-07-01		Not Denied - The Medicare Advantage Organization (MAO) made a payment responsibility determination.
+N924	2026-07-01		Pending (Not Denied) - The Medicare Advantage Organization (MAO) has not yet made a payment responsibility determination for the service at the time the encounter record was submitted.
+N925	2026-07-01		Denied - The Medicare Advantage Organization (MAO) determined that it had no payment responsibility for the service at the time the encounter record was submitted.
+N926	2026-07-01		Partially Denied - The Medicare Advantage Organization (MAO) determined that it had no payment responsibility for one or more service lines, but not all, at the time the encounter record was submitted.
+N927	2026-07-01		Missing/Incomplete/Invalid x-ray.
+N928	2026-07-01		Missing/Incomplete/Invalid bitewing or periapical x-ray.
+N929	2026-07-01		Missing/Incomplete/Invalid photo(s).
+N930	2026-07-01		Missing/Incomplete/Invalid quadrant identifier.
+N931	2026-07-01		Missing/Incomplete/Invalid pre- and/or post-operative bitewing or periapical x-ray.
+N932	2026-07-01		Missing/Incomplete/Invalid pre- and/or post-operative full mouth x-ray.
+N933	2026-07-01		Missing/Incomplete/Invalid pre- and/or post-operative photo(s).
+N934	2026-07-01		Missing/Incomplete/Invalid full mouth x-ray.
+N935	2026-07-01		Alert: Patient is no longer a Medicaid/Qualified Medicare Beneficiary.
+N936	2026-07-01		This service code has been identified as the secondary or tertiary procedure code subject to the Medicare Multiple Procedure Payment Reduction (MPPR) rule.
+N937	2026-07-01		The service line denial threshold was exceeded.
+N938	2026-07-01		Alert: Do not resubmit. This claim will be automatically reprocessed.
+N939	2026-07-01		Alert: You may contact us for a peer-to-peer review.
+N940	2026-07-01		Missing/Incomplete/Invalid pre- and/or post-operative x-ray.
+N941	2026-11-01		Potentially fraudulent findings.
+N942	2026-11-01		Missing/Invalid Patient Health Plan ID Number.
+N943	2026-11-01		Alert: Under the circumstances furnished, this item or service is not subject to the surprise billing provisions of the No Surprises Act. The plan or issuer has determined that any dispute over the payment amount is not eligible for the Federal independent dispute resolution process.
+N944	2026-11-01		Alert: This item or service is covered under the plan or coverage, but no payment is made by the plan or coverage. This is a notice of denial of payment provided in accordance with the No Surprises Act. The amount paid by the patient in cost sharing was calculated based on a specified State law or All-Payer Model Agreement. The plan or issuer has determined that any dispute over the payment amount is not eligible for the Federal independent dispute resolution process.
+N945	2026-11-01		Alert: Any dispute regarding this payment amount is governed by a specified State law, in accordance with the No Surprises Act.
+N946	2026-11-01		This service is allowed once in a 24-month period.
+N947	2026-11-01		Alert: The original claim payment decision is being maintained. It was determined that this claim was processed properly. You may appeal.
+N948	2026-11-01		Alert: The original claim payment decision is being maintained. It was determined that this claim was processed properly. You may not appeal.
+N949	2026-11-01		Claim lines not billed in correct order per Medicaid/Medicare billing guidelines. Please resubmit services in the correct order.

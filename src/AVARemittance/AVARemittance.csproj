@@ -1,0 +1,32 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <!-- The window: the remittances, each payment, claim and line in plain words, the matching, the deposits and the
+       denials; the AI Chat (F12) and the doors for outside agents. -->
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <AssemblyName>AVARemittance</AssemblyName>
+    <RootNamespace>AVARemittance</RootNamespace>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+    <BuiltInComInteropSupport>true</BuiltInComInteropSupport>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Avalonia" Version="11.3.12" />
+    <PackageReference Include="Avalonia.Desktop" Version="11.3.12" />
+    <PackageReference Include="Avalonia.Themes.Fluent" Version="11.3.12" />
+    <PackageReference Include="Avalonia.Fonts.Inter" Version="11.3.12" />
+    <!-- Avalonia.FreeDesktop 11.3.12 pulls Tmds.DBus.Protocol 0.21.2, which has a high-severity advisory
+         (CVE-2026-39959); take the patched one. -->
+    <PackageReference Include="Tmds.DBus.Protocol" Version="0.21.3" />
+    <!-- The MCP server with no window: Avalonia headless with Skia, so render_view draws as the window does. -->
+    <PackageReference Include="Avalonia.Headless" Version="11.3.12" />
+    <PackageReference Include="Avalonia.Skia" Version="11.3.12" />
+    <!-- The AI Chat's Anthropic API (Claude, or a local server that speaks it). -->
+    <PackageReference Include="Anthropic" Version="13.3.0" />
+    <ProjectReference Include="..\AVARemittance.Core\AVARemittance.Core.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <FrameworkReference Include="Microsoft.AspNetCore.App" />
+  </ItemGroup>
+  <ItemGroup>
+    <InternalsVisibleTo Include="AVARemittance.Tests" />
+  </ItemGroup>
+</Project>

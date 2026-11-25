@@ -1,0 +1,19 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <!-- Reading 835 remittances and saying what they mean: the X12 reader (X12 Explorer's), the 835's loops, the code
+       lists, the balancing checks, the matching to claims and deposits, and the denials. No Avalonia, so the tests check
+       it without a window. -->
+  <PropertyGroup>
+    <RootNamespace>AVARemittance.Core</RootNamespace>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+  </PropertyGroup>
+  <ItemGroup>
+    <InternalsVisibleTo Include="AVARemittance.Tests" />
+  </ItemGroup>
+  <ItemGroup>
+    <!-- x12.org's CARC, RARC and 277 status lists, made by tools/make_codes.py. -->
+    <EmbeddedResource Include="Codes\*.tsv" LogicalName="Codes.%(Filename).tsv" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="ClosedXML" Version="0.105.1" />
+  </ItemGroup>
+</Project>
